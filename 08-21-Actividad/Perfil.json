@@ -1,0 +1,100 @@
+{
+	"perfil":[
+	{
+		"nombre": "Andrea" ,
+		"apellido": "Vazquez Garay",
+		"matricula": "021204",
+		"carrera" :"IDGD", 
+		"semestre":7 ,
+		"password": "Contraseña",
+		"datos_padre" : {
+			"nombre" : "Armando",
+			"apellido" : "Vazquez Lares",
+			"direccion" : "Matemáticos #14143",
+			"telefono" : "6642856047",
+			"correo" : "arva@msn.com", 
+			"datos_empresa" : {
+				"empresa" : "Telnor",
+				"telefono" : "6332716",
+				"direccion" : "Emiliano Zapata zona Centro"
+			}
+		},
+		"datos_madre" : {
+			"nombre" : "Gabriela",
+			"apellido" : "Garay Arballo",
+			"direccion" : "Matemáticos #14143",
+			"telefono" : "664265299",
+			"correo" : "gaby.garay@gmail.com", 
+			"datos_empresa" : {
+				"empresa" : "",
+				"telefono" : "",
+				"direccion" : ""
+			}
+		}
+	},
+	{
+		"nombre": "Itzel Shamira" ,
+		"apellido": "Macías Castro",
+		"matricula": "020888",
+		"carrera" :"IDGD", 
+		"semestre":7 ,
+		"password": "CocaCola",
+		"datos_padre" : {
+			"nombre" : "Jesus",
+			"apellido" : "Macías",
+			"direccion" : "Cerro de las abejas #11",
+			"telefono" : "6642903247",
+			"correo" : "jesus@gmail.com", 
+			"datos_empresa" : {
+				"empresa" : "Telnor",
+				"telefono" : "6332716",
+				"direccion" : "Emiliano Zapata zona Centro"
+			}
+		},
+		"datos_madre" : {
+			"nombre" : "Guadalupe",
+			"apellido" : "Castro",
+			"direccion" : "Cerro de las abejas #11",
+			"telefono" : "6642467086",
+			"correo" : "lupitay@gmail.com", 
+			"datos_empresa" : {
+				"empresa" : "",
+				"telefono" : "",
+				"direccion" : ""
+			}
+		}
+	},
+	{
+		"nombre": "Ivannia Edith" ,
+		"apellido": "Arellano Castellanos",
+		"matricula": "020888",
+		"carrera" :"IDGD", 
+		"semestre":7 ,
+		"password": "Dormir",
+		"datos_padre" : {
+			"nombre" : "Pedro",
+			"apellido" : "Arellano",
+			"direccion" : "",
+			"telefono" : "6644832906",
+			"correo" : "arellano@gmail.com", 
+			"datos_empresa" : {
+				"empresa" : "Costa Azul",
+				"telefono" : "6509326",
+				"direccion" : "Buena Vista"
+			}
+		},
+		"datos_madre" : {
+			"nombre" : "Sandra",
+			"apellido" : "Castellanos",
+			"direccion" : "Playas de Tijuana",
+			"telefono" : "6649315042",
+			"correo" : "sandra@gmail.com", 
+			"datos_empresa" : {
+				"empresa" : "Escuela 5 de mayo",
+				"telefono" : "6034186",
+				"direccion" : "x"
+			}
+		}
+	}
+	]
+}
