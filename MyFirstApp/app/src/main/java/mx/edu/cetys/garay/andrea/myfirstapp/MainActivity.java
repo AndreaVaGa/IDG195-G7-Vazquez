@@ -64,16 +64,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     ConsultarDatos x = new ConsultarDatos();
-                    String response = x.execute("http://138.68.231.116:5000/empresa").get();
+                    String response = x.execute("http://138.68.231.116:5000/perfil").get();
 
                     JSONArray jsonArray = new JSONArray(response);
                     JSONObject jsonObject = jsonArray.getJSONObject(Integer.parseInt(etId.getText().toString()));
                     String nombre= jsonObject.getString("Nombre");
-                    String telefono= jsonObject.getString("Telefono");
-                    String direccion= jsonObject.getString("Direccion");
+                    //String telefono= jsonObject.getString("Telefono");
+                    String carrera = jsonObject.getString("Carrera");
+                    //String direccion= jsonObject.getString("Direccion");
 
                     etNombre.setText(nombre);
-                    etTelefono.setText(telefono);
+                    etTelefono.setText(carrera);
 
                 } catch (ExecutionException e) {
                     e.printStackTrace();
