@@ -23,8 +23,11 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -32,11 +35,13 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnconsultar, btnGuardar;
+    Button btnconsultar;
     EditText etId, etNombre, etTelefono;
 
 
@@ -48,26 +53,35 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         btnconsultar = (Button) findViewById(R.id.btnConsultar);
-        btnGuardar = (Button)  findViewById(R.id.btnGuardar);
+
         etId = (EditText) findViewById(R.id.etId);
         etNombre = (EditText) findViewById(R.id.etNombre);
         etTelefono = (EditText) findViewById(R.id.etTel);
 
         btnconsultar.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                new ConsultarDatos().execute("http://138.68.231.116:5000/prueba");
-                VolleyRequest();
+                try {
+                    ConsultarDatos x = new ConsultarDatos();
+                    String response = x.execute("http://138.68.231.116:5000/empresa").get();
 
+                    JSONArray jsonArray = new JSONArray(response);
+                    JSONObject jsonObject = jsonArray.getJSONObject(Integer.parseInt(etId.getText().toString()));
+                    String nombre= jsonObject.getString("Nombre");
+                    String telefono= jsonObject.getString("Telefono");
+                    String direccion= jsonObject.getString("Direccion");
 
+                    etNombre.setText(nombre);
+                    etTelefono.setText(telefono);
 
-            }
-        });
-        btnGuardar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new CargarDatos().execute("http://138.68.231.116:5000/pruebanombre="+etNombre.getText().toString()+"&Tel="+etTelefono.getText().toString());
-
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -83,6 +97,58 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    private class ConsultarDatos extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... strings) {
+            HttpURLConnection httpURLConnection = null;
+            URL url = null;
+            try {
+                url = new URL(strings[0]);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                httpURLConnection = (HttpURLConnection)url.openConnection();
+                httpURLConnection.connect();
+                int code = httpURLConnection.getResponseCode();
+
+                if(code == HttpURLConnection.HTTP_OK){
+                    InputStream in = new BufferedInputStream(httpURLConnection.getInputStream());
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                    String line ="";
+                    StringBuffer buffer = new StringBuffer();
+                    while ((line=reader.readLine())!=null){
+                        buffer.append(line);
+                    }
+                    return buffer.toString();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(String result){
+            super.onPostExecute(result);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void VolleyRequest() {
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -132,109 +198,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private class CargarDatos extends AsyncTask<String, Void, String> {
 
 
-        @Override
-        protected String doInBackground(String... urls) {
-            try {
-                return downloadUrl(urls[0]);
-            } catch (IOException e) {
-                return "Unable to retrieve web page. URL may be invalid.";
-            }
-        }
 
-        @Override
-        protected void onPostExecute(String result) {
-            Toast.makeText(getApplicationContext(), "se almacenaran los datos correctamente", Toast.LENGTH_LONG).show();
-
-
-        }
-    }
-
-    private class ConsultarDatos extends AsyncTask<String, Void, String> {
-
-
-        @Override
-        protected String doInBackground(String... urls) {
-            try {
-                return downloadUrl(urls[0]);
-
-            } catch (IOException e) {
-                return "Unable to retrieve web page. URL may be invalid.";
-            }
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            JSONArray array= null;
-            try {
-                array = new JSONArray(result);
-
-                etNombre.setText(array.getString(1));
-                etTelefono.setText(array.getString(2));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-
-        }
-    }
-
-    private String downloadUrl(String myurl) throws IOException {
-            InputStream is = null;
-            myurl = myurl.replace(" ", "%20");
-
-            int len = 500;
-
-            try {
-                URL url = new URL(myurl);
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setReadTimeout(10000 /* milliseconds */);
-                conn.setConnectTimeout(15000 /* milliseconds */);
-
-                conn.setDoInput(true);
-
-                conn.setRequestMethod("GET");
-                conn.setDoOutput(true);
-                conn.setChunkedStreamingMode(0);
-                OutputStream out = new BufferedOutputStream(conn.getOutputStream());
-                out.close();
-
-                // Starts the query
-                conn.connect();
-                int response = conn.getResponseCode();
-                Log.d("respuesta", "The response is: " + response);
-                is = conn.getInputStream();
-
-                // Convert the InputStream into a string
-                String contentAsString = readIt(is, len);
-                return contentAsString;
-
-                // Makes sure that the InputStream is closed after the app is
-                // finished using it.
-            } finally {
-                if (is != null) {
-                    is.close();
-                }
-            }
-
-
-        }
-
-    public String readIt(InputStream stream, int maxReadSize) throws IOException, UnsupportedEncodingException {
-        Reader reader = null;
-        reader = new InputStreamReader(stream, "UTF-8");
-        char[] rawBuffer = new char[maxReadSize];
-        int readSize;
-        StringBuffer buffer = new StringBuffer();
-        while (((readSize = reader.read(rawBuffer)) != -1) && maxReadSize > 0) {
-            if (readSize > maxReadSize) {
-                readSize = maxReadSize;
-            }
-            buffer.append(rawBuffer, 0, readSize);
-            maxReadSize -= readSize;
-        }
-        return buffer.toString();
-    }
 }
