@@ -20,6 +20,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,21 +39,26 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
+    private Gson gson;
 
     Button btnconsultar;
     EditText etId, etNombre, etTelefono;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.setDateFormat("M/d/yy hh:mm a");
+        gson = gsonBuilder.create();
         btnconsultar = (Button) findViewById(R.id.btnConsultar);
 
         etId = (EditText) findViewById(R.id.etId);
@@ -140,30 +147,46 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     public void VolleyRequest() {
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://138.68.231.116:5000/prueba";
+        String url = "http://138.68.231.116:5000/empresa";
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        List<Empresa> misEmpresas = Arrays.asList(gson.fromJson(response, Empresa[].class));
                         Toast.makeText(getApplicationContext(),
-                                response.substring(0, 500),
+                                misEmpresas.toString(),
                                 Toast.LENGTH_LONG).show();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
+// Add the request to the RequestQueue.
+        queue.add(stringRequest);
+    }
+
+
+    public void VolleyRequestFilter() {
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String matricula = etId.getText().toString();
+        String url = "http://138.68.231.116:5000/perfil/a4395238552679c9";
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        List<Usuario>  Usuarios = Arrays.asList(gson.fromJson(response, Usuario[].class));
+                        Toast.makeText(getApplicationContext(),
+                                Usuarios.toString(),
+                                Toast.LENGTH_LONG).show();
                     }
                 }, new Response.ErrorListener() {
             @Override
