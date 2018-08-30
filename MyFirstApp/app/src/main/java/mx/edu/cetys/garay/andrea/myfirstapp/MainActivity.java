@@ -175,7 +175,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void VolleyRequestFilter() {
         RequestQueue queue = Volley.newRequestQueue(this);
-        String matricula = etId.getText().toString();
         String url = "http://138.68.231.116:5000/perfil/a4395238552679c9";
 
         // Request a string response from the provided URL.
