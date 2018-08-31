@@ -20,9 +20,9 @@ public class Usuario {
     @SerializedName("materiasaprobadas")
     private int materias;
     @SerializedName("Padre")
-    private Tutor padre = new Tutor();
+    private Tutor padre;
     @SerializedName("Madre")
-    private Tutor madre = new Tutor();
+    private Tutor madre;
 
     public String getId() {
         return id;

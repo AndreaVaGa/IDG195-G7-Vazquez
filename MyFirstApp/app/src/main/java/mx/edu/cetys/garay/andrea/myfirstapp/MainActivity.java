@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                VolleyRequest();
+                VolleyRequestFilter();
                 Snackbar.make(view, "Hola Amiguitos idgdeanos", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
@@ -173,25 +173,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void VolleyRequestFilter() {
+    public void VolleyRequestFilter(){
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://138.68.231.116:5000/perfil/a4395238552679c9";
+        String url ="http://138.68.231.116:5000/perfil";
 
-        // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+// Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest (Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        List<Usuario>  Usuarios = Arrays.asList(gson.fromJson(response, Usuario[].class));
-                        Toast.makeText(getApplicationContext(),
-                                Usuarios.toString(),
-                                Toast.LENGTH_LONG).show();
+                        List<Usuario> miPerfil = Arrays.asList(gson.fromJson(response, Usuario[].class));
+                        for (Usuario perfil: miPerfil) {
+                            if (perfil.getUsername().trim().toLowerCase().equals("t021204")){
+                                Toast.makeText(getApplicationContext(),
+                                        perfil.toString(),
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        }
+
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(
+                        getApplicationContext(),
+                        error.getMessage(),
+                        Toast.LENGTH_SHORT
+                ).show();
             }
+
         });
 
 // Add the request to the RequestQueue.
