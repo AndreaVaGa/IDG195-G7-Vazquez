@@ -184,7 +184,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         List<Usuario> miPerfil = Arrays.asList(gson.fromJson(response, Usuario[].class));
                         for (Usuario perfil: miPerfil) {
-                            if (perfil.getUsername().trim().toLowerCase().equals("t021204")){
+                            String usuario= etId.getText().toString();
+                            if (perfil.getUsername().trim().toLowerCase().equals(usuario)){
                                 Toast.makeText(getApplicationContext(),
                                         perfil.toString(),
                                         Toast.LENGTH_LONG).show();
