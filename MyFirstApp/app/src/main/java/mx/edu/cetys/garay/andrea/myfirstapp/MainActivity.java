@@ -45,9 +45,8 @@ import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
     private Gson gson;
-
-    Button btnconsultar;
-    EditText etId, etNombre, etTelefono;
+    private Button btnconsultar;
+    private EditText etId, etPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,39 +58,11 @@ public class MainActivity extends AppCompatActivity {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setDateFormat("M/d/yy hh:mm a");
         gson = gsonBuilder.create();
+
         btnconsultar = (Button) findViewById(R.id.btnConsultar);
-
         etId = (EditText) findViewById(R.id.etId);
-        etNombre = (EditText) findViewById(R.id.etNombre);
-        etTelefono = (EditText) findViewById(R.id.etTel);
+        etPassword = (EditText) findViewById(R.id.etPassword);
 
-        btnconsultar.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                try {
-                    ConsultarDatos x = new ConsultarDatos();
-                    String response = x.execute("http://138.68.231.116:5000/perfil").get();
-
-                    JSONArray jsonArray = new JSONArray(response);
-                    JSONObject jsonObject = jsonArray.getJSONObject(Integer.parseInt(etId.getText().toString()));
-                    String nombre= jsonObject.getString("Nombre");
-                    //String telefono= jsonObject.getString("Telefono");
-                    String carrera = jsonObject.getString("Carrera");
-                    //String direccion= jsonObject.getString("Direccion");
-
-                    etNombre.setText(nombre);
-                    etTelefono.setText(carrera);
-
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -176,20 +147,25 @@ public class MainActivity extends AppCompatActivity {
     public void VolleyRequestFilter(){
         RequestQueue queue = Volley.newRequestQueue(this);
         String url ="http://138.68.231.116:5000/perfil";
+        final String usuario= etId.getText().toString();
+        final String password= etPassword.getText().toString();
 
 // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest (Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        List<Usuario> miPerfil = Arrays.asList(gson.fromJson(response, Usuario[].class));
-                        for (Usuario perfil: miPerfil) {
-                            String usuario= etId.getText().toString();
-                            if (perfil.getUsername().trim().toLowerCase().equals(usuario)){
-                                Toast.makeText(getApplicationContext(),
-                                        perfil.toString(),
-                                        Toast.LENGTH_LONG).show();
-                            }
+                        List<Usuario> Usuarios = Arrays.asList(gson.fromJson(response, Usuario[].class));
+                        Usuario miperfil= findUsuario(Usuarios,usuario,password);
+                        if(miperfil!=null){
+                            Toast.makeText(getApplicationContext(),
+                                    miperfil.toString(),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(),
+                                    "No hay",
+                                    Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -207,6 +183,15 @@ public class MainActivity extends AppCompatActivity {
 
 // Add the request to the RequestQueue.
         queue.add(stringRequest);
+    }
+
+    private Usuario findUsuario(List<Usuario> usuarios, String matricula, String password){
+        for(Usuario miperfil: usuarios){
+            if(miperfil.getUsername().equals(matricula) && miperfil.getPassword().equals(password)){
+                return miperfil;
+            }
+        }
+        return  null;
     }
 
     @Override
