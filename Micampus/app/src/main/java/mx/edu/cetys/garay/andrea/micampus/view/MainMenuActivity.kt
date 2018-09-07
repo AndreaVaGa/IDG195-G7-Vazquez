@@ -9,14 +9,11 @@ import mx.edu.cetys.garay.andrea.micampus.model.Perfil
 
 
 class MainMenuActivity : AppCompatActivity() {
-
-    class MainMenuActivity : AppCompatActivity() {
-
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(activity_main_menu)
             val perfil = intent.getParcelableExtra<Perfil>("perfil")
-            txt_logged_user.text = perfil.carrera
+            txt_logged_user.text = perfil.nombre
         }
-    }
+
 }
