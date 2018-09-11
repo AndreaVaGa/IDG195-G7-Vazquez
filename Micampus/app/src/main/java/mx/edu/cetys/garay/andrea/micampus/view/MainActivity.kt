@@ -54,9 +54,10 @@ class MainActivity : AppCompatActivity() {
                     val perfil = utils.buscarPerfilN(perfiles, matricula, password)
                     if (perfil != null) {
                         val intent = Intent(applicationContext, MainMenuActivity::class.java)
+                        val intent2 = Intent(applicationContext, PerfilListViewActivity::class.java)
                         //intent.putExtra("nombre", perfil.nombre)
                         intent.putExtra("perfil", perfil)
-                        startActivity(intent)
+                        startActivity(intent2)
                     } else {
                         Toast.makeText(
                                 applicationContext,
