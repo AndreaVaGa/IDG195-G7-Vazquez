@@ -26,4 +26,6 @@ data class Perfil(
         val padre: Tutor,
         @SerializedName("Madre")
         val madre: Tutor
+        //@SerializedName("boleta")
+        //val boleta : Boleta
 ) : Parcelable

@@ -1,0 +1,8 @@
+package mx.edu.cetys.garay.andrea.appcetys.model
+
+import java.net.URL
+
+enum class EndPoints(val url: URL) {
+    PERFIL(URL("http://138.68.231.116:5000/perfil")),
+    PLANDEESTUDIOS(URL("http://138.68.231.116:5000/plan"))
+}

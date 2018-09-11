@@ -39,6 +39,7 @@ class PerfilListViewActivity : AppCompatActivity() {
                 Response.Listener { response ->
                     val perfiles = gson.fromJson(response, Array<Perfil>::class.java).toList()
 
+
                     rv_perfil_list.adapter = PerfilAdapter(perfiles, applicationContext)
 
                 }, Response.ErrorListener { error ->
@@ -48,78 +49,4 @@ class PerfilListViewActivity : AppCompatActivity() {
         queue.add(stringRequest)
     }
 
-    fun fillPerfil() {
-        perfiles.add(Perfil(
-                "2",
-                "1234",
-                "",
-                "Angel",
-                "Arambula",
-                "",
-                2,
-                2,
-                Tutor("tutorA"),
-                Tutor("tutorB"))
-        )
-        perfiles.add(Perfil(
-                "2",
-                "1234",
-                "",
-                "Shamira",
-                "Macias",
-                "",
-                2,
-                2,
-                Tutor("tutorA"),
-                Tutor("tutorB"))
-        )
-        perfiles.add(Perfil(
-                "3",
-                "1234",
-                "",
-                "Andrea",
-                "Vazquez",
-                "",
-                2,
-                2,
-                Tutor("tutorA"),
-                Tutor("tutorB"))
-        )
-        perfiles.add(Perfil(
-                "4",
-                "1234",
-                "",
-                "Ivannia",
-                "Arellano",
-                "",
-                2,
-                2,
-                Tutor("tutorA"),
-                Tutor("tutorB"))
-        )
-        perfiles.add(Perfil(
-                "4",
-                "1234",
-                "",
-                "Luis",
-                "Gonzalez",
-                "",
-                2,
-                2,
-                Tutor("tutorA"),
-                Tutor("tutorB"))
-        )
-        perfiles.add(Perfil(
-                "5",
-                "1234",
-                "",
-                "Julio",
-                "Rodriguez",
-                "",
-                2,
-                2,
-                Tutor("tutorA"),
-                Tutor("tutorB"))
-        )
-    }
 }

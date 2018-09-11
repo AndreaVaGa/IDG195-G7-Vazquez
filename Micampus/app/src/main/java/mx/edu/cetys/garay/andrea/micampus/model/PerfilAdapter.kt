@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.activity_perfil.view.*
 import kotlinx.android.synthetic.main.perfil_row.view.*
 import mx.edu.cetys.garay.andrea.micampus.R.layout.perfil_row
 
@@ -29,7 +30,7 @@ class PerfilAdapter(val items: List<Perfil>, val context: Context) :
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txt_perfil = view.tv_txt_nombre
-        val txt_apellido = view.tv_txt_apellido
+        val txt_apellido = view.txt_apellido
     }
 
 }

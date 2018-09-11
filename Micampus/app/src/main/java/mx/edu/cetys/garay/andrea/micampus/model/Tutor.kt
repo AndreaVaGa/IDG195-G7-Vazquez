@@ -5,4 +5,6 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Tutor(@SerializedName("nombre") val nombre: String) : Parcelable
+data class Tutor(@SerializedName("nombre") val nombre: String,
+                 @SerializedName("telefono") val telefono: String
+                 ) : Parcelable

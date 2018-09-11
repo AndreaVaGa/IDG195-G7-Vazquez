@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.content_main.*
 import mx.edu.cetys.garay.andrea.micampus.R
 import mx.edu.cetys.garay.andrea.micampus.R.id.toolbar
 import mx.edu.cetys.garay.andrea.micampus.controller.Utils
+import mx.edu.cetys.garay.andrea.micampus.model.Boleta
 import mx.edu.cetys.garay.andrea.micampus.model.EndPoints
 import mx.edu.cetys.garay.andrea.micampus.model.Perfil
 
@@ -53,8 +54,8 @@ class MainActivity : AppCompatActivity() {
 
                     val perfil = utils.buscarPerfilN(perfiles, matricula, password)
                     if (perfil != null) {
-                        val intent = Intent(applicationContext, MainMenuActivity::class.java)
-                        val intent2 = Intent(applicationContext, PerfilListViewActivity::class.java)
+                        val intent = Intent(applicationContext, PerfilActivity::class.java)
+                        val intent2 = Intent(applicationContext, MainMenuActivity::class.java)
                         //intent.putExtra("nombre", perfil.nombre)
                         intent.putExtra("perfil", perfil)
                         startActivity(intent2)
@@ -72,6 +73,7 @@ class MainActivity : AppCompatActivity() {
         })
         queue.add(stringRequest)
     }
+
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

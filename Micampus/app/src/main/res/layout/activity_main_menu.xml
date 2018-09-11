@@ -7,17 +7,30 @@
     android:orientation="vertical"
     tools:context=".view.MainMenuActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bienvenido hermano Cetysano!"
-        android:textSize="20dp" />
 
     <TextView
-        android:id="@+id/txt_logged_user"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="John Doe"
-        android:textSize="28dp" />
+        android:text="Académico:"
+        android:textStyle="bold"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/btn_boleta"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#0EA330"
+        android:text="A"
+        android:textSize="30dp"/>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Boleta"
+        android:textSize="24dp" />
+
+
+
 
 </android.support.v7.widget.LinearLayoutCompat>
