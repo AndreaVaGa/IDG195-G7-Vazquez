@@ -13,6 +13,14 @@
         android:layout_height="wrap_content"
         android:text="Menu"
         android:fontFamily="@font/helveticaneuelight"/>
+    <ImageView
+        android:id="@+id/imagenperfil"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="fitCenter"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:src="@drawable/f_perfil" />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
@@ -23,29 +31,14 @@
         android:layout_marginStart="60dp">
 
     <TextView
+        android:id="@+id/txt_nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Perfil"
+        android:text="Row"
         android:gravity="center"
         android:textSize="26dp"
         android:textColor="#1f1f1f"
         android:fontFamily="@font/helveticaneubold"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nombre:"
-        android:textSize="16dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/helveticaneuelight"/>
-
-    <TextView
-        android:id="@+id/txt_nombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Row"
-        android:textSize="16dp"
-        android:fontFamily="@font/helveticaneuelight"/>
 
     <TextView
         android:layout_width="wrap_content"
