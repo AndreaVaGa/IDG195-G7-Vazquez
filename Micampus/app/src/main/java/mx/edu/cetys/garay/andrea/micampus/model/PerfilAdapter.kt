@@ -25,12 +25,10 @@ class PerfilAdapter(val items: List<Perfil>, val context: Context) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.txt_perfil.text = items.get(position).nombre
-        holder.txt_apellido.text = items.get(position).apellido
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val txt_perfil = view.tv_txt_nombre
-        val txt_apellido = view.txt_apellido
+        val txt_perfil = view.txt_nombre
     }
 
 }

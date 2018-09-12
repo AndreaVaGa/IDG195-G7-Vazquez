@@ -25,7 +25,8 @@
         <activity android:name=".view.MainMenuActivity" />
         <activity android:name=".view.PerfilListViewActivity" />
         <activity android:name=".view.PerfilActivity" />
-        <activity android:name=".view.BoletaListViewActivity"></activity>
+        <activity android:name=".view.BoletaListViewActivity" />
+        <activity android:name=".view.TutoresViewActivity"></activity>
     </application>
 
 </manifest>

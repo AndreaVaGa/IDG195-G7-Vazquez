@@ -12,7 +12,7 @@
         android:textSize="20dp" />
 
     <TextView
-        android:id="@+id/tv_txt_nombre"
+        android:id="@+id/tv_txt_nombrer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Row"
