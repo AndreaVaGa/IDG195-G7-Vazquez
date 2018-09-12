@@ -24,6 +24,11 @@ class PerfilActivity : AppCompatActivity() {
             inicio.putExtra("perfil",perfil)
             startActivity(inicio)
         }
+
+        btn_tutores.setOnClickListener { _ -> val tutores = Intent (applicationContext, TutoresViewActivity::class.java)
+            tutores.putExtra("perfil",perfil)
+            startActivity(tutores)
+        }
     }
 
 }
