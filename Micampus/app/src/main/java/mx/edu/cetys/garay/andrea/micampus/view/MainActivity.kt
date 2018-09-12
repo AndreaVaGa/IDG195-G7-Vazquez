@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                         val intent = Intent(applicationContext, PerfilActivity::class.java)
                         val intent2 = Intent(applicationContext, MainMenuActivity::class.java)
                         //intent.putExtra("nombre", perfil.nombre)
-                        intent.putExtra("perfil", perfil)
+                        intent2.putExtra("perfil", perfil)
                         startActivity(intent2)
                     } else {
                         Toast.makeText(

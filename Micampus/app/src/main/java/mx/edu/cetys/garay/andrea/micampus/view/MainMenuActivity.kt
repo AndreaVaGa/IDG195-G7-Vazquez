@@ -18,6 +18,12 @@ class MainMenuActivity : AppCompatActivity() {
         btn_boleta.setOnClickListener { _ -> val boleta = Intent(applicationContext, BoletaListViewActivity::class.java)
             startActivity(boleta)
         }
+        btn_perfil.setOnClickListener { _ -> val profile = Intent(applicationContext, PerfilActivity::class.java)
+            profile.putExtra("perfil", perfil)
+            startActivity(profile)
+
+        }
+
 
     }
 

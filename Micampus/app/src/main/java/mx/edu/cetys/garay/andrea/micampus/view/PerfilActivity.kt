@@ -12,6 +12,7 @@ class PerfilActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil)
+
         val perfil = intent.getParcelableExtra<Perfil>("perfil")
         txt_nombre.text = perfil.nombre
         txt_apellido.text = perfil.apellido
