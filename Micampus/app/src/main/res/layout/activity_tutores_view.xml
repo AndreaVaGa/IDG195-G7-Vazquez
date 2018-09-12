@@ -22,190 +22,199 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Tutores"
-            android:textSize="35dp" />
+            android:text="Información"
+            android:textSize="26dp"
+            android:textColor="#ffff"
+            android:background="#000000"
+            android:padding="10dp"
+            android:fontFamily="@font/helveticaneubold"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="15dp" />
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="left"
+            android:layout_marginEnd="60dp"
+            android:layout_marginStart="60dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre Padre:"
-            android:textSize="24dp" />
+            android:text="Padre"
+            android:textSize="26dp"
+            android:textColor="#000000"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/helveticaneuelight" />
 
         <TextView
             android:id="@+id/tv_txt_nombret"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Row"
-            android:textSize="24dp" />
+            android:textSize="12dp"
+            android:layout_marginBottom="4dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="15dp" />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:background="#fbce07"
+                android:layout_marginBottom="13dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Teléfono:"
-            android:textSize="24dp" />
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/helveticaneuelight" />
 
         <TextView
             android:id="@+id/tv_txt_telefono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Row"
-            android:textSize="24dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="15dp" />
+            android:textSize="16dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Trabajo:"
-            android:textSize="24dp" />
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/helveticaneuelight" />
 
         <TextView
             android:id="@+id/tv_txt_trabajo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Row"
-            android:textSize="24dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="15dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="15dp" />
+            android:textSize="16dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Correo:"
-            android:textSize="24dp" />
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/helveticaneuelight" />
 
         <TextView
             android:id="@+id/tv_txt_correo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Row"
-            android:textSize="24dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="15dp" />
+            android:textSize="16dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dirección:"
-            android:textSize="24dp" />
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/helveticaneuelight" />
 
         <TextView
             android:id="@+id/tv_txt_direccion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Row"
-            android:textSize="24dp" />
+            android:textSize="16dp"
+            android:layout_marginBottom="40dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="15dp" />
+
+
+
+
+
+
+
+
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre Madre:"
-            android:textSize="24dp" />
+            android:text="Madre"
+            android:textSize="26dp"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/helveticaneuelight" />
 
         <TextView
             android:id="@+id/tv_txt_nombretm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Row"
-            android:textSize="24dp" />
+            android:textSize="12dp"
+            android:layout_marginBottom="4dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="15dp" />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:background="#fbce07"
+                android:layout_marginBottom="13dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Teléfono:"
-            android:textSize="24dp" />
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/helveticaneuelight" />
 
         <TextView
             android:id="@+id/tv_txt_telefonom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Row"
-            android:textSize="24dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="15dp" />
+            android:textSize="16dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Trabajo:"
-            android:textSize="24dp" />
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/helveticaneuelight" />
 
         <TextView
             android:id="@+id/tv_txt_trabajom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Row"
-            android:textSize="24dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="15dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="15dp" />
+            android:textSize="16dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Correo:"
-            android:textSize="24dp" />
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/helveticaneuelight" />
 
         <TextView
             android:id="@+id/tv_txt_correom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Row"
-            android:textSize="24dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="15dp" />
+            android:textSize="16dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dirección:"
-            android:textSize="24dp" />
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/helveticaneuelight" />
 
         <TextView
             android:id="@+id/tv_txt_direccionm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Row"
-            android:textSize="24dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="15dp" />
+            android:textSize="16dp"
+            android:layout_marginBottom="60dp"/>
+        </LinearLayout>
 
     </android.support.v7.widget.LinearLayoutCompat>
 </ScrollView>
