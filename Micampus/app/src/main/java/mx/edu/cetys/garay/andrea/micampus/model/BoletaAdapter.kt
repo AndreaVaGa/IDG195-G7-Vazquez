@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_perfil.view.*
 import kotlinx.android.synthetic.main.boleta_row.view.*
-import kotlinx.android.synthetic.main.perfil_row.view.*
 import mx.edu.cetys.garay.andrea.micampus.R
 
 class BoletaAdapter (val items: List<Boleta>, val context: Context) :
@@ -25,14 +24,14 @@ class BoletaAdapter (val items: List<Boleta>, val context: Context) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.txt_perfil.text = items.get(position).materia
+        holder.txt_materia.text = items.get(position).materia
         holder.txt_calificaciones.text = items.get(position).calificacion
         holder.txt_faltas.text = items.get(position).faltas
 
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val txt_perfil = view.tv_txt_materia
+        val txt_materia = view.tv_txt_materia
         val txt_calificaciones = view.tv_txt_calif
         val txt_faltas = view.tv_txt_faltas
     }

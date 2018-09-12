@@ -16,7 +16,7 @@ class PerfilActivity : AppCompatActivity() {
         val perfil = intent.getParcelableExtra<Perfil>("perfil")
         txt_nombre.text = perfil.nombre
         txt_apellido.text = perfil.apellido
-        txt_boleta.text = perfil.padre.telefono
+        txt_carrera.text = perfil.carrera
 
     }
 }
