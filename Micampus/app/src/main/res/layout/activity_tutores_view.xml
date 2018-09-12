@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/rv_tutor_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.TutoresViewActivity">
+
+        <Button
+            android:id="@+id/btn_perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Perfil" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Tutores"
+            android:textSize="35dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre Padre:"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/tv_txt_nombret"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Row"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teléfono:"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/tv_txt_telefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Row"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trabajo:"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/tv_txt_trabajo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Row"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correo:"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/tv_txt_correo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Row"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dirección:"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/tv_txt_direccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Row"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre Madre:"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/tv_txt_nombretm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Row"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teléfono:"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/tv_txt_telefonom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Row"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trabajo:"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/tv_txt_trabajom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Row"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correo:"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/tv_txt_correom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Row"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dirección:"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/tv_txt_direccionm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Row"
+            android:textSize="24dp" />
+
+    </android.support.v7.widget.LinearLayoutCompat>
+</ScrollView>
