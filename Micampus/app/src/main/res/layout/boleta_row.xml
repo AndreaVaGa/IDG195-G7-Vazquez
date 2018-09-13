@@ -8,7 +8,7 @@
 
     <TableLayout
         android:layout_width="350dp"
-        android:layout_height="220dp"
+        android:layout_height="100dp"
         android:background="@drawable/rec_shadow"
         android:layout_margin="17dp"
         android:padding="20dp"
@@ -16,12 +16,35 @@
         android:translationX="-2dp"
         android:translationY="-2dp"
         android:orientation="vertical">
+     <TableRow>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Materia"
+             android:textAppearance="@style/TextAppearance.AppCompat.Title"
+             android:paddingRight="135dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Materia"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:paddingRight="50dp"
+             android:text="F"
+             android:textAlignment="center"
+             android:textAppearance="@style/TextAppearance.AppCompat.Title"
+             android:textSize="20dp" />
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="P"
+             android:textAlignment="center"
+             android:textAppearance="@style/TextAppearance.AppCompat.Title"
+             android:textSize="20dp" />
+
+     </TableRow>
+
+
+        <TableRow>
 
         <TextView
             android:id="@+id/tv_txt_materia"
@@ -30,12 +53,12 @@
             android:text="Row"
             android:textSize="24dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Calificación"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textSize="20dp" />
+            <TextView
+                android:id="@+id/tv_txt_faltas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Row"
+                android:textSize="24dp" />
 
         <TextView
             android:id="@+id/tv_txt_calif"
@@ -44,20 +67,11 @@
             android:text="Row"
             android:textSize="24dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Faltas"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/tv_txt_faltas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Row"
-            android:textSize="24dp" />
 
+
+
+        </TableRow>
     </TableLayout>
 
 </android.support.v7.widget.LinearLayoutCompat>
