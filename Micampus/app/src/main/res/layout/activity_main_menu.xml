@@ -46,6 +46,30 @@
         android:textSize="30dp"
         android:layout_margin="10dp"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp">
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Boleta"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="      "
+            android:textSize="24dp" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Perfil"
+            android:textSize="24dp" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -74,76 +98,3 @@
 
 </android.support.v7.widget.LinearLayoutCompat>
 
-<!--
-<TextView
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="Académico:"
-android:textStyle="bold"
-android:textSize="30dp" />
-<TextView
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="      "
-android:textSize="24dp" />
-
-<LinearLayout
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_marginLeft="20dp">
-
-<Button
-    android:id="@+id/btn_boleta"
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    android:background="#0EA330"
-    android:text="A"
-    android:textSize="30dp"
-    android:layout_margin="10dp"/>
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text=""
-    android:textSize="24dp" />
-<Button
-    android:id="@+id/btn_perfil"
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    android:background="#0EA563"
-    android:text="P"
-    android:textSize="30dp"
-    android:layout_margin="10dp"/>
-
-
-</LinearLayout>
-<LinearLayout
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_marginLeft="28dp">
-<TextView
-
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Boleta"
-    android:textSize="24dp" />
-
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="      "
-    android:textSize="24dp" />
-
-<TextView
-
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Perfil"
-    android:textSize="24dp" />
-</LinearLayout>
-
-
-
-
-
-
-    </android.support.v7.widget.LinearLayoutCompat>-->
