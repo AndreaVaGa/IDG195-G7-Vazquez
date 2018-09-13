@@ -27,48 +27,34 @@
         android:layout_height="50dp"
         android:background="@drawable/icono2"
         android:layout_margin="10dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Boleta"
-            android:textSize="24dp"
-            android:textColor="#ffffff"/>
     <Button
         android:id="@+id/btn_perfil"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/iconoperfil"
         android:layout_margin="10dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Perfil"
-            android:textSize="24dp"
-            android:textColor="#ffffff"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="28dp">
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Boleta"
-            android:textSize="24dp" />
-
+            android:textSize="24dp"
+            android:textColor="#ffffff"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="      "
-            android:textSize="24dp" />
-
+            android:text="   "
+            android:textSize="24dp"/>
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Perfil"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:textColor="#ffffff"/>
     </LinearLayout>
 
     <View
