@@ -1,77 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/row_perfil"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
-
 
     <TableLayout
         android:layout_width="350dp"
         android:layout_height="100dp"
         android:background="@drawable/rec_shadow"
-        android:layout_margin="17dp"
-        android:padding="20dp"
-        android:elevation="5dp"
-        android:translationX="-2dp"
-        android:translationY="-2dp"
-        android:orientation="vertical">
-     <TableRow>
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="Materia"
-             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-             android:paddingRight="135dp"/>
-
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:paddingRight="50dp"
-             android:text="F"
-             android:textAlignment="center"
-             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-             android:textSize="20dp" />
-
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="P"
-             android:textAlignment="center"
-             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-             android:textSize="20dp" />
-
-     </TableRow>
-
-
-        <TableRow>
-
-        <TextView
-            android:id="@+id/tv_txt_materia"
-            android:layout_width="wrap_content"
+        android:padding="15dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="vertical"
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
+        <TableRow
+            android:id="@+id/tableRow1"
             android:layout_height="wrap_content"
-            android:text="Row"
-            android:textSize="24dp" />
-
+            android:layout_width="match_parent">
+            <TextView
+                android:layout_width="150dp"
+                android:id="@+id/tv_txt_materia"
+                android:text="Row"
+                android:textSize="22dp"
+                android:fontFamily="@font/helveticaneubold"
+                android:textColor="#000000"> </TextView>
+            <TextView
+                android:text="F"
+                android:textSize="22dp"
+                android:fontFamily="@font/helveticaneubold"
+                android:gravity="center_horizontal"
+                android:textColor="#000000"> </TextView>
+            <TextView
+                android:text="P"
+                android:textSize="22dp"
+                android:fontFamily="@font/helveticaneubold"
+                android:gravity="center_horizontal"
+                android:textColor="#000000"> </TextView>
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            >
+            <TextView
+                android:layout_width="150dp"
+                android:text="Maestro"
+                android:textSize="14dp"
+                android:fontFamily="@font/helveticaneuelight"
+                android:textColor="#000000"> </TextView>
             <TextView
                 android:id="@+id/tv_txt_faltas"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="Row"
-                android:textSize="24dp" />
-
-        <TextView
-            android:id="@+id/tv_txt_calif"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Row"
-            android:textSize="24dp" />
-
-
-
-
-
+                android:textSize="14dp"
+                android:fontFamily="@font/helveticaneuelight"
+                android:gravity="center_horizontal"
+                android:textColor="#000000"> </TextView>
+            <TextView
+                android:id="@+id/tv_txt_calif"
+                android:gravity="center_horizontal"
+                android:text="Row"
+                android:textSize="14dp"
+                android:fontFamily="@font/helveticaneuelight"
+                android:textColor="#000000"> </TextView>
         </TableRow>
+
     </TableLayout>
 
 </android.support.v7.widget.LinearLayoutCompat>
