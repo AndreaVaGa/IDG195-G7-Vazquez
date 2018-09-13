@@ -8,81 +8,79 @@
     tools:context=".view.MainMenuActivity"
     android:background="@drawable/background">
 
+    <Button
+        android:id="@+id/btn_perfil"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:orientation="vertical"
+        android:layout_gravity="right"
+        android:background="@drawable/iconoperfil"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="25dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="40dp">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Académico:"
-        android:textStyle="bold"
-        android:textSize="30dp"
-        android:textColor="#ffffff"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp">
+        android:text="Académico"
+        android:fontFamily="@font/helveticaneubold"
+        android:textSize="25dp"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="15dp"/>
 
     <Button
         android:id="@+id/btn_boleta"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:background="@drawable/icono2"
+        android:layout_marginLeft="10dp"
         android:layout_margin="10dp"/>
-    <Button
-        android:id="@+id/btn_perfil"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/iconoperfil"
-        android:layout_margin="10dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="28dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Boleta"
-            android:textSize="24dp"
-            android:textColor="#ffffff"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="   "
-            android:textSize="24dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Perfil"
-            android:textSize="24dp"
-            android:textColor="#ffffff"/>
+            android:textSize="14dp"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/helveticaneuelight"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="25dp"/>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#fbce07"
+        android:layout_marginBottom="25dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Financiero"
+        android:fontFamily="@font/helveticaneubold"
+        android:textSize="25dp"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="15dp"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#fbce07"
+        android:layout_marginBottom="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Evaluaciones"
+        android:fontFamily="@font/helveticaneubold"
+        android:textSize="25dp"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="15dp"/>
     </LinearLayout>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:background="#fbce07"
-        android:layout_marginBottom="13dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Financiero:"
-        android:textStyle="bold"
-        android:textSize="30dp"
-        android:textColor="#ffffff"/>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:background="#fbce07"
-        android:layout_marginBottom="13dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Evaluaciones:"
-        android:textStyle="bold"
-        android:textSize="30dp"
-        android:textColor="#ffffff"/>
 </android.support.v7.widget.LinearLayoutCompat>
 
