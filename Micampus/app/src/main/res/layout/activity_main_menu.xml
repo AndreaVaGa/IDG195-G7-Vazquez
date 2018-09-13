@@ -15,6 +15,12 @@
         android:textStyle="bold"
         android:textSize="30dp" />
 
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#fbce07"
+        android:layout_marginBottom="13dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,9 +30,7 @@
         android:id="@+id/btn_boleta"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="#0EA330"
-        android:text="A"
-        android:textSize="30dp"
+        android:background="@drawable/Icono2"
         android:layout_margin="10dp"/>
         <TextView
             android:layout_width="wrap_content"
@@ -41,15 +45,6 @@
         android:text="P"
         android:textSize="30dp"
         android:layout_margin="10dp"/>
-
-        <Button
-        android:id="@+id/btn_horario"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="#0EA563"
-        android:text="H"
-        android:textSize="30dp"
-        android:layout_margin="10dp"/>
     </LinearLayout>
 
     <TextView
@@ -59,48 +54,23 @@
         android:textStyle="bold"
         android:textSize="30dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp">
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#fbce07"
+        android:layout_marginBottom="13dp"/>
 
-        <Button
-            android:id="@+id/btn_adeudos"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#0EA330"
-            android:text="A"
-            android:textSize="30dp"
-            android:layout_margin="10dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="24dp" />
-        <Button
-            android:id="@+id/btn_historial"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#0EA563"
-            android:text="P"
-            android:textSize="30dp"
-            android:layout_margin="10dp"/>
-
-        <Button
-            android:id="@+id/btn_tramites"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#0EA563"
-            android:text="H"
-            android:textSize="30dp"
-            android:layout_margin="10dp"/>
-    </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Evaluaciones:"
         android:textStyle="bold"
         android:textSize="30dp" />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#fbce07"
+        android:layout_marginBottom="13dp"/>
 
 </android.support.v7.widget.LinearLayoutCompat>
 
