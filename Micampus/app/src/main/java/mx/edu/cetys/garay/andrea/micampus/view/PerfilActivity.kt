@@ -19,6 +19,7 @@ class PerfilActivity : AppCompatActivity() {
         tv_txt_semestre.text = perfil.semestre.toString()
         tv_txt_materiasaprobadas.text = perfil.materiasaprobadas.toString()
 
+
         btn_menu.setOnClickListener { _ ->
             val inicio = Intent(applicationContext, MainMenuActivity::class.java)
             inicio.putExtra("perfil",perfil)

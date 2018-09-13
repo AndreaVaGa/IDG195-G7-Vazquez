@@ -17,9 +17,7 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import mx.edu.cetys.garay.andrea.micampus.R
-import mx.edu.cetys.garay.andrea.micampus.R.id.toolbar
 import mx.edu.cetys.garay.andrea.micampus.controller.Utils
-import mx.edu.cetys.garay.andrea.micampus.model.Boleta
 import mx.edu.cetys.garay.andrea.micampus.model.EndPoints
 import mx.edu.cetys.garay.andrea.micampus.model.Perfil
 

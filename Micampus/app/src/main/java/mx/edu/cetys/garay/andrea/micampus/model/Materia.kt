@@ -5,10 +5,9 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Boleta (
-
+data class Materia (
     @SerializedName("materia")
-    val materia: String,
+    val nombre: String,
     @SerializedName("profesor")
     val profesor: String,
     @SerializedName("calif")

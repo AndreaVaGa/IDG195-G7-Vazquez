@@ -19,32 +19,18 @@ import mx.edu.cetys.garay.andrea.micampus.model.*
 
 class BoletaListViewActivity : AppCompatActivity() {
 
-    private val boleta : ArrayList<Boleta> = ArrayList()
+    //private val boleta : ArrayList<Materia> = ArrayList()
     private val gson = Gson()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_boleta_list_view)
         val perfil = intent.getParcelableExtra<Perfil>("perfil")
+        val materias = perfil.boleta
         rv_boleta_list.layoutManager = LinearLayoutManager(this)
-        obtenerBoletaRequest()
+        rv_boleta_list.adapter = BoletaAdapter(materias, applicationContext)
 
     }
 
-    private fun obtenerBoletaRequest() {
-        val queue = Volley.newRequestQueue(this)
-
-        val stringRequest = StringRequest(Request.Method.GET, EndPoints.PERFIL.url.toString(),
-                Response.Listener { response ->
-                    val materias = gson.fromJson(response, Array<Boleta>::class.java).toList()
-
-                    rv_boleta_list.adapter = BoletaAdapter(materias, applicationContext)
-
-                }, Response.ErrorListener { error ->
-            Toast.makeText(
-                    applicationContext, error.message, Toast.LENGTH_SHORT).show()
-        })
-        queue.add(stringRequest)
-    }
 
 }
