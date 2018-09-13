@@ -8,14 +8,15 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_perfil.view.*
 import kotlinx.android.synthetic.main.boleta_row.view.*
 import mx.edu.cetys.garay.andrea.micampus.R
+import mx.edu.cetys.garay.andrea.micampus.R.layout.boleta_row
 
-class BoletaAdapter (val items: List<Boleta>, val context: Context) :
+class BoletaAdapter (val items: List<Materia>, val context: Context) :
         RecyclerView.Adapter<BoletaAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
                 LayoutInflater.from(context).inflate(
-                        R.layout.boleta_row, parent, false)
+                        boleta_row, parent, false)
         )
     }
 
@@ -24,7 +25,7 @@ class BoletaAdapter (val items: List<Boleta>, val context: Context) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.txt_materia.text = items.get(position).materia
+        holder.txt_materia.text = items.get(position).nombre
         holder.txt_calificaciones.text = items.get(position).calificacion
         holder.txt_faltas.text = items.get(position).faltas
 

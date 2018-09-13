@@ -16,6 +16,7 @@ class MainMenuActivity : AppCompatActivity() {
         val perfil = intent.getParcelableExtra<Perfil>("perfil")
 
         btn_boleta.setOnClickListener { _ -> val boleta = Intent(applicationContext, BoletaListViewActivity::class.java)
+            boleta.putExtra("perfil", perfil)
             startActivity(boleta)
         }
         btn_perfil.setOnClickListener { _ -> val profile = Intent(applicationContext, PerfilActivity::class.java)
