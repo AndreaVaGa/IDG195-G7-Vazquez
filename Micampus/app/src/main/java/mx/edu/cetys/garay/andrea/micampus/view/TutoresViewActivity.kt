@@ -27,7 +27,7 @@ class TutoresViewActivity : AppCompatActivity() {
         tv_txt_direccionm.text = perfil.madre.direccion
 
         btn_perfil.setOnClickListener { _ ->
-            val perf = Intent(applicationContext, MainMenuActivity::class.java)
+            val perf = Intent(applicationContext, PerfilActivity::class.java)
             perf.putExtra("perfil",perfil)
             startActivity(perf)
         }
