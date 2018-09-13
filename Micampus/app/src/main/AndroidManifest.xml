@@ -30,7 +30,8 @@
         <activity android:name=".view.PerfilActivity"
             android:label="Perfil"/>
         <activity android:name=".view.BoletaListViewActivity"
-            android:label="Boleta"/>
+            android:label="Boleta"
+            android:theme="@style/AppTheme"/>
         <activity android:name=".view.TutoresViewActivity"
             android:label="Información"/>
     </application>

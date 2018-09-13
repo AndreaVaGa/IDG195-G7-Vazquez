@@ -29,6 +29,11 @@ class BoletaListViewActivity : AppCompatActivity() {
         val materias = perfil.boleta
         rv_boleta_list.layoutManager = LinearLayoutManager(this)
         rv_boleta_list.adapter = BoletaAdapter(materias, applicationContext)
+        btn_menu_boleta.setOnClickListener() { _ ->
+            val inicio = Intent(applicationContext, MainMenuActivity::class.java)
+            inicio.putExtra("perfil",perfil)
+            startActivity(inicio)
+        }
 
     }
 
