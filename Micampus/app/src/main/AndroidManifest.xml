@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
             android:name=".view.MainActivity"
@@ -22,11 +22,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MainMenuActivity" />
-        <activity android:name=".view.PerfilListViewActivity" />
-        <activity android:name=".view.PerfilActivity" />
-        <activity android:name=".view.BoletaListViewActivity" />
-        <activity android:name=".view.TutoresViewActivity"></activity>
+        <activity android:name=".view.MainMenuActivity"
+            android:label="Main Menu"/>
+
+        <activity android:name=".view.PerfilListViewActivity"/>
+
+        <activity android:name=".view.PerfilActivity"
+            android:label="Perfil"/>
+        <activity android:name=".view.BoletaListViewActivity"
+            android:label="Boleta"/>
+        <activity android:name=".view.TutoresViewActivity"
+            android:label="Información"/>
     </application>
 
 </manifest>
