@@ -28,6 +28,7 @@ class BoletaAdapter (val items: List<Materia>, val context: Context) :
         holder.txt_materia.text = items.get(position).nombre
         holder.txt_calificaciones.text = items.get(position).calificacion
         holder.txt_faltas.text = items.get(position).faltas
+        holder.txt_maestro.text = items.get(position).profesor
 
     }
 
@@ -35,6 +36,7 @@ class BoletaAdapter (val items: List<Materia>, val context: Context) :
         val txt_materia = view.tv_txt_materia
         val txt_calificaciones = view.tv_txt_calif
         val txt_faltas = view.tv_txt_faltas
+        val txt_maestro= view.tv_txt_maestro
     }
 
 }
