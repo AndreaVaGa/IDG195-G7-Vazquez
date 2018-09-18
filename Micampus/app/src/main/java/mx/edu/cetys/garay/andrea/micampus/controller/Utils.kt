@@ -1,19 +1,33 @@
 package mx.edu.cetys.garay.andrea.micampus.controller
 
+import mx.edu.cetys.garay.andrea.micampus.model.Alumno
 import mx.edu.cetys.garay.andrea.micampus.model.Perfil
 
 class Utils {
-    fun buscarPerfil(perfiles: List<Perfil>, matricula: String, password: String): Perfil {
-        return perfiles.single { s -> s.matricula == matricula && s.password == password }
-    }
-
-    fun buscarPerfilN(perfiles: List<Perfil>, matricula: String, password: String): Perfil? {
-        perfiles.listIterator().forEach {
+    fun buscarAlumno(alumnos: List<Alumno>, matricula: String, password: String): Alumno? {
+        alumnos.listIterator().forEach {
             if (it.matricula == matricula && it.password == password) {
                 return it
             }
         }
         return null
+    }
+
+    fun buscarBoleta(perfiles: List<Perfil>, matricula: String): Perfil? {
+        perfiles.listIterator().forEach {
+            if (it.matricula == matricula) {
+                return it
+            }
+        }
+        return null
+    }
+
+    fun multiplyTwoNumbers(a: Int, b: Int): Int {
+        return a * b
+    }
+
+    fun divideTwoNumbers(a: Double, b: Double): Double {
+        return a / b
     }
 
 }

@@ -20,6 +20,8 @@ import mx.edu.cetys.garay.andrea.micampus.R
 import mx.edu.cetys.garay.andrea.micampus.controller.Utils
 import mx.edu.cetys.garay.andrea.micampus.model.EndPoints
 import mx.edu.cetys.garay.andrea.micampus.model.Perfil
+import mx.edu.cetys.garay.andrea.micampus.controller.PreferencesHelper
+import mx.edu.cetys.garay.andrea.micampus.model.Alumno
 
 class MainActivity : AppCompatActivity() {
     private val utils = Utils()
@@ -29,34 +31,66 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
-
+        
         btn_login.setOnClickListener { _ ->
-            obtenerPerfilRequest()
+            val matricula = edt_matricula.text.toString()
+            val password = edt_password.text.toString()
+            obtenerAlumnoRequest(matricula, password)
         }
+
+        val preferencesHelper = PreferencesHelper(applicationContext)
+        val matricula = preferencesHelper.matricula
+        if (!matricula.isNullOrEmpty()) {
+            obtenerBoletaRequest(matricula)
+        }
+
     }
 
-    private fun obtenerPerfilRequest() {
-        val queue = Volley.newRequestQueue(this)
+    private fun obtenerAlumnoRequest(matricula: String, password: String) {
+        val queue = Volley.newRequestQueue(applicationContext)
 
-        val matricula = edt_matricula.text.toString()
-        val password = edt_password.text.toString()
+        val stringRequest = StringRequest(Request.Method.GET, EndPoints.ALUMNOS.url.toString(),
+                Response.Listener { response ->
+                    val alumnos = gson.fromJson(response, Array<Alumno>::class.java).toList()
+                    val alumno = utils.buscarAlumno(alumnos, matricula, password)
+
+                    if (alumno != null) {
+                        val preferencesHelper = PreferencesHelper(this)
+                        preferencesHelper.matricula = alumno.matricula
+                        preferencesHelper.alumno = gson.toJson(alumno).toString()
+
+                        obtenerBoletaRequest(alumno.matricula)
+                    } else {
+                        Toast.makeText(
+                                applicationContext,
+                                "Perfil no encontrado, pague su inscripcion",
+                                Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }, Response.ErrorListener { error ->
+            Toast.makeText(
+                    applicationContext, error.message, Toast.LENGTH_SHORT).show()
+        })
+        queue.add(stringRequest)
+    }
+
+    private fun obtenerBoletaRequest(matricula: String) {
+        val queue = Volley.newRequestQueue(applicationContext)
 
         val stringRequest = StringRequest(Request.Method.GET, EndPoints.PERFIL.url.toString(),
                 Response.Listener { response ->
                     val perfiles = gson.fromJson(response, Array<Perfil>::class.java).toList()
 
-                    val perfil = utils.buscarPerfilN(perfiles, matricula, password)
+                    val perfil = utils.buscarBoleta(perfiles, matricula)
                     if (perfil != null) {
-                        val intent = Intent(applicationContext, PerfilActivity::class.java)
-                        val intent2 = Intent(applicationContext, MainMenuActivity::class.java)
-                        //intent.putExtra("nombre", perfil.nombre)
-                        intent2.putExtra("perfil", perfil)
-                        startActivity(intent2)
+                        val preferencesHelper = PreferencesHelper(this)
+                        preferencesHelper.matricula = perfil.matricula
+                        preferencesHelper.alumno = gson.toJson(perfil).toString()
+
+                        val intent = Intent(applicationContext, MainMenuActivity::class.java)
+                        intent.putExtra("perfil", perfil)
+                        startActivity(intent)
+                        finish()
                     } else {
                         Toast.makeText(
                                 applicationContext,
@@ -71,7 +105,6 @@ class MainActivity : AppCompatActivity() {
         })
         queue.add(stringRequest)
     }
-
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

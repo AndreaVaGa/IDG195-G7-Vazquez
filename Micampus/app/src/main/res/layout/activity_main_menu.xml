@@ -4,83 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:orientation="vertical"
-    tools:context=".view.MainMenuActivity"
-    android:background="@drawable/background">
+    tools:context=".view.MainMenuActivity">
 
     <Button
         android:id="@+id/btn_perfil"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:orientation="vertical"
         android:layout_gravity="right"
-        android:background="@drawable/iconoperfil"
+        android:layout_marginRight="25dp"
         android:layout_marginTop="15dp"
-        android:layout_marginRight="25dp"/>
+        android:background="@drawable/iconoperfil"
+        android:orientation="vertical" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:layout_marginTop="40dp">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Académico"
-        android:fontFamily="@font/helveticaneubold"
-        android:textSize="25dp"
-        android:textColor="#ffffff"
-        android:layout_marginBottom="15dp"/>
-
-    <Button
-        android:id="@+id/btn_boleta"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:background="@drawable/icono2"
-        android:layout_marginLeft="10dp"
-        android:layout_margin="10dp"/>
+        android:layout_marginTop="40dp"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Boleta"
-            android:textSize="14dp"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/helveticaneubold"
+            android:text="Académico"
             android:textColor="#ffffff"
-            android:fontFamily="@font/helveticaneuelight"
+            android:textSize="25dp" />
+
+        <Button
+            android:id="@+id/btn_boleta"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/icono2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="25dp"/>
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#fbce07"
-        android:layout_marginBottom="25dp"/>
+            android:layout_marginLeft="25dp"
+            android:fontFamily="@font/helveticaneuelight"
+            android:text="Boleta"
+            android:textColor="#ffffff"
+            android:textSize="14dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Financiero"
-        android:fontFamily="@font/helveticaneubold"
-        android:textSize="25dp"
-        android:textColor="#ffffff"
-        android:layout_marginBottom="15dp"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="25dp"
+            android:background="#fbce07" />
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#fbce07"
-        android:layout_marginBottom="25dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/helveticaneubold"
+            android:text="Financiero"
+            android:textColor="#ffffff"
+            android:textSize="25dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Evaluaciones"
-        android:fontFamily="@font/helveticaneubold"
-        android:textSize="25dp"
-        android:textColor="#ffffff"
-        android:layout_marginBottom="15dp"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="25dp"
+            android:background="#fbce07" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/helveticaneubold"
+            android:text="Evaluaciones"
+            android:textColor="#ffffff"
+            android:textSize="25dp" />
     </LinearLayout>
 </android.support.v7.widget.LinearLayoutCompat>
 

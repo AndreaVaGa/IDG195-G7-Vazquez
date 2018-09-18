@@ -15,52 +15,52 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Información"
-            android:textSize="26dp"
-            android:textColor="#ffff"
             android:background="#000000"
+            android:fontFamily="@font/helveticaneubold"
+            android:gravity="center"
             android:padding="10dp"
-            android:fontFamily="@font/helveticaneubold"/>
+            android:text="Información"
+            android:textColor="#ffff"
+            android:textSize="26dp" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:gravity="left"
             android:layout_marginEnd="60dp"
-            android:layout_marginStart="60dp">
+            android:layout_marginStart="60dp"
+            android:gravity="left"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Padre"
-                android:textSize="26dp"
-                android:textColor="#000000"
                 android:layout_marginTop="40dp"
-                android:fontFamily="@font/helveticaneuelight" />
+                android:fontFamily="@font/helveticaneuelight"
+                android:text="Padre"
+                android:textColor="#000000"
+                android:textSize="26dp" />
 
             <TextView
                 android:id="@+id/tv_txt_nombret"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
                 android:text="Row"
-                android:textSize="12dp"
-                android:layout_marginBottom="4dp"/>
+                android:textSize="12dp" />
 
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
-                android:background="#fbce07"
-                android:layout_marginBottom="13dp"/>
+                android:layout_marginBottom="13dp"
+                android:background="#fbce07" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Teléfono:"
-                android:textSize="16dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/helveticaneuelight" />
+                android:fontFamily="@font/helveticaneuelight"
+                android:text="Teléfono:"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/tv_txt_telefono"
@@ -72,10 +72,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Trabajo:"
-                android:textSize="16dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/helveticaneuelight" />
+                android:fontFamily="@font/helveticaneuelight"
+                android:text="Trabajo:"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/tv_txt_trabajo"
@@ -87,10 +87,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Correo:"
-                android:textSize="16dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/helveticaneuelight" />
+                android:fontFamily="@font/helveticaneuelight"
+                android:text="Correo:"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/tv_txt_correo"
@@ -102,59 +102,50 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dirección:"
-                android:textSize="16dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/helveticaneuelight" />
+                android:fontFamily="@font/helveticaneuelight"
+                android:text="Dirección:"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/tv_txt_direccion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
                 android:text="Row"
-                android:textSize="16dp"
-                android:layout_marginBottom="40dp"/>
-
-
-
-
-
-
-
-
-
+                android:textSize="16dp" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Madre"
-                android:textSize="26dp"
-                android:textColor="#000000"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/helveticaneuelight" />
+                android:fontFamily="@font/helveticaneuelight"
+                android:text="Madre"
+                android:textColor="#000000"
+                android:textSize="26dp" />
 
             <TextView
                 android:id="@+id/tv_txt_nombretm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
                 android:text="Row"
-                android:textSize="12dp"
-                android:layout_marginBottom="4dp"/>
+                android:textSize="12dp" />
 
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
-                android:background="#fbce07"
-                android:layout_marginBottom="13dp" />
+                android:layout_marginBottom="13dp"
+                android:background="#fbce07" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Teléfono:"
-                android:textSize="16dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/helveticaneuelight" />
+                android:fontFamily="@font/helveticaneuelight"
+                android:text="Teléfono:"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/tv_txt_telefonom"
@@ -166,10 +157,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Trabajo:"
-                android:textSize="16dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/helveticaneuelight" />
+                android:fontFamily="@font/helveticaneuelight"
+                android:text="Trabajo:"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/tv_txt_trabajom"
@@ -181,10 +172,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Correo:"
-                android:textSize="16dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/helveticaneuelight" />
+                android:fontFamily="@font/helveticaneuelight"
+                android:text="Correo:"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/tv_txt_correom"
@@ -196,18 +187,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dirección:"
-                android:textSize="16dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/helveticaneuelight" />
+                android:fontFamily="@font/helveticaneuelight"
+                android:text="Dirección:"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/tv_txt_direccionm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp"
                 android:text="Row"
-                android:textSize="16dp"
-                android:layout_marginBottom="60dp"/>
+                android:textSize="16dp" />
         </LinearLayout>
 
         <Button

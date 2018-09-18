@@ -22,18 +22,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MainMenuActivity"
-            android:label="Main Menu"/>
+        <activity
+            android:name=".view.MainMenuActivity"
+            android:label="Main Menu" />
 
-        <activity android:name=".view.PerfilListViewActivity"/>
+        <activity android:name=".view.PerfilListViewActivity" />
 
-        <activity android:name=".view.PerfilActivity"
-            android:label="Perfil"/>
-        <activity android:name=".view.BoletaListViewActivity"
+        <activity
+            android:name=".view.PerfilActivity"
+            android:label="Perfil" />
+        <activity
+            android:name=".view.BoletaListViewActivity"
             android:label="Boleta"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".view.TutoresViewActivity"
-            android:label="Información"/>
+            android:parentActivityName=".view.MainMenuActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.TutoresViewActivity"
+            android:label="Información" />
     </application>
 
 </manifest>
