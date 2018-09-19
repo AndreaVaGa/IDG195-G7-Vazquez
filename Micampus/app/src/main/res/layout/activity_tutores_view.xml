@@ -21,7 +21,7 @@
             android:padding="10dp"
             android:text="Información"
             android:textColor="#ffff"
-            android:textSize="26dp" />
+            android:textSize="26sp" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
@@ -38,7 +38,7 @@
                 android:fontFamily="@font/helveticaneuelight"
                 android:text="Padre"
                 android:textColor="#000000"
-                android:textSize="26dp" />
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/tv_txt_nombret"
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
                 android:text="Row"
-                android:textSize="12dp" />
+                android:textSize="12sp" />
 
             <View
                 android:layout_width="fill_parent"
@@ -60,14 +60,14 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/helveticaneuelight"
                 android:text="Teléfono:"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_txt_telefono"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Row"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -75,14 +75,14 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/helveticaneuelight"
                 android:text="Trabajo:"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_txt_trabajo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Row"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -90,14 +90,14 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/helveticaneuelight"
                 android:text="Correo:"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_txt_correo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Row"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/helveticaneuelight"
                 android:text="Dirección:"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_txt_direccion"
@@ -113,8 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
                 android:text="Row"
-                android:textSize="16dp" />
-
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -123,7 +122,7 @@
                 android:fontFamily="@font/helveticaneuelight"
                 android:text="Madre"
                 android:textColor="#000000"
-                android:textSize="26dp" />
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/tv_txt_nombretm"
@@ -131,7 +130,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
                 android:text="Row"
-                android:textSize="12dp" />
+                android:textSize="12sp" />
 
             <View
                 android:layout_width="fill_parent"
@@ -145,14 +144,14 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/helveticaneuelight"
                 android:text="Teléfono:"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_txt_telefonom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Row"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -160,14 +159,14 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/helveticaneuelight"
                 android:text="Trabajo:"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_txt_trabajom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Row"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -175,14 +174,14 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/helveticaneuelight"
                 android:text="Correo:"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_txt_correom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Row"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -190,7 +189,7 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/helveticaneuelight"
                 android:text="Dirección:"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_txt_direccionm"
@@ -198,14 +197,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="60dp"
                 android:text="Row"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
         </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_perfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Perfil" />
 
     </android.support.v7.widget.LinearLayoutCompat>
 </ScrollView>

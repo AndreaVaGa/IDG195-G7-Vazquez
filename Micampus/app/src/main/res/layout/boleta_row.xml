@@ -7,62 +7,69 @@
     <TableLayout
         android:layout_width="350dp"
         android:layout_height="100dp"
-        android:background="@drawable/rec_shadow"
-        android:padding="15dp"
-        android:layout_marginTop="60dp"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/rec_shadow"
         android:orientation="vertical"
+        android:padding="15dp"
         android:shrinkColumns="*"
         android:stretchColumns="*">
+
         <TableRow
             android:id="@+id/tableRow1"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-            <TextView
-                android:layout_width="150dp"
-                android:id="@+id/tv_txt_materia"
-                android:text="Row"
-                android:textSize="22dp"
-                android:fontFamily="@font/helveticaneubold"
-                android:textColor="#000000"> </TextView>
-            <TextView
-                android:text="F"
-                android:textSize="22dp"
-                android:fontFamily="@font/helveticaneubold"
-                android:gravity="center_horizontal"
-                android:textColor="#000000"> </TextView>
-            <TextView
-                android:text="P"
-                android:textSize="22dp"
-                android:fontFamily="@font/helveticaneubold"
-                android:gravity="center_horizontal"
-                android:textColor="#000000"> </TextView>
-        </TableRow>
-        <TableRow
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            >
+            android:layout_height="wrap_content">
+
             <TextView
+                android:id="@+id/tv_txt_materia"
                 android:layout_width="150dp"
+                android:fontFamily="@font/helveticaneubold"
+                android:text="Row"
+                android:textColor="#000000"
+                android:textSize="22sp" />
+
+            <TextView
+                android:fontFamily="@font/helveticaneubold"
+                android:gravity="center_horizontal"
+                android:text="F"
+                android:textColor="#000000"
+                android:textSize="22sp" />
+
+            <TextView
+                android:fontFamily="@font/helveticaneubold"
+                android:gravity="center_horizontal"
+                android:text="P"
+                android:textColor="#000000"
+                android:textSize="22sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
                 android:id="@+id/tv_txt_maestro"
-                android:text="Maestro"
-                android:textSize="14dp"
+                android:layout_width="150dp"
                 android:fontFamily="@font/helveticaneuelight"
-                android:textColor="#000000"> </TextView>
+                android:text="Maestro"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
             <TextView
                 android:id="@+id/tv_txt_faltas"
-                android:text="Row"
-                android:textSize="14dp"
                 android:fontFamily="@font/helveticaneuelight"
                 android:gravity="center_horizontal"
-                android:textColor="#000000"> </TextView>
+                android:text="Row"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
             <TextView
                 android:id="@+id/tv_txt_calif"
+                android:fontFamily="@font/helveticaneuelight"
                 android:gravity="center_horizontal"
                 android:text="Row"
-                android:textSize="14dp"
-                android:fontFamily="@font/helveticaneuelight"
-                android:textColor="#000000"> </TextView>
+                android:textColor="#000000"
+                android:textSize="14sp" />
         </TableRow>
 
     </TableLayout>

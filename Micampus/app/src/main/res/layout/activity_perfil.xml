@@ -92,13 +92,6 @@
             android:text="Más Información"
             android:textColor="#4481be" />
 
-        <Button
-            android:id="@+id/btn_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:fontFamily="@font/helveticaneuelight"
-            android:text="Menu" />
     </LinearLayout>
 
 

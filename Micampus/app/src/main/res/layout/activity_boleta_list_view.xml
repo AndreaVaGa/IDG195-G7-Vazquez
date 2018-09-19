@@ -8,17 +8,8 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_boleta_list"
-        android:layout_width="368dp"
-        android:layout_height="495dp"/>
-
-    <Button
-        android:id="@+id/btn_menu_boleta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/helveticaneuelight"
-        android:text="Menu" />
-
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </android.support.constraint.ConstraintLayout>
 

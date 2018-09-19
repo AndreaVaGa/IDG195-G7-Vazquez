@@ -33,7 +33,7 @@
             android:fontFamily="@font/helveticaneubold"
             android:text="Académico"
             android:textColor="#ffffff"
-            android:textSize="25dp" />
+            android:textSize="25sp" />
 
         <Button
             android:id="@+id/btn_boleta"
@@ -51,7 +51,7 @@
             android:fontFamily="@font/helveticaneuelight"
             android:text="Boleta"
             android:textColor="#ffffff"
-            android:textSize="14dp" />
+            android:textSize="14sp" />
 
         <View
             android:layout_width="fill_parent"
@@ -66,7 +66,7 @@
             android:fontFamily="@font/helveticaneubold"
             android:text="Financiero"
             android:textColor="#ffffff"
-            android:textSize="25dp" />
+            android:textSize="25sp" />
 
         <View
             android:layout_width="fill_parent"
@@ -81,7 +81,7 @@
             android:fontFamily="@font/helveticaneubold"
             android:text="Evaluaciones"
             android:textColor="#ffffff"
-            android:textSize="25dp" />
+            android:textSize="25sp" />
     </LinearLayout>
 </android.support.v7.widget.LinearLayoutCompat>
 
