@@ -10,18 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".view.TutoresViewActivity">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#000000"
-            android:fontFamily="@font/helveticaneubold"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="Información"
-            android:textColor="#ffff"
-            android:textSize="26sp" />
+        tools:context=".view.TutoresViewActivity"
+        tools:showIn="@layout/activity_tutores">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"

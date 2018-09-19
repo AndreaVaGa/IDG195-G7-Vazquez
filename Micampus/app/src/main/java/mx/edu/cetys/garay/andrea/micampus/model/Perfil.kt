@@ -27,5 +27,5 @@ data class Perfil(
         @SerializedName("Madre")
         val madre: Tutor,
         @SerializedName("boleta")
-        val boleta : ArrayList<Materia> = ArrayList()
+        val boleta: ArrayList<Materia> = ArrayList()
 ) : Parcelable

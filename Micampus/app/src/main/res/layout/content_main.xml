@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fdcc01"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".view.MainLoginActivity"
-    tools:showIn="@layout/activity_main"
-    android:background="#fdcc01">
+    tools:showIn="@layout/activity_main">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical"
-        android:gravity="center"
         android:layout_marginEnd="80dp"
-        android:layout_marginStart="80dp">
+        android:layout_marginStart="80dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
         <ImageView
             android:id="@+id/imagenLogo"
             android:layout_width="200dp"
@@ -25,47 +26,47 @@
             android:src="@drawable/flama" />
 
         <EditText
-            android:hint="Matricula"
             android:id="@+id/edt_matricula"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffff"
             android:layout_marginTop="40dp"
-            android:padding="5dp"
-            android:fontFamily="@font/helveticaneuelight"/>
+            android:background="#ffff"
+            android:fontFamily="@font/helveticaneuelight"
+            android:hint="Matricula"
+            android:padding="5dp" />
 
         <EditText
-            android:hint="Contraseña"
             android:id="@+id/edt_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffff"
             android:layout_marginTop="10dp"
-            android:padding="5dp"
+            android:background="#ffff"
             android:fontFamily="@font/helveticaneuelight"
-            android:inputType="textPassword"/>
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:padding="5dp" />
 
         <Button
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#2b2b2b"
-            android:text="Ingresar"
-            android:textColor="#ffff"
-            android:layout_marginTop="35dp"
             android:layout_marginEnd="55dp"
             android:layout_marginStart="55dp"
-            android:fontFamily="@font/helveticaneuelight"/>
+            android:layout_marginTop="35dp"
+            android:background="#2b2b2b"
+            android:fontFamily="@font/helveticaneuelight"
+            android:text="Ingresar"
+            android:textColor="#ffff" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:text="¿Olvidaste tu contraseña?"
-            android:textColor="#a88100"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/helveticaneuelight"/>
+            android:fontFamily="@font/helveticaneuelight"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:text="¿Olvidaste tu contraseña?"
+            android:textColor="#a88100" />
     </LinearLayout>
 
 </android.support.v7.widget.LinearLayoutCompat>

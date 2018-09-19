@@ -1,19 +1,21 @@
 package mx.edu.cetys.garay.andrea.micampus.view
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_tutores_view.*
-import mx.edu.cetys.garay.andrea.micampus.R.layout.activity_tutores_view
-import mx.edu.cetys.garay.andrea.micampus.model.Perfil
+import kotlinx.android.synthetic.main.content_tutores.*
+import mx.edu.cetys.garay.andrea.micampus.R.layout.activity_tutores
+import mx.edu.cetys.garay.andrea.micampus.model.Alumno
 
 class TutoresViewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activity_tutores_view)
+        setContentView(activity_tutores)
 
-        val perfil = intent.getParcelableExtra<Perfil>("perfil")
+        //setActionBar(findViewById(R.id.tutores_toolbar))
+
+        val perfil = intent.getParcelableExtra<Alumno>("tutor")
+
         tv_txt_nombret.text = perfil.padre.nombre
         tv_txt_telefono.text = perfil.padre.telefono
         tv_txt_trabajo.text = perfil.padre.trabajo

@@ -18,14 +18,10 @@ import mx.edu.cetys.garay.andrea.micampus.model.Alumno
 import mx.edu.cetys.garay.andrea.micampus.model.EndPoints
 
 class MainMenuActivity : AppCompatActivity() {
-    private val utils = Utils()
-    private val gson = Gson()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activity_main_menu)
-
-        val preferencesHelper = PreferencesHelper(applicationContext)
 
         btn_boleta.setOnClickListener { _ ->
             val boleta = Intent(applicationContext, BoletaListViewActivity::class.java)
@@ -34,8 +30,6 @@ class MainMenuActivity : AppCompatActivity() {
 
         btn_perfil.setOnClickListener { _ ->
             val profile = Intent(applicationContext, PerfilActivity::class.java)
-            val alumno = gson.fromJson(preferencesHelper.alumno, Alumno::class.java)
-            profile.putExtra("alumno", alumno)
             startActivity(profile)
         }
     }

@@ -22,12 +22,4 @@ class Utils {
         return null
     }
 
-    fun multiplyTwoNumbers(a: Int, b: Int): Int {
-        return a * b
-    }
-
-    fun divideTwoNumbers(a: Double, b: Double): Double {
-        return a / b
-    }
-
 }

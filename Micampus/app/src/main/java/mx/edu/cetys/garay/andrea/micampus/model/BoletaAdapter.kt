@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.boleta_row.view.*
 import mx.edu.cetys.garay.andrea.micampus.R
 import mx.edu.cetys.garay.andrea.micampus.R.layout.boleta_row
 
-class BoletaAdapter (val items: List<Materia>, val context: Context) :
+class BoletaAdapter(val items: List<Materia>, val context: Context) :
         RecyclerView.Adapter<BoletaAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,7 +36,7 @@ class BoletaAdapter (val items: List<Materia>, val context: Context) :
         val txt_materia = view.tv_txt_materia
         val txt_calificaciones = view.tv_txt_calif
         val txt_faltas = view.tv_txt_faltas
-        val txt_maestro= view.tv_txt_maestro
+        val txt_maestro = view.tv_txt_maestro
     }
 
 }

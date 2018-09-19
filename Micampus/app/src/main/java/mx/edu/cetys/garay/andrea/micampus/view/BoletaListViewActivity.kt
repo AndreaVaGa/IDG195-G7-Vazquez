@@ -1,6 +1,5 @@
 package mx.edu.cetys.garay.andrea.micampus.view
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -13,9 +12,6 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_boleta_list_view.*
-import kotlinx.android.synthetic.main.activity_main_menu.*
-import kotlinx.android.synthetic.main.activity_perfil_list_view.*
-import kotlinx.android.synthetic.main.boleta_row.*
 import mx.edu.cetys.garay.andrea.micampus.R
 import mx.edu.cetys.garay.andrea.micampus.controller.PreferencesHelper
 import mx.edu.cetys.garay.andrea.micampus.controller.Utils

@@ -14,6 +14,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="138dp"
         android:layout_marginTop="30dp"
+        android:contentDescription="student_profile"
         android:orientation="vertical"
         android:src="@drawable/f_perfil" />
 
@@ -33,7 +34,7 @@
             android:gravity="center"
             android:text="Row"
             android:textColor="#1f1f1f"
-            android:textSize="26dp" />
+            android:textSize="26sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,7 +42,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/helveticaneuelight"
             android:text="Carrera:"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_txt_carrera"
@@ -49,7 +50,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/helveticaneuelight"
             android:text="Row"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -57,7 +58,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/helveticaneuelight"
             android:text="Semestre:"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_txt_semestre"
@@ -65,7 +66,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/helveticaneuelight"
             android:text="Row"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,7 +74,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/helveticaneuelight"
             android:text="Materias aprobadas:"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_txt_materiasaprobadas"
@@ -81,7 +82,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/helveticaneuelight"
             android:text="Row"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/btn_tutores"
@@ -93,6 +94,5 @@
             android:textColor="#4481be" />
 
     </LinearLayout>
-
 
 </android.support.v7.widget.LinearLayoutCompat>

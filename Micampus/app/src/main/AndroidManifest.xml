@@ -26,8 +26,6 @@
             android:name=".view.MainMenuActivity"
             android:label="Main Menu" />
 
-        <activity android:name=".view.PerfilListViewActivity" />
-
         <activity
             android:name=".view.PerfilActivity"
             android:label="Perfil" />
@@ -38,7 +36,8 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".view.TutoresViewActivity"
-            android:label="Información" />
+            android:label="Información"
+            android:parentActivityName=".view.PerfilActivity" />
     </application>
 
 </manifest>
