@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, button, Button} from 'react-native';
+import { StyleSheet, Text, View, Image, Button} from 'react-native';
 
 export default class App extends React.Component {
   render() {
@@ -9,11 +9,13 @@ export default class App extends React.Component {
        <Image style={styles.img} source={require('./src/imgs/flama.png')}/>
         <Text style={styles.text}>Usuario</Text>
         <Text style={styles.text}>Contraseña</Text>
-        <Button style={styles.button}  
+        <View style={styles.button}>
+        <Button  
         title="Ingresar"  
         color="#FFFFFF" 
-        onPress={this._onPress} 
+        onPress={(this._onPress)} 
         accessibilityLabel="Tap on Me" />
+        </View>>
       </View>
     );
   }
@@ -38,7 +40,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    backgroundColor: '#C0C0C0',
+    backgroundColor: 'black',
     borderRadius:10,
 
 
