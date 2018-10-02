@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Button, Alert, ScrollView } from 'react-native';
 
 class Greeting extends Component {
   render() {
@@ -44,9 +44,10 @@ export default class App extends React.Component {
   render() {
     let pic = { uri: 'https://i2.wp.com/thehappening.com/wp-content/uploads/2016/02/boliche-cdmx.jpg?fit=1024%2C694&ssl=1'};
     return (
+      <ScrollView>
       <View style={styles.container}>
         <Text style={styles.text1}>Hello World!</Text>
-        <View style={{backgroundColor:'#a377ad', margin: 20}}>
+        <View style={{backgroundColor:'#a377ad', margin: 100}}>
           <Image source={pic} style={{width: 240, height: 140, margin: 40}}/>
         </View>
         <Blink  text='I love Bowling'/>
@@ -68,6 +69,7 @@ export default class App extends React.Component {
         onPress={(this._onPress)} />
         </View>>
       </View>
+      </ScrollView>
     );
   }
 }
@@ -82,16 +84,19 @@ const styles = StyleSheet.create({
   },
   text1: {
     color: 'purple',
-    fontSize:30,
-    fontWeight: 'bold'
+    fontSize:50,
+    fontWeight: 'bold',
+    marginTop: 60
 
   },
   text2: {
     color: 'blue',
-    fontSize: 15,
+    fontSize: 35,
+    marginBottom: 15
   },
   button: {
     backgroundColor: 'steelblue',
-    width: '35%'
+    width: '35%',
+    margin: 30
   }
 });
