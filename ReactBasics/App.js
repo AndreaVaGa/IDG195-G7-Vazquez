@@ -1,5 +1,17 @@
-import React from 'react';
+
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+
+class Greeting extends Component {
+  render() {
+    return (
+      <Text>Hello {this.props.name}!</Text>
+    );
+  }
+  
+}
+
+
 
 export default class App extends React.Component {
   render() {
@@ -7,7 +19,10 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Hello World!</Text>
-        <Image source={pic} style={{width: 240, height: 140}}/>
+        <Image source={pic} style={{width: 240, height: 140, margin: 20}}/>
+        <Greeting name='Angel' />
+        <Greeting name='Ivannia' />
+        <Greeting name='Shamira' />
       </View>
     );
   }
@@ -20,4 +35,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  
 });
