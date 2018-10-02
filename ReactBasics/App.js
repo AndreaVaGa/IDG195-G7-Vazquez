@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Button, Alert, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Button, Alert, ScrollView, FlatList } from 'react-native';
 
 class Greeting extends Component {
   render() {
@@ -52,16 +52,16 @@ export default class App extends React.Component {
         </View>
         <Blink  text='I love Bowling'/>
         <Blink text='Bowling is my passion'/>
-        <View style={{padding: 10}}>
-          <TextInput
-            style={{height: 40}}
-            placeholder="Type here to translate!"
-            onChangeText={(text) => this.setState({text})}
-          />
-          <Text style={{padding: 10, fontSize: 42}}>
-            {this.state.text.split(' ').map((word) => word && '🎳').join(' ')}
-          </Text>
-        </View>
+        <Text style={styles.text3}>¿Qué necesitamos para jugar?</Text>
+        <FlatList 
+          data={[
+            {key: 'Bola'},
+            {key: 'Zapatos'},
+            {key: 'Toallita'},
+            {key: 'Puff'},
+          ]}
+          renderItem={({item}) => <Text style={styles.text4}>{item.key}</Text>}
+        />
         <View style={styles.button}>
         <Button  
         title="Tap"  
@@ -89,10 +89,22 @@ const styles = StyleSheet.create({
     marginTop: 60
 
   },
+  
   text2: {
     color: 'blue',
     fontSize: 35,
     marginBottom: 15
+  },
+  text3: {
+    color: 'purple',
+    fontSize:20,
+    fontWeight: 'bold',
+    marginTop: 10
+  },
+  text4: {
+    color: '#530595',
+    fontSize:20,
+    marginTop: 10
   },
   button: {
     backgroundColor: 'steelblue',
