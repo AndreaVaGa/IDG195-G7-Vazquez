@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Button, Alert } from 'react-native';
 
 class Greeting extends Component {
   render() {
@@ -33,6 +33,10 @@ class Blink extends Component {
 }
 
 export default class App extends React.Component {
+  _onPress() {
+    Alert.alert('You tapped the button!')
+  }
+
   constructor(props) {
     super(props);
     this.state = {text: ''};
@@ -43,20 +47,26 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <Text style={styles.text1}>Hello World!</Text>
         <View style={{backgroundColor:'#a377ad', margin: 20}}>
-        <Image source={pic} style={{width: 240, height: 140, margin: 40}}/>
+          <Image source={pic} style={{width: 240, height: 140, margin: 40}}/>
         </View>
         <Blink  text='I love Bowling'/>
         <Blink text='Bowling is my passion'/>
         <View style={{padding: 10}}>
-        <TextInput
-          style={{height: 40}}
-          placeholder="Type here to translate!"
-          onChangeText={(text) => this.setState({text})}
-        />
-        <Text style={{padding: 10, fontSize: 42}}>
-          {this.state.text.split(' ').map((word) => word && '🎳').join(' ')}
-        </Text>
-      </View>
+          <TextInput
+            style={{height: 40}}
+            placeholder="Type here to translate!"
+            onChangeText={(text) => this.setState({text})}
+          />
+          <Text style={{padding: 10, fontSize: 42}}>
+            {this.state.text.split(' ').map((word) => word && '🎳').join(' ')}
+          </Text>
+        </View>
+        <View style={styles.button}>
+        <Button  
+        title="Tap"  
+        color="#FFFFFF" 
+        onPress={(this._onPress)} />
+        </View>>
       </View>
     );
   }
@@ -79,6 +89,9 @@ const styles = StyleSheet.create({
   text2: {
     color: 'blue',
     fontSize: 15,
+  },
+  button: {
+    backgroundColor: 'steelblue',
+    width: '35%'
   }
-  
 });
