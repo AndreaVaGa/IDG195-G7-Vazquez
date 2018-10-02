@@ -27,7 +27,7 @@ class Blink extends Component {
   render() {
     let display = this.state.isShowingText ? this.props.text : ' ';
     return (
-      <Text>{display}</Text>
+      <Text style={styles.text2}>{display}</Text>
     );
   }
 }
@@ -37,11 +37,12 @@ export default class App extends React.Component {
     let pic = { uri: 'https://i2.wp.com/thehappening.com/wp-content/uploads/2016/02/boliche-cdmx.jpg?fit=1024%2C694&ssl=1'};
     return (
       <View style={styles.container}>
-        <Text>Hello World!</Text>
-        <Image source={pic} style={{width: 240, height: 140, margin: 20}}/>
-        <Blink text='I love Bowling'/>
+        <Text style={styles.text1}>Hello World!</Text>
+        <View style={{backgroundColor:'#a377ad',}}>
+        <Image source={pic} style={{width: 240, height: 140, margin: 40}}/>
+        </View>
+        <Blink  text='I love Bowling'/>
         <Blink text='Bowling is my passion'/>
-
       </View>
     );
   }
@@ -50,9 +51,19 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'powderblue',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text1: {
+    color: 'purple',
+    fontSize:30,
+    fontWeight: 'bold'
+
+  },
+  text2: {
+    color: 'blue',
+    fontSize: 15,
+  }
   
 });
