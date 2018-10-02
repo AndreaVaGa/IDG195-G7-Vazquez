@@ -38,7 +38,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.text1}>Hello World!</Text>
-        <View style={{backgroundColor:'#a377ad',}}>
+        <View style={{backgroundColor:'#a377ad'}}>
         <Image source={pic} style={{width: 240, height: 140, margin: 40}}/>
         </View>
         <Blink  text='I love Bowling'/>
@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'powderblue',
     alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   text1: {
     color: 'purple',
