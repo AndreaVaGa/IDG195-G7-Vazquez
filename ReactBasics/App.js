@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Button, Alert, ScrollView, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Button, Alert, ScrollView, FlatList,  ActivityIndicator } from 'react-native';
 
 class Greeting extends Component {
   render() {
@@ -36,12 +36,39 @@ export default class App extends React.Component {
   _onPress() {
     Alert.alert('You tapped the button!')
   }
+  componentDidMount(){
+    return fetch('http://138.68.231.116:5000/perfil')
+      .then((response) => response.json())
+      .then((responseJson) => {
+
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson,
+        }, function(){
+
+        });
+
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
+  }
+
 
   constructor(props) {
     super(props);
-    this.state = {text: ''};
+    this.state = {text: ''}
+    this.state= {isLoading: true};
   }
   render() {
+    if(this.state.isLoading){
+      return(
+        <View style={{flex: 1, padding: 20}}>
+          <ActivityIndicator/>
+        </View>
+      )
+    }
+    
     let pic = { uri: 'https://i2.wp.com/thehappening.com/wp-content/uploads/2016/02/boliche-cdmx.jpg?fit=1024%2C694&ssl=1'};
     return (
       <ScrollView>
@@ -67,12 +94,21 @@ export default class App extends React.Component {
         title="Tap"  
         color="#FFFFFF" 
         onPress={(this._onPress)} />
-        </View>>
+        </View>
+        <View style={{flex: 1, paddingTop:20}}>
+        <Text style={styles.text3}>Integrantes G7</Text>
+        <FlatList
+          data={this.state.dataSource}
+          renderItem={({item}) => <Text>{item.Nombre} {item.Apellido}</Text>}
+          keyExtractor={({id}, index) => id}
+        />
+      </View>
       </View>
       </ScrollView>
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
