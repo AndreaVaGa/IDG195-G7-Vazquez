@@ -17,7 +17,7 @@ export default class App extends React.Component {
     
       .then((response) => response.json())
       .then((responseJson) => {
-        var usuario= this.state.usuario
+        var usuario= this.state.usuario.toLocaleLowerCase()
         var password= this.state.password
         var test = responseJson.find(function (obj) { return obj.matricula === usuario && obj.password=== password });
         return test;
