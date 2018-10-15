@@ -16,7 +16,18 @@ export default class Home extends React.Component {
   _IraHistorial = () => {
     this.props.navigation.navigate('Historial');
   }
-
+  _IraPerfil = () => {
+    this.props.navigation.navigate('Perfil');
+  }
+  _IraHorario = () => {
+    this.props.navigation.navigate('Horario');
+  }
+  _IraTutores = () => {
+    this.props.navigation.navigate('Tutores');
+  }
+  _IraConfiguracion = () => {
+    this.props.navigation.navigate('Configuracion');
+  }
   _LogOut = () =>{
       AsyncStorage.removeItem('usuario')
       this.props.navigation.navigate('Login');
@@ -31,7 +42,7 @@ export default class Home extends React.Component {
           <Button
             title="Perfil"
             color="#FFFFFF"
-            onPress={(this._IraBoleta)}
+            onPress={(this._IraPerfil)}
             accessibilityLabel="Tap on Me" />
         </View>
         <View style={styles.button}>
@@ -45,7 +56,7 @@ export default class Home extends React.Component {
           <Button
             title="Horario"
             color="#FFFFFF"
-            onPress={(this._IraBoleta)}
+            onPress={(this._IraHorario)}
             accessibilityLabel="Tap on Me" />
         </View>
         <View style={styles.button}>
@@ -60,14 +71,14 @@ export default class Home extends React.Component {
           <Button
             title="Tutores"
             color="#FFFFFF"
-            onPress={(this._IraBoleta)}
+            onPress={(this._IraTutores)}
             accessibilityLabel="Tap on Me" />
         </View>
         <View style={styles.button}>
           <Button
             title="Configuración"
             color="#FFFFFF"
-            onPress={(this._IraBoleta)}
+            onPress={(this._IraConfiguracion)}
             accessibilityLabel="Tap on Me" />
         </View>
         <View style={styles.button}>
