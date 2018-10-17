@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text} from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 export default class Perfil extends React.Component {
-  
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Perfil</Text> 
+        <Text style={styles.text}>Perfil</Text>
       </View>
     );
   }

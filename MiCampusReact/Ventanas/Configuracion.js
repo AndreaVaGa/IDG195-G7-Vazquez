@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text} from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 export default class Configuracion extends React.Component {
-  
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Configuración</Text> 
+        <Text style={styles.text}>Configuración</Text>
       </View>
     );
   }

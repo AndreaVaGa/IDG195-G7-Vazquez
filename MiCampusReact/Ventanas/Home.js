@@ -1,14 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Image, Button, Text, AsyncStorage} from 'react-native';
+import { StyleSheet, View, Image, Button, Text, AsyncStorage } from 'react-native';
 import App from '../App';
-
-
 
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-    
+
   }
   _IraBoleta = () => {
     this.props.navigation.navigate('Boleta');
@@ -28,15 +26,15 @@ export default class Home extends React.Component {
   _IraConfiguracion = () => {
     this.props.navigation.navigate('Configuracion');
   }
-  _LogOut = () =>{
-      AsyncStorage.removeItem('usuario')
-      this.props.navigation.navigate('Login');
-   
+  _LogOut = () => {
+    AsyncStorage.removeItem('usuario')
+    this.props.navigation.navigate('Login');
+
   }
   render() {
     return (
       <View style={styles.container}>
-      <Text style={styles.text} Home/>
+        <Text style={styles.text} Home />
 
         <View style={styles.button}>
           <Button
@@ -66,7 +64,7 @@ export default class Home extends React.Component {
             onPress={(this._IraHistorial)}
             accessibilityLabel="Tap on Me" />
         </View>
-        
+
         <View style={styles.button}>
           <Button
             title="Tutores"
@@ -88,7 +86,7 @@ export default class Home extends React.Component {
             onPress={(this._LogOut)}
             accessibilityLabel="Tap on Me" />
         </View>
-    </View>
+      </View>
     );
   }
 }

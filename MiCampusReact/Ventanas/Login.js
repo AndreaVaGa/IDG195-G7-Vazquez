@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, Image, Button, TextInput, AsyncStorage} from 'react-native';
+import { StyleSheet, View, Image, Button, TextInput, AsyncStorage } from 'react-native';
 
 export default class Login extends React.Component {
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -10,13 +10,13 @@ export default class Login extends React.Component {
       password: ''
     };
   }
-  componentDidMount(){
+  componentDidMount() {
     this._loadInitionState().done();
   }
 
-  _loadInitionState = async() =>{
-    var value= await AsyncStorage.getItem('usuario');
-    if(value !==null){
+  _loadInitionState = async () => {
+    var value = await AsyncStorage.getItem('usuario');
+    if (value !== null) {
       this.props.navigation.navigate('Home');
     }
   }
@@ -39,7 +39,7 @@ export default class Login extends React.Component {
         } else {
           AsyncStorage.setItem('usuario', JSON.stringify(object))
           this.props.navigation.navigate('Home');
-          
+
 
         }
       })
