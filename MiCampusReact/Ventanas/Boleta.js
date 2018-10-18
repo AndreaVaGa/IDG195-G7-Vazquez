@@ -55,8 +55,7 @@ const styles = StyleSheet.create({
 
   },
   container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',  
+    flex: 1, 
   },
   fila: {
     marginTop: 30,
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
     height: 100,
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
-    backgroundColor: '#eee',
+    backgroundColor: '#F5F5F5',
     flexDirection: 'column',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
