@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View , ImageBackground, screenWidth, Image, Button } from 'react-native';
+import { StyleSheet, Text, View , ImageBackground, screenWidth, Image, Button, TouchableOpacity } from 'react-native';
 
 export default class Menu extends React.Component {
   render() {
