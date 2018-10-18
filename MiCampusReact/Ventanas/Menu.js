@@ -1,33 +1,33 @@
 import React from 'react';
-import { StyleSheet, Text, View , ImageBackground, screenWidth } from 'react-native';
+import { StyleSheet, Text, View , ImageBackground, screenWidth, Image, Button } from 'react-native';
 
 export default class Menu extends React.Component {
   render() {
     return (
       <View>
         <ImageBackground style={styles.backgroundImage} source={require('../src/imgs/background.jpg')}>
+          <Text style={styles.title}>Académico</Text>
+          <View style={styles.container}>
+            <TouchableOpacity style={styles.Boton} onPress={() => { alert('Tapped Academico') }} title='Historial'>
+              <Image source={require("../src/imgs/historial.png")}></Image>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.Boton} onPress={() => { alert('Tapped Boleta') }} title='Boleta'>
+              <Image source={require("../src/imgs/boleta.png")}></Image>
+            </TouchableOpacity>
+          </View>
         </ImageBackground>
-        <Text style={style.title}>Académico</Text>
-        <View style={style.container}>
-          <Button onPress={() => {alert.alert('Tapped Academico')}}>
-            <Image style={style.icon} source={require("../src/imgs/historial.png")}></Image>
-          </Button>
-          <Button onPress={() => {alert.alert('Tapped Academico')}}>
-            <Image style={style.icon} source={require("../src/img/boleta.png")}></Image>
-          </Button>
-        </View>
-      </View>  
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    flexDirection:'row',
+  container: {
+    flex: 2,
+    flexDirection: 'row',
     justifyContent: 'space-between'
   },
-  icon:{
+  icon: {
     width: 100,
     heigth: 100,
   },
@@ -39,8 +39,13 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     width: screenWidth,
-    heigth: 300,
-    alignItems:'center',
+    heigth: '100%',
+    alignItems: 'center',
     justifyContent: 'flex-end',
+  },
+  Boton: {
+    borderRadius:20,
+    padding: 10,
+    marginBottom: 20,
   }
 });
