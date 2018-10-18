@@ -57,13 +57,10 @@ export default class Login extends React.Component {
           style={styles.text} onChangeText={(usuario) => this.setState({ usuario })} />
         <TextInput placeholder="Contraseña" secureTextEntry={true}
           style={styles.text} onChangeText={(password) => this.setState({ password })} />
-        <View style={styles.button}>
-          <Button
-            title="Ingresar"
-            color="#FFFFFF"
-            onPress={(this._getAlumno)}
-            accessibilityLabel="Tap on Me" />
-        </View>>
+
+        <Button title="Ingresar"
+          color="#FFFFFF"
+          onPress={(this._getAlumno)}></Button>
       </View>
     );
   }
@@ -91,8 +88,6 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: 'black',
     borderRadius: 10,
-
-
   }
 
 
