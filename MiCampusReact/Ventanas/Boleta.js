@@ -17,9 +17,6 @@ export default class App extends Component<Props> {
 
       <View style={styles.container}>
 
-        <View style={styles.boleta}>
-          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 20 }}>Boleta</Text>
-        </View>
 
         <View style={styles.fila}>
 
@@ -46,14 +43,6 @@ export default class App extends Component<Props> {
 }
 
 const styles = StyleSheet.create({
-  boleta: {
-    height: 40,
-    marginTop: 20,
-    backgroundColor: '#000000',
-    justifyContent: 'center',
-    alignItems: 'center',
-
-  },
   container: {
     flex: 1, 
   },
