@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground, screenWidth, Image, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, screenWidth, Image, Button, TouchableOpacity, borderBottomColor, borderBottomWidth } from 'react-native';
 
 export default class Menu extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ export default class Menu extends React.Component {
         <ImageBackground style={styles.backgroundImage} source={require('../src/imgs/background.jpg')}>
           <Text style={styles.title}>Académico</Text>
           <View>
-            <TouchableOpacity style={styles.Boton} onPress={(this._IraPerfil)} title='Perfil'>
+            <TouchableOpacity style={styles.Boton2} onPress={(this._IraPerfil)} title='Perfil'>
                 <Image source={require("../src/imgs/perfil.png")}></Image>
             </TouchableOpacity>
           </View>
@@ -40,6 +40,11 @@ export default class Menu extends React.Component {
               <Image source={require("../src/imgs/horario.png")}></Image>
             </TouchableOpacity>
           </View>
+          <View
+            style={{
+              borderBottomColor:'#ffcd00',
+              borderBottomWidth: 1,
+            }}/>
         </ImageBackground>
       </View>
     );
@@ -78,5 +83,12 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     marginBottom: 20,
-  }
+  },
+  Boton2:{
+    height: 100,
+    borderRadius: 20,
+    padding: 10,
+    marginBottom: 20,
+    alignContent:'flex-end',
+  },
 });
