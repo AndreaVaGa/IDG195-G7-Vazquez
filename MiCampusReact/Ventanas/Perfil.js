@@ -9,6 +9,9 @@ export default class Perfil extends React.Component {
       nombre: ''
     };
   }
+  _IraTutores = () => {
+    this.props.navigation.navigate('Tutores');
+  }
 
   componentDidMount() {
     this._loadInitionState().done();
@@ -22,6 +25,8 @@ export default class Perfil extends React.Component {
     }
   }
 
+
+
   render() {
     return (
       <View>
@@ -32,7 +37,7 @@ export default class Perfil extends React.Component {
         <Text style={style.texto}>Carrear: IDGD</Text>
         <Text style={style.texto}>Semestre: 7</Text>
         <Text style={style.texto}>Materias aprobadas: 35</Text>
-        <Text style={style.info}>Más información ></Text>
+        <Text style={style.info} onPress={this._IraTutores}>Más información ></Text>
       </View>
 
     );

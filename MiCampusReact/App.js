@@ -17,37 +17,79 @@ const MiCampus = createStackNavigator({
   Home: { screen: Home, navigationOptions: { header: null, } },
   Boleta: {
     screen: Boleta, navigationOptions: {
+      headerStyle: {
+        backgroundColor: 'black',
+      }, headerTitleStyle: {
+        color: 'white',
+      },
       title: 'Boleta',
+      headerTintColor: 'white',
     }
   },
   Horario: {
     screen: Horario, navigationOptions: {
-      title: 'Horario',
+      title: 'Horario', headerStyle: {
+        backgroundColor: 'black',
+      }, headerTitleStyle: {
+        color: 'white',
+      },
+      headerTintColor: 'white',
     }
   },
   Historial: {
     screen: Historial, navigationOptions: {
       title: 'Historial',
+      headerStyle: {
+        backgroundColor: 'black',
+      },
+      headerTitleStyle: {
+        color: 'white',
+      },
+      headerTintColor: 'white',
     }
   },
   Perfil: {
     screen: Perfil, navigationOptions: {
       title: 'Perfil',
+      headerStyle: {
+        backgroundColor: 'black',
+      }, headerTitleStyle: {
+        color: 'white',
+      },
+      headerTintColor: 'white',
     }
   },
   Tutores: {
     screen: Tutores, navigationOptions: {
       title: 'Tutores',
+      headerStyle: {
+        backgroundColor: 'black',
+      }, headerTitleStyle: {
+        color: 'white',
+      },
+      headerTintColor: 'white',
     }
   },
   Fondo: {
     screen: Fondo, navigationOptions: {
       title: 'Fondo',
+      headerStyle: {
+        backgroundColor: 'black',
+      }, headerTitleStyle: {
+        color: 'white',
+      },
+      headerTintColor: 'white',
     }
   },
   Configuracion: {
     screen: Configuracion, navigationOptions: {
       title: 'Configuración',
+      headerStyle: {
+        backgroundColor: 'black',
+      }, headerTitleStyle: {
+        color: 'white',
+      },
+      headerTintColor: 'white',
     }
   },
   Menu: {
