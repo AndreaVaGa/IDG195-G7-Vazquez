@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, ScrollView,TextInput, View, Image, Header, ImageBackground, screenHeight, screenWidth } from 'react-native';
 
-export default class Fondo extends React.Component {
+export default class App extends React.Component {
     render() {
       return (
       <ScrollView> 
@@ -35,13 +35,15 @@ export default class Fondo extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    margin: 5,
+    marginTop: 20,
     alignItems: 'center'  
   },
   imagenPortada: {
     width: 180, 
     height: 180,
-    margin: 5
+    margin: 5,
+    borderWidth: 2,
+    borderColor: 'black',
   },
   fila: {
     flexDirection: 'row',
@@ -50,3 +52,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+
