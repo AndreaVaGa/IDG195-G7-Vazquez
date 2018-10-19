@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Image, Button, Text, AsyncStorage } from 'react-native';
 import App from '../App';
+import utilities from '../Utils/utilities';
 
 
 export default class Home extends React.Component {
@@ -33,6 +34,8 @@ export default class Home extends React.Component {
   }
   render() {
     return (
+
+
       <View style={styles.container}>
         <Text style={styles.text} Home />
 

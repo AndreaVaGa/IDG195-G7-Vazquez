@@ -51,9 +51,7 @@ const MiCampus = createStackNavigator({
     }
   },
   Menu: {
-    screen: Menu, navigationOptions: {
-      title: 'Menu',
-    }
+    screen: Menu, navigationOptions: { header: null, }
   }
 });
 export default class App extends React.Component {
