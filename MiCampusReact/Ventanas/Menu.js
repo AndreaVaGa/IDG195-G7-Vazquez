@@ -24,6 +24,11 @@ export default class Menu extends React.Component {
       <View>
         <ImageBackground style={styles.backgroundImage} source={require('../src/imgs/background.jpg')}>
           <Text style={styles.title}>Académico</Text>
+          <View>
+            <TouchableOpacity style={styles.Boton} onPress={(this._IraBoleta)} title='Perfil'>
+                <Image source={require("../src/imgs/perfil.png")}></Image>
+            </TouchableOpacity>
+          </View>
           <View style={styles.container}>
             <TouchableOpacity style={styles.Boton} onPress={(this._IraBoleta)} title='Boleta'>
               <Image source={require("../src/imgs/boleta.png")}></Image>
@@ -31,7 +36,9 @@ export default class Menu extends React.Component {
             <TouchableOpacity style={styles.Boton} onPress={(this._IraHistorial)} title='Historial'>
               <Image source={require("../src/imgs/historial.png")}></Image>
             </TouchableOpacity>
-
+            <TouchableOpacity style={styles.Boton} onPress={(this._IraHorario)} title='Horario'>
+              <Image source={require("../src/imgs/horario.png")}></Image>
+            </TouchableOpacity>
           </View>
         </ImageBackground>
       </View>
@@ -40,8 +47,13 @@ export default class Menu extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  perfilContainer:{
+    flex: 1,
+    flexDirection: 'row',
+    alignContent:'right',
+  },
   container: {
-    flex: 2,
+    flex: 3,
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
