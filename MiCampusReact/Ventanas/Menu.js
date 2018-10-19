@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   perfilContainer:{
     flex: 1,
     flexDirection: 'row',
-    alignContent:'right',
+    alignContent:'center',
   },
   container: {
     flex: 3,

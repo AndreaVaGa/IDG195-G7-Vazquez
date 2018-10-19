@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, ListView, StyleSheet, Text, View } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+var maestros = [1,2,3];
 
-type Props = {};
-export default class App extends Component<Props> {
-  render() {
-    return (
+class ListViewDemo extends React.Component {
+  
+  constructor(props) {
+    super(props);
 
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      dataSource: ds.cloneWithRows(maestros),
+    };
+  }
 
-
-      <View style={styles.container}>
+  renderRow(){
+    return(
+     <View style={styles.container}>
 
 
         <View style={styles.fila}>
@@ -38,12 +39,23 @@ export default class App extends Component<Props> {
         </View>
 
       </View>
+      );
+  }
+
+ 
+  render() {
+    return (
+      <ListView dataSource={this.state.dataSource}
+        renderRow={this.renderRow.bind(this)}>
+        </ListView>
     );
   }
 }
 
+export default ListViewDemo;
+
 const styles = StyleSheet.create({
-  container: {
+    container: {
     flex: 1, 
   },
   fila: {
