@@ -25,7 +25,7 @@ export default class Perfil extends React.Component {
   render() {
     return (
       <View>
-        <ImageBackground source={require('../src/imgs/portada.jpg')} style={style.portada}>
+        <ImageBackground source={{uri:'http://imagenpng.com/wp-content/uploads/2017/07/portadas-para-youtube-2560x1440-HD-5.png'}} style={style.portada}>
           <Image source={require('../src/imgs/estudiante.jpg')} style={style.fpersona} />
         </ImageBackground>
         <Text style={style.title}>{this.state.apellido}</Text>
