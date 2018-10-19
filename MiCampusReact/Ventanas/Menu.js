@@ -25,7 +25,7 @@ export default class Menu extends React.Component {
         <ImageBackground style={styles.backgroundImage} source={require('../src/imgs/background.jpg')}>
           <Text style={styles.title}>Académico</Text>
           <View>
-            <TouchableOpacity style={styles.Boton} onPress={(this._IraBoleta)} title='Perfil'>
+            <TouchableOpacity style={styles.Boton} onPress={(this._IraPerfil)} title='Perfil'>
                 <Image source={require("../src/imgs/perfil.png")}></Image>
             </TouchableOpacity>
           </View>
