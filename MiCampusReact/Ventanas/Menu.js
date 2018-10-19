@@ -1,36 +1,51 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View , ImageBackground, screenWidth, Image, Button, TouchableOpacity } from 'react-native';
 
 export default class Menu extends React.Component {
   render() {
     return (
-
-      <View style={styles.container}>
-        <Text>Academico</Text>
+      <View>
+        <ImageBackground style={styles.backgroundImage} source={require('../src/imgs/background.jpg')}>
+          <Text style={styles.title}>Académico</Text>
+          <View style={styles.container}>
+            <TouchableOpacity style={styles.Boton} onPress={() => { alert('Tapped Academico') }} title='Historial'>
+              <Image source={require("../src/imgs/historial.png")}></Image>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.Boton} onPress={() => { alert('Tapped Boleta') }} title='Boleta'>
+              <Image source={require("../src/imgs/boleta.png")}></Image>
+            </TouchableOpacity>
+          </View>
+        </ImageBackground>
       </View>
-
     );
   }
 }
 
-class BackgroundImage extends React.Component {
-  render() {
-    <Image source={require('../src/imgs/background.jpg')}>
-      {this.props.children}
-    </Image>
-  }
-}
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'black'
+    flex: 2,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  icon: {
+    width: 100,
+    height: 100,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    color: 'white'
   },
   backgroundImage: {
-    flex: 1,
-    width: null,
-    height: null,
-    resizeMode: 'cover'
+    width: screenWidth,
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+  },
+  Boton: {
+    borderRadius:20,
+    padding: 10,
+    marginBottom: 20,
   }
 });

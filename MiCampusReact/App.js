@@ -15,14 +15,46 @@ import Menu from './Ventanas/Menu';
 const MiCampus = createStackNavigator({
   Login: { screen: Login, navigationOptions: { header: null, } },
   Home: { screen: Home, navigationOptions: { header: null, } },
-  Boleta: { screen: Boleta },
-  Horario: { screen: Horario },
-  Historial: { screen: Historial },
-  Perfil: { screen: Perfil },
-  Tutores: { screen: Tutores },
-  Fondo: { screen: Fondo },
-  Configuracion: { screen: Configuracion },
-  Menu: { screen: Menu }
+  Boleta: {
+    screen: Boleta, navigationOptions: {
+      title: 'Boleta',
+    }
+  },
+  Horario: {
+    screen: Horario, navigationOptions: {
+      title: 'Horario',
+    }
+  },
+  Historial: {
+    screen: Historial, navigationOptions: {
+      title: 'Historial',
+    }
+  },
+  Perfil: {
+    screen: Perfil, navigationOptions: {
+      title: 'Perfil',
+    }
+  },
+  Tutores: {
+    screen: Tutores, navigationOptions: {
+      title: 'Tutores',
+    }
+  },
+  Fondo: {
+    screen: Fondo, navigationOptions: {
+      title: 'Fondo',
+    }
+  },
+  Configuracion: {
+    screen: Configuracion, navigationOptions: {
+      title: 'Configuración',
+    }
+  },
+  Menu: {
+    screen: Menu, navigationOptions: {
+      title: 'Menu',
+    }
+  }
 });
 export default class App extends React.Component {
   constructor(props) {

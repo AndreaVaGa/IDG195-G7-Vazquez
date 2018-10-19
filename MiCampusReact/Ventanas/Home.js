@@ -9,7 +9,7 @@ export default class Home extends React.Component {
 
   }
   _IraBoleta = () => {
-    this.props.navigation.navigate('Boleta');
+    this.props.navigation.navigate('Menu');
   }
   _IraHistorial = () => {
     this.props.navigation.navigate('Historial');

@@ -14,6 +14,7 @@ export default class Perfil extends React.Component {
         <Text style={style.texto}>Materias aprobadas: 35</Text>
         <Text style={style.info}>Más información ></Text>
       </View>
+      
       );
     }
 }
@@ -31,7 +32,7 @@ const style = StyleSheet.create({
     height: 130,
     borderWidth: 5,
     borderColor: '#ffffff',
-    borderRadius:100,
+    borderRadius:65,
   },
   portada: {
     width: screenWidth, 
