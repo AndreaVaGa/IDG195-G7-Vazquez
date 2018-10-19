@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   Boton: {
+    height: 100,
     borderRadius:20,
     padding: 10,
     marginBottom: 20,
