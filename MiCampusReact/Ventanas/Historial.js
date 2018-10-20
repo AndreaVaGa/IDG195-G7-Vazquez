@@ -167,7 +167,6 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 0,
   },
   rowIcon: {
-    promedio: {
       width: 65,
       height: 100,
       borderTopRightRadius: 10,
@@ -182,7 +181,6 @@ const styles = StyleSheet.create({
       shadowRadius: 2,
       elevation: 4,
       alignContent: 'center',
-    },
   },
   headers: {
     fontSize: 20,

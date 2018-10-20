@@ -5,8 +5,11 @@ export default class Perfil extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      apellido: '',
-      nombre: ''
+      nombre: '',
+      apellido: '', 
+      carrera: '',
+      semestre: '',
+      aprobadas: '',
     };
   }
   _IraTutores = () => {
@@ -21,7 +24,11 @@ export default class Perfil extends React.Component {
     var value = await AsyncStorage.getItem('usuario');
     if (value !== null) {
       var alumno = JSON.parse(value)
-      this.setState({ apellido: alumno.apellido })
+      this.setState({ nombre: alumno.nombre})
+      this.setState({ apellido: alumno.apellido})
+      this.setState({ carrera: alumno.carrera})
+      this.setState({ semestre: alumno.semestre})
+      this.setState({ aprobadas: alumno.aprobadas})
     }
   }
   _LogOut = () => {
@@ -39,10 +46,11 @@ export default class Perfil extends React.Component {
         <ImageBackground source={{ uri: 'http://imagenpng.com/wp-content/uploads/2017/07/portadas-para-youtube-2560x1440-HD-5.png' }} style={style.portada}>
           <Image source={require('../src/imgs/estudiante.jpg')} style={style.fpersona} />
         </ImageBackground>
-        <Text style={style.title}>{this.state.apellido}</Text>
-        <Text style={style.texto}>Carrear: IDGD</Text>
-        <Text style={style.texto}>Semestre: 7</Text>
-        <Text style={style.texto}>Materias aprobadas: 35</Text>
+        <Text style={style.title}>{this.state.nombre}</Text>
+        <Text style={style.title2}>{this.state.apellido}</Text>
+        <Text style={style.texto}>Carrera: {this.state.carrera} </Text>
+        <Text style={style.texto}>Semestre: {this.state.semestre}</Text>
+        <Text style={style.texto}>Materias aprobadas: {this.state.aprobadas}</Text>
         <Text style={style.info} onPress={this._IraTutores}>Más información ></Text>
         <View style={style.button}>
           <Button
@@ -63,6 +71,11 @@ const style = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginTop: 20,
+    textAlign: 'center'
+  },
+  title2: {
+    fontSize: 18,
+    fontWeight: 'bold',
     marginBottom: 25,
     textAlign: 'center'
   },
