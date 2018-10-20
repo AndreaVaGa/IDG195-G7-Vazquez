@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, AsyncStorage, View, Image, Header, ImageBackground, screenHeight, screenWidth } from 'react-native';
+import { StyleSheet, Text, AsyncStorage, View, Image, Header, ImageBackground, screenHeight, screenWidth, Button } from 'react-native';
 
 export default class Perfil extends React.Component {
   constructor(props) {
@@ -24,13 +24,19 @@ export default class Perfil extends React.Component {
       this.setState({ apellido: alumno.apellido })
     }
   }
+  _LogOut = () => {
+    AsyncStorage.removeItem('usuario')
+    this.props.navigation.navigate('Login');
+
+  }
+
 
 
 
   render() {
     return (
       <View>
-        <ImageBackground source={{uri:'http://imagenpng.com/wp-content/uploads/2017/07/portadas-para-youtube-2560x1440-HD-5.png'}} style={style.portada}>
+        <ImageBackground source={{ uri: 'http://imagenpng.com/wp-content/uploads/2017/07/portadas-para-youtube-2560x1440-HD-5.png' }} style={style.portada}>
           <Image source={require('../src/imgs/estudiante.jpg')} style={style.fpersona} />
         </ImageBackground>
         <Text style={style.title}>{this.state.apellido}</Text>
@@ -38,7 +44,15 @@ export default class Perfil extends React.Component {
         <Text style={style.texto}>Semestre: 7</Text>
         <Text style={style.texto}>Materias aprobadas: 35</Text>
         <Text style={style.info} onPress={this._IraTutores}>Más información ></Text>
+        <View style={style.button}>
+          <Button
+            title="Log Out"
+            color="#FFFFFF"
+            onPress={(this._LogOut)}
+            accessibilityLabel="Tap on Me" />
+        </View>
       </View>
+
 
     );
   }
@@ -77,5 +91,12 @@ const style = StyleSheet.create({
     marginLeft: 50,
     marginTop: 50,
     fontSize: 12,
+  },
+  button: {
+    backgroundColor: 'black',
+    borderRadius: 10,
+    margin: 20
+
+
   }
 });

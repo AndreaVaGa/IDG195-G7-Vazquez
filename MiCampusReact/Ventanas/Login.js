@@ -32,14 +32,14 @@ export default class Login extends React.Component {
         var password = this.state.password
         var test = responseJson.find(function (obj) { return obj.matricula === usuario && obj.password === password });
         return test;
+
       })
       .then((object) => {
         if (object === undefined) {
           alert('Usuario o contraseña incorrecta')
         } else {
           AsyncStorage.setItem('usuario', JSON.stringify(object))
-          this.props.navigation.navigate('Home');
-
+          this.props.navigation.navigate('Menu');
 
         }
       })
