@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import Carousel from 'simple-carousel-react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -12,6 +13,11 @@ type Props = {};
 export default class Horario extends Component<Props> {
   render() {
     return (
+      <Carousel>
+      <View>
+      <View style={{backgroundColor:'black'}}>
+        <Text style={styles.semana}>Lunes</Text>
+      </View>
       <View style={styles.container}>
         <View style={styles.fila}>
           <View style={styles.materia}>
@@ -24,6 +30,99 @@ export default class Horario extends Component<Props> {
           </View>
         </View>
       </View>
+  </View>
+
+  <View>
+      <View style={{backgroundColor:'black'}}>
+        <Text style={styles.semana}>Martes</Text>
+      </View>
+      <View style={styles.container}>
+        <View style={styles.fila}>
+          <View style={styles.materia}>
+            <Text style={styles.headers}>Base de Datos</Text>
+            <Text style={styles.profesor}>Gerardo del Rincon</Text>
+          </View>
+          <View style={styles.salon}>
+            <Text style={styles.numero}>7013</Text>
+            <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
+          </View>
+        </View>
+      </View>
+  </View>
+
+  <View>
+      <View style={{backgroundColor:'black'}}>
+        <Text style={styles.semana}>Miercoles</Text>
+      </View>
+      <View style={styles.container}>
+        <View style={styles.fila}>
+          <View style={styles.materia}>
+            <Text style={styles.headers}>Base de Datos</Text>
+            <Text style={styles.profesor}>Gerardo del Rincon</Text>
+          </View>
+          <View style={styles.salon}>
+            <Text style={styles.numero}>7013</Text>
+            <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
+          </View>
+        </View>
+      </View>
+  </View>
+
+  <View>
+      <View style={{backgroundColor:'black'}}>
+        <Text style={styles.semana}>Jueves</Text>
+      </View>
+      <View style={styles.container}>
+        <View style={styles.fila}>
+          <View style={styles.materia}>
+            <Text style={styles.headers}>Base de Datos</Text>
+            <Text style={styles.profesor}>Gerardo del Rincon</Text>
+          </View>
+          <View style={styles.salon}>
+            <Text style={styles.numero}>7013</Text>
+            <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
+          </View>
+        </View>
+      </View>
+  </View>
+
+  <View>
+      <View style={{backgroundColor:'black'}}>
+        <Text style={styles.semana}>Viernes</Text>
+      </View>
+      <View style={styles.container}>
+        <View style={styles.fila}>
+          <View style={styles.materia}>
+            <Text style={styles.headers}>Base de Datos</Text>
+            <Text style={styles.profesor}>Gerardo del Rincon</Text>
+          </View>
+          <View style={styles.salon}>
+            <Text style={styles.numero}>7013</Text>
+            <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
+          </View>
+        </View>
+      </View>
+  </View>
+
+  <View>
+      <View style={{backgroundColor:'black'}}>
+        <Text style={styles.semana}>Sabado</Text>
+      </View>
+      <View style={styles.container}>
+        <View style={styles.fila}>
+          <View style={styles.materia}>
+            <Text style={styles.headers}>Base de Datos</Text>
+            <Text style={styles.profesor}>Gerardo del Rincon</Text>
+          </View>
+          <View style={styles.salon}>
+            <Text style={styles.numero}>7013</Text>
+            <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
+          </View>
+        </View>
+      </View>
+  </View>
+
+  </Carousel>
     );
   }
 }
@@ -84,5 +183,11 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginTop: 2,
     fontSize: 10,
+  },
+  semana: {
+    textAlign: 'center',
+    color: '#ffffff',
+    fontSize: 16,
+    margin: 10
   }
  });
