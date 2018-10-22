@@ -16,37 +16,40 @@ export default class Historial extends React.Component {
       title: props.title,
       expanded: true,
       animation: new Animated.Value(),
+      maxHeight: '',
+      minHeight:''
     };
 
-    _setMaxHeight(event);{
-      this.setState({
-          maxHeight: event.nativeEvent.layout.height
-      });
-    };
-  
-  _setMinHeight(event);{
-      this.setState({
-          minHeight: event.nativeEvent.layout.height
-      });
-    }
-
-    toggle();{
-      let initialValue = this.state.expanded? this.state.maxHeight + this.state.minHeight: this.state.minHeight,
-      finalValue = this.state.expanded? this.state.minHeight : this.state.maxHeight + this.state.minHeight;
-
-      this.setState({
-        expanded:!this.state.expanded
-      });
-
-      this.state.animation.setValue(initialValue);
-      Animated.spring(
-        this.state.animation,{
-          toValue:finalValue
-        }
-      ).start();
-    }
     
   }
+  _setMaxHeight(event){
+    this.setState({
+        maxHeight: event.nativeEvent.layout.height
+    });
+  };
+
+_setMinHeight(event){
+    this.setState({
+        minHeight: event.nativeEvent.layout.height
+    });
+  }
+
+  toggle(){
+    let initialValue = this.state.expanded? this.state.maxHeight + this.state.minHeight: this.state.minHeight,
+    finalValue = this.state.expanded? this.state.minHeight : this.state.maxHeight + this.state.minHeight;
+
+    this.setState({
+      expanded:!this.state.expanded
+    });
+
+    this.state.animation.setValue(initialValue);
+    Animated.spring(
+      this.state.animation,{
+        toValue:finalValue
+      }
+    ).start();
+  }
+
   _IraTutores = () => {
     this.props.navigation.navigate('Tutores');
   }
