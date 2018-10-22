@@ -13,12 +13,12 @@ type Props = {};
 export default class Horario extends Component<Props> {
   render() {
     return (
-      <Carousel>
+      <Carousel style={styles.container}>    
       <View>
       <View style={{backgroundColor:'black'}}>
         <Text style={styles.semana}>Lunes</Text>
       </View>
-      <View style={styles.container}>
+      <View>
         <View style={styles.fila}>
           <View style={styles.materia}>
             <Text style={styles.headers}>Base de Datos</Text>
@@ -36,7 +36,7 @@ export default class Horario extends Component<Props> {
       <View style={{backgroundColor:'black'}}>
         <Text style={styles.semana}>Martes</Text>
       </View>
-      <View style={styles.container}>
+      <View>
         <View style={styles.fila}>
           <View style={styles.materia}>
             <Text style={styles.headers}>Base de Datos</Text>
@@ -54,7 +54,7 @@ export default class Horario extends Component<Props> {
       <View style={{backgroundColor:'black'}}>
         <Text style={styles.semana}>Miercoles</Text>
       </View>
-      <View style={styles.container}>
+      <View>
         <View style={styles.fila}>
           <View style={styles.materia}>
             <Text style={styles.headers}>Base de Datos</Text>
@@ -72,7 +72,7 @@ export default class Horario extends Component<Props> {
       <View style={{backgroundColor:'black'}}>
         <Text style={styles.semana}>Jueves</Text>
       </View>
-      <View style={styles.container}>
+      <View>
         <View style={styles.fila}>
           <View style={styles.materia}>
             <Text style={styles.headers}>Base de Datos</Text>
@@ -90,7 +90,7 @@ export default class Horario extends Component<Props> {
       <View style={{backgroundColor:'black'}}>
         <Text style={styles.semana}>Viernes</Text>
       </View>
-      <View style={styles.container}>
+      <View>
         <View style={styles.fila}>
           <View style={styles.materia}>
             <Text style={styles.headers}>Base de Datos</Text>
@@ -108,7 +108,7 @@ export default class Horario extends Component<Props> {
       <View style={{backgroundColor:'black'}}>
         <Text style={styles.semana}>Sabado</Text>
       </View>
-      <View style={styles.container}>
+      <View>
         <View style={styles.fila}>
           <View style={styles.materia}>
             <Text style={styles.headers}>Base de Datos</Text>
@@ -129,7 +129,7 @@ export default class Horario extends Component<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,  
+    flex: 1,
   },
   fila: {
     marginTop: 30,
