@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, AsyncStorage, ScrollView, Component, Animated } from 'react-native';
-import { start } from 'repl';
 
 export default class Historial extends React.Component {
   constructor(props) {
@@ -21,13 +20,13 @@ export default class Historial extends React.Component {
 
     _setMaxHeight(event);{
       this.setState({
-          maxHeight   : event.nativeEvent.layout.height
+          maxHeight: event.nativeEvent.layout.height
       });
     };
   
   _setMinHeight(event);{
       this.setState({
-          minHeight   : event.nativeEvent.layout.height
+          minHeight: event.nativeEvent.layout.height
       });
     }
 
