@@ -1,22 +1,33 @@
 import React, { Component } from 'react';
-import { Platform, ListView, StyleSheet, Text, View } from 'react-native';
+import { Platform, ListView, StyleSheet, Text, View, AsyncStorage} from 'react-native';
 
-var maestros = [1,2,3];
+var maestros = [1, 2, 3];
 
 class ListViewDemo extends React.Component {
-  
+
   constructor(props) {
     super(props);
 
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       dataSource: ds.cloneWithRows(maestros),
+      boleta: '',
     };
   }
+  componentDidMount() {
+    this._loadInitionState().done();
+  }
 
-  renderRow(){
-    return(
-     <View style={styles.container}>
+  _loadInitionState = async () => {
+    var value = await AsyncStorage.getItem('boleta');
+    if (value !== undefined) {
+      var boleta = JSON.parse(value);
+      this.setState({ boleta: boleta });
+    }
+  }
+  renderRow() {
+    return (
+      <View style={styles.container}>
 
 
         <View style={styles.fila}>
@@ -39,15 +50,15 @@ class ListViewDemo extends React.Component {
         </View>
 
       </View>
-      );
+    );
   }
 
- 
+
   render() {
     return (
       <ListView dataSource={this.state.dataSource}
         renderRow={this.renderRow.bind(this)}>
-        </ListView>
+      </ListView>
     );
   }
 }
@@ -55,8 +66,8 @@ class ListViewDemo extends React.Component {
 export default ListViewDemo;
 
 const styles = StyleSheet.create({
-    container: {
-    flex: 1, 
+  container: {
+    flex: 1,
   },
   fila: {
     marginTop: 30,

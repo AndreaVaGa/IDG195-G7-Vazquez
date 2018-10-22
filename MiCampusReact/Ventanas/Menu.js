@@ -1,16 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground, screenWidth, Image, Button, TouchableOpacity, borderBottomColor, borderBottomWidth } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, AsyncStorage, screenWidth, Image, Button, TouchableOpacity, borderBottomColor, borderBottomWidth } from 'react-native';
 
 export default class Menu extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      matricula: '',
+    };
 
   }
-  _IraBoleta = () => {
-    this.props.navigation.navigate('Boleta');
+  componentDidMount() {
+    this._loadInitionState().done();
   }
-  _IraHistorial = () => {
-    this.props.navigation.navigate('Historial');
+
+  _loadInitionState = async () => {
+    var value = await AsyncStorage.getItem('usuario');
+    if (value !== null) {
+      var alumno = JSON.parse(value)
+      this.setState({ matricula: alumno.matricula })
+    }
   }
   _IraPerfil = () => {
     this.props.navigation.navigate('Perfil');
@@ -18,23 +26,66 @@ export default class Menu extends React.Component {
   _IraHorario = () => {
     this.props.navigation.navigate('Horario');
   }
+  _getHistorial = () => {
+
+    return fetch('http://138.68.231.116:5000/historialacademico')
+
+      .then((response) => response.json())
+      .then((responseJson) => {
+        var matricula = this.state.matricula;
+        var test = responseJson.find(function (obj) { return obj.Matricula === matricula });
+        return test;
+      })
+      .then((object) => {
+        if (object !== undefined) {
+          AsyncStorage.setItem('historial', JSON.stringify(object))
+          this.props.navigation.navigate('Historial');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+
+  _getBoleta = () => {
+
+    return fetch('http://138.68.231.116:5000/boleta')
+
+      .then((response) => response.json())
+      .then((responseJson) => {
+        var matricula = this.state.matricula;
+        var test = responseJson.find(function (obj) { return obj.matricula === matricula });
+        return test;
+      })
+      .then((object) => {
+        if (object !== undefined) {
+          AsyncStorage.setItem('boleta', JSON.stringify(object))
+          this.props.navigation.navigate('Boleta');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
 
   render() {
     return (
       <View style={styles.perfilContainer}>
         <ImageBackground style={styles.backgroundImage} source={require('../src/imgs/background.jpg')}>
-          <View style={{flexDirection: 'row', justifyContent: 'flex-end', alignItems:'flex-start', paddingRight: 10}}>
+          <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-start', paddingRight: 10 }}>
             <TouchableOpacity style={styles.Boton2} onPress={(this._IraPerfil)} title='Perfil'>
-                <Image style={{flex: 1, aspectRatio: .2, resizeMode: 'contain'}} source={require("../src/imgs/perfil.png")}></Image>
+              <Image style={{ flex: 1, aspectRatio: .2, resizeMode: 'contain' }} source={require("../src/imgs/perfil.png")}></Image>
             </TouchableOpacity>
           </View>
-           <Text style={styles.title}>Académico</Text>
-           <View style = {styles.lineStyle} />
+          <Text style={styles.title}>Académico</Text>
+          <View style={styles.lineStyle} />
           <View style={styles.container}>
-            <TouchableOpacity style={styles.Boton} onPress={(this._IraBoleta)} title='Boleta'>
+            <TouchableOpacity style={styles.Boton} onPress={(this._getBoleta)} title='Boleta'>
               <Image source={require("../src/imgs/boleta.png")}></Image>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.Boton} onPress={(this._IraHistorial)} title='Historial'>
+            <TouchableOpacity style={styles.Boton} onPress={(this._getHistorial)} title='Historial'>
               <Image source={require("../src/imgs/historial.png")}></Image>
             </TouchableOpacity>
             <TouchableOpacity style={styles.Boton} onPress={(this._IraHorario)} title='Horario'>
@@ -48,7 +99,7 @@ export default class Menu extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  perfilContainer:{
+  perfilContainer: {
     flex: 1,
   },
   container: {
@@ -65,12 +116,12 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginBottom: 5,
   },
-  lineStyle:{
-        borderWidth: 1,
-        width: 335,
-        borderColor:'white',
-        marginLeft:20,
-   },
+  lineStyle: {
+    borderWidth: 1,
+    width: 335,
+    borderColor: 'white',
+    marginLeft: 20,
+  },
   backgroundImage: {
     width: screenWidth,
     height: '100%',
@@ -82,11 +133,11 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 20,
   },
-  Boton2:{
+  Boton2: {
     height: 100,
     borderRadius: 20,
     padding: 10,
     marginBottom: 20,
-    alignContent:'flex-end',
+    alignContent: 'flex-end',
   },
 });

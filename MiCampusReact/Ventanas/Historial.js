@@ -5,8 +5,8 @@ export default class Historial extends React.Component {
   constructor(props) {
     super(props);
 
-    this.icons={
-      'up' : require('../src/imgs/dropdown-01.png'),
+    this.icons = {
+      'up': require('../src/imgs/dropdown-01.png'),
       'down': require('../src/imgs/dropdown-01.png')
     };
     this.state = {
@@ -17,35 +17,35 @@ export default class Historial extends React.Component {
       expanded: true,
       animation: new Animated.Value(),
       maxHeight: '',
-      minHeight:''
+      minHeight: ''
     };
 
-    
+
   }
-  _setMaxHeight(event){
+  _setMaxHeight(event) {
     this.setState({
-        maxHeight: event.nativeEvent.layout.height
+      maxHeight: event.nativeEvent.layout.height
     });
   };
 
-_setMinHeight(event){
+  _setMinHeight(event) {
     this.setState({
-        minHeight: event.nativeEvent.layout.height
+      minHeight: event.nativeEvent.layout.height
     });
   }
 
-  toggle(){
-    let initialValue = this.state.expanded? this.state.maxHeight + this.state.minHeight: this.state.minHeight,
-    finalValue = this.state.expanded? this.state.minHeight : this.state.maxHeight + this.state.minHeight;
+  toggle() {
+    let initialValue = this.state.expanded ? this.state.maxHeight + this.state.minHeight : this.state.minHeight,
+      finalValue = this.state.expanded ? this.state.minHeight : this.state.maxHeight + this.state.minHeight;
 
     this.setState({
-      expanded:!this.state.expanded
+      expanded: !this.state.expanded
     });
 
     this.state.animation.setValue(initialValue);
     Animated.spring(
-      this.state.animation,{
-        toValue:finalValue
+      this.state.animation, {
+        toValue: finalValue
       }
     ).start();
   }
@@ -59,92 +59,73 @@ _setMinHeight(event){
   }
 
   _loadInitionState = async () => {
-    var value = await AsyncStorage.getItem('usuario');
-    if (value !== null) {
-      var alumno = JSON.parse(value)
-      this.setState({ matricula: alumno.matricula })
+    var value = await AsyncStorage.getItem('historial');
+    if (value !== undefined) {
+      var historial = JSON.parse(value);
+      this.setState({ promedio: historial.PromedioGeneral })
     }
   }
-  _getHistorial = () => {
 
-    return fetch('http://138.68.231.116:5000/historialacademico')
-
-      .then((response) => response.json())
-      .then((responseJson) => {
-        var matricula = this.state.matricula;
-        var test = responseJson.find(function (obj) { return obj.Matricula === matricula });
-        return test;
-      })
-      .then((object) => {
-        if (object !== undefined) {
-          var historial = JSON.stringify(object);
-          alert(historial)
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
 
   render() {
     return (
       <View style={styles.container}>
 
-        <Animated.View style={[styles.row,{height:this.state.animation}]}>
-          <View style={[styles.colorBox, {backgroundColor: '#4481c2'}]}>
+        <Animated.View style={[styles.row, { height: this.state.animation }]}>
+          <View style={[styles.colorBox, { backgroundColor: '#4481c2' }]}>
           </View>
           <View style={styles.materia}>
             <Text style={styles.headers} onPress={this._getHistorial}>Cursando</Text>
           </View>
           <TouchableOpacity>
             <View style={styles.rowIcon}>
-              <Image style={{flex: 1, aspectRatio: .25, resizeMode: 'contain'}} source={require('../src/imgs/dropdown-01.png')}></Image>
+              <Image style={{ flex: 1, aspectRatio: .25, resizeMode: 'contain' }} source={require('../src/imgs/dropdown-01.png')}></Image>
             </View>
           </TouchableOpacity>
         </Animated.View>
 
-        <Animated.View style={[styles.row,{height:this.state.animation}]}>
-          <View style={[styles.colorBox, {backgroundColor: '#87c540'}]}>
+        <Animated.View style={[styles.row, { height: this.state.animation }]}>
+          <View style={[styles.colorBox, { backgroundColor: '#87c540' }]}>
           </View>
           <View style={styles.materia}>
             <Text style={styles.headers}>Puedes Cursar</Text>
           </View>
           <TouchableOpacity>
             <View style={styles.rowIcon}>
-              <Image style={{flex: 1, aspectRatio: .25, resizeMode: 'contain'}} source={require('../src/imgs/dropdown-01.png')}></Image>
+              <Image style={{ flex: 1, aspectRatio: .25, resizeMode: 'contain' }} source={require('../src/imgs/dropdown-01.png')}></Image>
             </View>
           </TouchableOpacity>
         </Animated.View>
 
-        <Animated.View style={[styles.row,{height:this.state.animation}]}>
-          <View style={[styles.colorBox, {backgroundColor: '#fdd900'}]}>
+        <Animated.View style={[styles.row, { height: this.state.animation }]}>
+          <View style={[styles.colorBox, { backgroundColor: '#fdd900' }]}>
           </View>
           <View style={styles.materia}>
             <Text style={styles.headers}>Aprobadas</Text>
           </View>
           <TouchableOpacity>
             <View style={styles.rowIcon}>
-              <Image style={{flex: 1, aspectRatio: .25, resizeMode: 'contain'}} source={require('../src/imgs/dropdown-01.png')}></Image>
+              <Image style={{ flex: 1, aspectRatio: .25, resizeMode: 'contain' }} source={require('../src/imgs/dropdown-01.png')}></Image>
             </View>
           </TouchableOpacity>
         </Animated.View>
 
-        <Animated.View style={[styles.row,{height:this.state.animation}]}>
-          <View style={[styles.colorBox, {backgroundColor: '#f78d1f'}]}>
+        <Animated.View style={[styles.row, { height: this.state.animation }]}>
+          <View style={[styles.colorBox, { backgroundColor: '#f78d1f' }]}>
           </View>
           <View style={styles.materia}>
             <Text style={styles.headers}>Sujetas a Aprobación</Text>
           </View>
           <TouchableOpacity>
             <View style={styles.rowIcon}>
-              <Image style={{flex: 1, aspectRatio: .25, resizeMode: 'contain'}} source={require('../src/imgs/dropdown-01.png')}></Image>
+              <Image style={{ flex: 1, aspectRatio: .25, resizeMode: 'contain' }} source={require('../src/imgs/dropdown-01.png')}></Image>
             </View>
           </TouchableOpacity>
         </Animated.View>
 
-    
-          <View style={styles.promedio}>
-            <Text style={{ color: 'white', fontWeight:'bold', fontSize: 15 }}>Promedio general: {this.state.promedio2}</Text>
+
+        <View style={styles.promedio}>
+          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 15 }}>Promedio general: {this.state.promedio}</Text>
         </View>
       </View>
     );
@@ -185,20 +166,20 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
   },
   rowIcon: {
-      width: 65,
-      height: 100,
-      borderTopRightRadius: 10,
-      borderBottomRightRadius: 10,
-      borderTopLeftRadius: 0,
-      borderBottomLeftRadius: 0,
-      backgroundColor: '#F5F5F5',
-      flexDirection: 'column',
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.8,
-      shadowRadius: 2,
-      justifyContent: 'center',
-      alignItems: 'center',
+    width: 65,
+    height: 100,
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
+    backgroundColor: '#F5F5F5',
+    flexDirection: 'column',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   headers: {
     fontSize: 20,
@@ -206,10 +187,10 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   promedio: {
-  backgroundColor: 'black',
-  bottom: 0,
-  position: 'absolute',
-  padding: 7,
-  width: '100%',
+    backgroundColor: 'black',
+    bottom: 0,
+    position: 'absolute',
+    padding: 7,
+    width: '100%',
   },
 });
