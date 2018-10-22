@@ -96,7 +96,7 @@ _setMinHeight(event){
           <View style={styles.materia}>
             <Text style={styles.headers} onPress={this._getHistorial}>Cursando</Text>
           </View>
-          <TouchableOpacity style={styles.Boton}>
+          <TouchableOpacity>
             <View style={styles.rowIcon}>
               <Image style={{flex: 1, aspectRatio: .25, resizeMode: 'contain'}} source={require('../src/imgs/dropdown-01.png')}></Image>
             </View>
@@ -109,7 +109,7 @@ _setMinHeight(event){
           <View style={styles.materia}>
             <Text style={styles.headers}>Puedes Cursar</Text>
           </View>
-          <TouchableOpacity style={styles.Boton}>
+          <TouchableOpacity>
             <View style={styles.rowIcon}>
               <Image style={{flex: 1, aspectRatio: .25, resizeMode: 'contain'}} source={require('../src/imgs/dropdown-01.png')}></Image>
             </View>
@@ -122,7 +122,7 @@ _setMinHeight(event){
           <View style={styles.materia}>
             <Text style={styles.headers}>Aprobadas</Text>
           </View>
-          <TouchableOpacity style={styles.Boton}>
+          <TouchableOpacity>
             <View style={styles.rowIcon}>
               <Image style={{flex: 1, aspectRatio: .25, resizeMode: 'contain'}} source={require('../src/imgs/dropdown-01.png')}></Image>
             </View>
@@ -135,18 +135,16 @@ _setMinHeight(event){
           <View style={styles.materia}>
             <Text style={styles.headers}>Sujetas a Aprobación</Text>
           </View>
-          <TouchableOpacity style={styles.Boton}>
+          <TouchableOpacity>
             <View style={styles.rowIcon}>
               <Image style={{flex: 1, aspectRatio: .25, resizeMode: 'contain'}} source={require('../src/imgs/dropdown-01.png')}></Image>
             </View>
           </TouchableOpacity>
         </Animated.View>
 
-        <View style={{flex:1, color:'black'}}>
-          <ScrollView>marginBottom</ScrollView>
-          <View>
+    
+          <View style={styles.promedio}>
             <Text style={{ color: 'white', fontWeight:'bold', fontSize: 15 }}>Promedio general: {this.state.promedio2}</Text>
-          </View>
         </View>
       </View>
     );
@@ -207,74 +205,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 15,
   },
-  text: {
-    fontSize: 20,
-    padding: 10,
-    color: 'black'
-  },
-  promedio2: {
+  promedio: {
   backgroundColor: 'black',
   bottom: 0,
   position: 'absolute',
   padding: 7,
   width: '100%',
   },
-  Boton: {
-    height: 100,
-    borderRadius: 10,
-    padding: 10,
-    marginBottom: 10,
-  },
-  row2: {
-    marginTop: 30,
-    marginLeft: 22,
-    flexDirection: 'row',
-  },
-  materia2: {
-    width: 200,
-    height: 100,
-    borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10,
-    backgroundColor: '#F5F5F5',
-    flexDirection: 'column',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 4,
-  },
-  faltas: {
-    width: 65,
-    height: 100,
-    backgroundColor: '#ffffff',
-    flexDirection: 'column',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 4,
-  },
-  promedio: {
-    width: 65,
-    height: 100,
-    borderTopRightRadius: 10,
-    borderBottomRightRadius: 10,
-    backgroundColor: '#ffffff',
-    flexDirection: 'column',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 4,
-  },
-  headers2: {
-    fontSize: 20,
-    textAlign: 'center',
-    marginTop: 15,
-  },
-  texto: {
-    textAlign: 'center',
-    color: '#333333',
-    marginTop: 5,
-  }
 });
