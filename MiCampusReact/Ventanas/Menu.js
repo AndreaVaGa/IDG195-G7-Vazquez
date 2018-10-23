@@ -62,6 +62,7 @@ export default class Menu extends React.Component {
       .then((object) => {
         if (object !== undefined) {
           AsyncStorage.setItem('boleta', JSON.stringify(object))
+          alert(JSON.stringify(object.boleta))
           this.props.navigation.navigate('Boleta');
         }
       })

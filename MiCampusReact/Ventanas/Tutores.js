@@ -9,7 +9,12 @@ export default class Tutores extends React.Component {
       telefono: '',
       trabajo: '',
       correo: '',
-      direccion: ''
+      direccion: '',
+      nombre2: '',
+      telefono2: '',
+      trabajo2: '',
+      correo2: '',
+      direccion2: ''
     };
   }
 
@@ -26,11 +31,11 @@ export default class Tutores extends React.Component {
       this.setState({ trabajo: alumno.tutor1.trabajo })
       this.setState({ correo: alumno.tutor1.correo })
       this.setState({ direccion: alumno.tutor1.direccion })
-      this.setState({ nombre: alumno.tutor2.nombre })
-      this.setState({ telefono: alumno.tutor2.telefono })  
-      this.setState({ trabajo: alumno.tutor2.trabajo })
-      this.setState({ correo: alumno.tutor2.correo })
-      this.setState({ direccion: alumno.tutor2.direccion })
+      this.setState({ nombre2: alumno.tutor2.nombre })
+      this.setState({ telefono2: alumno.tutor2.telefono })  
+      this.setState({ trabajo2: alumno.tutor2.trabajo })
+      this.setState({ correo2: alumno.tutor2.correo })
+      this.setState({ direccion2: alumno.tutor2.direccion })
     }
   }
 
@@ -48,15 +53,15 @@ export default class Tutores extends React.Component {
         <Text style={styles.texto2}>Dirección: </Text>
         <Text style={styles.texto}>{this.state.direccion}</Text>
         <Text style={styles.titles}>Madre: </Text>
-        <Text style={styles.texto}>{this.state.nombre}</Text>
+        <Text style={styles.texto}>{this.state.nombre2}</Text>
         <Text style={styles.texto2}>Telefono: </Text>
-        <Text style={styles.texto}>{this.state.telefono}</Text>
+        <Text style={styles.texto}>{this.state.telefono2}</Text>
         <Text style={styles.texto2}>Trabajo: </Text>
-        <Text style={styles.texto}>{this.state.trabajo}</Text>
+        <Text style={styles.texto}>{this.state.trabajo2}</Text>
         <Text style={styles.texto2}>Correo: </Text>
-        <Text style={styles.texto}>{this.state.correo}</Text>
+        <Text style={styles.texto}>{this.state.correo2}</Text>
         <Text style={styles.texto2}>Dirección: </Text>
-        <Text style={styles.texto}>{this.state.direccion}</Text>
+        <Text style={styles.texto}>{this.state.direccion2}</Text>
       </ScrollView>
     );
   }
