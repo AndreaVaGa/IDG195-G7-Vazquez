@@ -52,7 +52,7 @@ export default class Login extends React.Component {
     return (
       <View style={styles.container}>
 
-        <Image style={styles.img} source={require('../src/imgs/flama.png')} />
+        <Image style={{ flex: .4, aspectRatio: 1, resizeMode: 'contain', marginBottom: 10 }} source={require('../src/imgs/flama.png')} />
         <TextInput placeholder="Usuario"
           style={styles.text} onChangeText={(usuario) => this.setState({ usuario })} />
         <TextInput placeholder="Contraseña" secureTextEntry={true}

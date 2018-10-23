@@ -24,7 +24,7 @@ export default class Historial extends React.Component {
   }
   _setMaxHeight(event) {
     this.setState({
-      maxHeight: event.nativeEvent.layout.height
+      maxHeight: event.nativeEvent.layout.height + 50
     });
   };
 
@@ -78,7 +78,7 @@ export default class Historial extends React.Component {
             <Text style={styles.headers} onPress={this._getHistorial}>Cursando</Text>
           </View>
           <TouchableOpacity>
-            <View style={styles.rowIcon}>
+            <View style={styles.rowIcon} onPress={this._setMaxHeight}>
               <Image style={{ flex: 1, aspectRatio: .25, resizeMode: 'contain' }} source={require('../src/imgs/dropdown-01.png')}></Image>
             </View>
           </TouchableOpacity>
