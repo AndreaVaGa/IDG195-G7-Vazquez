@@ -10,11 +10,7 @@ class ListViewDemo extends React.Component {
 
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
-      dataSource: ds.cloneWithRows(maestros),
-      boleta: '',
-      materia:'',
-      profesor:'',
-
+      dataSource: ds.cloneWithRows(maestros)
     };
   }
   componentDidMount() {
@@ -38,18 +34,18 @@ class ListViewDemo extends React.Component {
         <View style={styles.fila}>
 
           <View style={styles.materia}>
-            <Text style={styles.headers}>{this.state.materia}</Text>
-            <Text style={styles.texto}>{this.state.profesor}</Text>
+            <Text style={styles.headers}></Text>
+            <Text style={styles.texto}></Text>
           </View>
 
           <View style={styles.faltas}>
             <Text style={styles.headers}>F</Text>
-            <Text style={styles.texto}>0</Text>
+            <Text style={styles.texto}></Text>
           </View>
 
           <View style={styles.promedio}>
             <Text style={styles.headers}>P</Text>
-            <Text style={styles.texto}>10</Text>
+            <Text style={styles.texto}></Text>
           </View>
 
         </View>
