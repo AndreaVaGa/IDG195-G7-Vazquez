@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, ListView, StyleSheet, Text, View, AsyncStorage} from 'react-native';
 
-var boleta = AsyncStorage.getItem('boleta');
+//var boleta = AsyncStorage.getItem('boleta');
 
 class ListViewDemo extends React.Component {
 
@@ -10,11 +10,21 @@ class ListViewDemo extends React.Component {
 
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
-      dataSource: ds.cloneWithRows(boleta)
+      dataSource: ds.cloneWithRows([])
     };
   }
   componentDidMount() {
+    var materia = [];
     this._loadInitionState().done();
+    var boleta = responseJson.boleta;
+    for(var i=0; i<boleta.lenght; i++){
+        array.push(boleta[i].materia);
+    }
+    this.setState(
+      {
+        dataSource: this.state.dataSource.cloneWithRows(array)
+      }
+    )
   }
 
   _loadInitionState = async () => {
