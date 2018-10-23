@@ -1,63 +1,19 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity, AsyncStorage, ScrollView, Component, Animated } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity, AsyncStorage, ScrollView, } from 'react-native';
 
 export default class Historial extends React.Component {
   constructor(props) {
     super(props);
-
-    this.icons = {
-      'up': require('../src/imgs/dropdown-01.png'),
-      'down': require('../src/imgs/dropdown-01.png')
-    };
     this.state = {
       matricula: '',
       boleta: '',
       promedio: '',
-      title: props.title,
-      expanded: true,
-      animation: new Animated.Value(),
-      maxHeight: '',
-      minHeight: ''
     };
-
-
-  }
-  _setMaxHeight(event) {
-    this.setState({
-      maxHeight: event.nativeEvent.layout.height + 50
-    });
-  };
-
-  _setMinHeight(event) {
-    this.setState({
-      minHeight: event.nativeEvent.layout.height
-    });
-  }
-
-  toggle() {
-    let initialValue = this.state.expanded ? this.state.maxHeight + this.state.minHeight : this.state.minHeight,
-      finalValue = this.state.expanded ? this.state.minHeight : this.state.maxHeight + this.state.minHeight;
-
-    this.setState({
-      expanded: !this.state.expanded
-    });
-
-    this.state.animation.setValue(initialValue);
-    Animated.spring(
-      this.state.animation, {
-        toValue: finalValue
-      }
-    ).start();
-  }
-
-  _IraTutores = () => {
-    this.props.navigation.navigate('Tutores');
   }
 
   componentDidMount() {
     this._loadInitionState().done();
   }
-
   _loadInitionState = async () => {
     var value = await AsyncStorage.getItem('historial');
     if (value !== undefined) {
@@ -66,25 +22,24 @@ export default class Historial extends React.Component {
     }
   }
 
-
   render() {
     return (
       <View style={styles.container}>
 
-        <Animated.View style={[styles.row, { height: this.state.animation }]}>
+        <View style={[styles.row, { height: this.state.animation }]}>
           <View style={[styles.colorBox, { backgroundColor: '#4481c2' }]}>
           </View>
           <View style={styles.materia}>
             <Text style={styles.headers} onPress={this._getHistorial}>Cursando</Text>
           </View>
           <TouchableOpacity>
-            <View style={styles.rowIcon} onPress={this._setMaxHeight}>
+            <View style={styles.rowIcon}>
               <Image style={{ flex: 1, aspectRatio: .25, resizeMode: 'contain' }} source={require('../src/imgs/dropdown-01.png')}></Image>
             </View>
           </TouchableOpacity>
-        </Animated.View>
+        </View>
 
-        <Animated.View style={[styles.row, { height: this.state.animation }]}>
+        <View style={[styles.row, { height: this.state.animation }]}>
           <View style={[styles.colorBox, { backgroundColor: '#87c540' }]}>
           </View>
           <View style={styles.materia}>
@@ -95,9 +50,9 @@ export default class Historial extends React.Component {
               <Image style={{ flex: 1, aspectRatio: .25, resizeMode: 'contain' }} source={require('../src/imgs/dropdown-01.png')}></Image>
             </View>
           </TouchableOpacity>
-        </Animated.View>
+        </View>
 
-        <Animated.View style={[styles.row, { height: this.state.animation }]}>
+        <View style={[styles.row, { height: this.state.animation }]}>
           <View style={[styles.colorBox, { backgroundColor: '#fdd900' }]}>
           </View>
           <View style={styles.materia}>
@@ -108,9 +63,9 @@ export default class Historial extends React.Component {
               <Image style={{ flex: 1, aspectRatio: .25, resizeMode: 'contain' }} source={require('../src/imgs/dropdown-01.png')}></Image>
             </View>
           </TouchableOpacity>
-        </Animated.View>
+        </View>
 
-        <Animated.View style={[styles.row, { height: this.state.animation }]}>
+        <View style={[styles.row, { height: this.state.animation }]}>
           <View style={[styles.colorBox, { backgroundColor: '#f78d1f' }]}>
           </View>
           <View style={styles.materia}>
@@ -121,7 +76,7 @@ export default class Historial extends React.Component {
               <Image style={{ flex: 1, aspectRatio: .25, resizeMode: 'contain' }} source={require('../src/imgs/dropdown-01.png')}></Image>
             </View>
           </TouchableOpacity>
-        </Animated.View>
+        </View>
 
 
         <View style={styles.promedio}>

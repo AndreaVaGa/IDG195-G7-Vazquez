@@ -57,10 +57,11 @@ export default class Login extends React.Component {
           style={styles.text} onChangeText={(usuario) => this.setState({ usuario })} />
         <TextInput placeholder="Contraseña" secureTextEntry={true}
           style={styles.text} onChangeText={(password) => this.setState({ password })} />
-
-        <Button title="Ingresar"
-          color="#FFFFFF"
-          onPress={(this._getAlumno)}></Button>
+        <View style={styles.button}>
+          <Button title="Ingresar"
+            color="#FFFFFF"
+            onPress={(this._getAlumno)}></Button>
+        </View>
       </View>
     );
   }
