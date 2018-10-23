@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, AsyncStorage} from 'react-native';
 import Carousel from 'simple-carousel-react-native';
 
 const instructions = Platform.select({
@@ -11,6 +11,26 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class Horario extends Component<Props> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      horario: '',
+      
+    };
+  }
+  componentDidMount() {
+    this._loadInitionState().done();
+  }
+
+  _loadInitionState = async () => {
+    var value = await AsyncStorage.getItem('horario');
+    if (value !== null) {
+      var horario = JSON.parse(value)
+      this.setState({ horario: horario})
+      
+    }
+  }
+  
   render() {
     return (
       <Carousel style={styles.container}>    

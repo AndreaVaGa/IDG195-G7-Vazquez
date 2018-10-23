@@ -35,6 +35,7 @@ export default class Menu extends React.Component {
         var matricula = this.state.matricula;
         var test = responseJson.find(function (obj) { return obj.Matricula === matricula });
         return test;
+        
       })
       .then((object) => {
         if (object !== undefined) {
@@ -69,6 +70,29 @@ export default class Menu extends React.Component {
       });
   }
 
+  _getHorario = () => {
+
+    return fetch('http://138.68.231.116:5000/horario')
+
+      .then((response) => response.json())
+      .then((responseJson) => {
+        var matricula = this.state.matricula;
+        var test = responseJson.find(function (obj) { return obj.Matricula === matricula });
+        return test;
+      })
+      .then((object) => {
+        if (object !== undefined) {
+          AsyncStorage.setItem('horario', JSON.stringify(object))
+          alert(JSON.stringify(object.Horario))
+          this.props.navigation.navigate('Horario');
+          
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
 
   render() {
     return (
@@ -88,7 +112,7 @@ export default class Menu extends React.Component {
             <TouchableOpacity style={styles.Boton} onPress={(this._getHistorial)} title='Historial'>
               <Image source={require("../src/imgs/historial.png")}></Image>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.Boton} onPress={(this._IraHorario)} title='Horario'>
+            <TouchableOpacity style={styles.Boton} onPress={(this._getHorario)} title='Horario'>
               <Image source={require("../src/imgs/horario.png")}></Image>
             </TouchableOpacity>
           </View>
