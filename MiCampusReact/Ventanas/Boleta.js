@@ -12,6 +12,9 @@ class ListViewDemo extends React.Component {
     this.state = {
       dataSource: ds.cloneWithRows(maestros),
       boleta: '',
+      materia:'',
+      profesor:'',
+
     };
   }
   componentDidMount() {
@@ -23,6 +26,8 @@ class ListViewDemo extends React.Component {
     if (value !== undefined) {
       var boleta = JSON.parse(value);
       this.setState({ boleta: boleta });
+      this.setState({ materia: boleta.materia1.materia});
+      this.setState({ profesor: boleta.materia1.profesor});
     }
   }
   renderRow() {
@@ -33,8 +38,8 @@ class ListViewDemo extends React.Component {
         <View style={styles.fila}>
 
           <View style={styles.materia}>
-            <Text style={styles.headers}>Base de Datos</Text>
-            <Text style={styles.texto}>Gerardo del Rincon</Text>
+            <Text style={styles.headers}>{this.state.materia}</Text>
+            <Text style={styles.texto}>{this.state.profesor}</Text>
           </View>
 
           <View style={styles.faltas}>
