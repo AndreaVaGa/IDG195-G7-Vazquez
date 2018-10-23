@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity, AsyncStorage, ScrollView, } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity, AsyncStorage, ScrollView, ModalDropdown, TouchableHighlight, rowData} from 'react-native';
 
 export default class Historial extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       matricula: '',
-      boleta: '',
+      historial: '',
       promedio: '',
     };
   }
@@ -17,7 +17,9 @@ export default class Historial extends React.Component {
   _loadInitionState = async () => {
     var value = await AsyncStorage.getItem('historial');
     if (value !== undefined) {
-      var historial = JSON.parse(value);
+      var historial = JSON.parse(value)
+      this.setState({historial:historial.Plandeestudios})
+      alert(JSON.stringify(this.state.historial))
       this.setState({ promedio: historial.PromedioGeneral })
     }
   }
@@ -25,12 +27,11 @@ export default class Historial extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
         <View style={[styles.row, { height: this.state.animation }]}>
           <View style={[styles.colorBox, { backgroundColor: '#4481c2' }]}>
           </View>
           <View style={styles.materia}>
-            <Text style={styles.headers} onPress={this._getHistorial}>Cursando</Text>
+            <Text style={styles.headers} >Cursando</Text>
           </View>
           <TouchableOpacity>
             <View style={styles.rowIcon}>

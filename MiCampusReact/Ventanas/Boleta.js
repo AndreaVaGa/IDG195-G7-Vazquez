@@ -1,133 +1,103 @@
 import React, { Component } from 'react';
-import { Platform, ListView, StyleSheet, Text, View, AsyncStorage} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  AsyncStorage,
+  SearchBar
+} from 'react-native';
 
-//var boleta = AsyncStorage.getItem('boleta');
 
 class ListViewDemo extends React.Component {
-
+  
   constructor(props) {
-    super(props);
-
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    super(props)
     this.state = {
-      dataSource: ds.cloneWithRows([])
+      loading: false,
+      page: 1,
+      seed: 1,
+      error: null,
+      refreshing: false,
     };
   }
   componentDidMount() {
-    var materia = [];
     this._loadInitionState().done();
-    var boleta = responseJson.boleta;
-    for(var i=0; i<boleta.lenght; i++){
-        array.push(boleta[i].materia);
-    }
-    this.setState(
-      {
-        dataSource: this.state.dataSource.cloneWithRows(array)
-      }
-    )
   }
-
   _loadInitionState = async () => {
     var value = await AsyncStorage.getItem('boleta');
     if (value !== undefined) {
-      var boleta = JSON.parse(value);
-      this.setState({ boleta: boleta });
+      var boleta = JSON.parse(value)
+      this.setState({data: boleta.boleta})
+
+      //this.setState({ promedio: historial.PromedioGeneral })
     }
   }
-  renderRow() {
+  
+
+ListViewItemSeparator = () => {
     return (
-      <View style={styles.container}>
-
-
-        <View style={styles.fila}>
-
-          <View style={styles.materia}>
-            <Text style={styles.headers}></Text>
-            <Text style={styles.texto}></Text>
-          </View>
-
-          <View style={styles.faltas}>
-            <Text style={styles.headers}>F</Text>
-            <Text style={styles.texto}></Text>
-          </View>
-
-          <View style={styles.promedio}>
-            <Text style={styles.headers}>P</Text>
-            <Text style={styles.texto}></Text>
-          </View>
-
-        </View>
-
-      </View>
+      <View
+        style={{
+          height: .5,
+          width: "100%",
+          backgroundColor: "#000",
+        }}
+      />
     );
   }
-
 
   render() {
     return (
-      <ListView dataSource={this.state.dataSource}
-        renderRow={this.renderRow.bind(this)}>
-      </ListView>
+      <View style={styles.container} >
+        <Text style={styles.h2text}>
+          Boleta
+        </Text>
+        <FlatList
+          data={this.state.data}
+          showsVerticalScrollIndicator={false}
+          renderItem={({item}) =>
+          <View style={styles.flatview}>
+            <Text style={styles.name}>{item.materia}</Text>
+            <Text style={styles.email}>{item.profesor}</Text>
+            <Text>{item.calif}</Text>
+            <Text>{item.faltas}</Text>
+          </View>
+          }
+          keyExtractor={item => item.materia}
+          ItemSeparatorComponent={this.ListViewItemSeparator} 
+        />
+      </View>
     );
   }
+  
 }
-
 export default ListViewDemo;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
   },
-  fila: {
-    marginTop: 30,
-    marginLeft: 22,
-    flexDirection: 'row',
+  h2text: {
+    marginTop: 10,
+    fontSize: 36,
+    fontWeight: 'bold',
   },
-  materia: {
-    width: 200,
-    height: 100,
-    borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10,
-    backgroundColor: '#F5F5F5',
-    flexDirection: 'column',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 4,
+  flatview: {
+    justifyContent: 'center',
+    paddingTop: 30,
+    borderRadius: 2,
   },
-  faltas: {
-    width: 65,
-    height: 100,
-    backgroundColor: '#ffffff',
-    flexDirection: 'column',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 4,
+  name: {
+    fontFamily: 'Verdana',
+    fontSize: 18
   },
-  promedio: {
-    width: 65,
-    height: 100,
-    borderTopRightRadius: 10,
-    borderBottomRightRadius: 10,
-    backgroundColor: '#ffffff',
-    flexDirection: 'column',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 4,
-  },
-  headers: {
-    fontSize: 20,
-    textAlign: 'center',
-    marginTop: 15,
-  },
-  texto: {
-    textAlign: 'center',
-    color: '#333333',
-    marginTop: 5,
+  email: {
+    color: 'green'
   }
+
 });
+  
