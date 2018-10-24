@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
-  Platform, 
-  StyleSheet, 
-  Text, 
-  View, 
+  Platform,
+  StyleSheet,
+  Text,
+  View,
   AsyncStorage,
   FlatList
 } from 'react-native';
@@ -22,7 +22,13 @@ export default class Horario extends Component<Props> {
     super(props);
     this.state = {
       horario: '',
-      
+      lunes: '',
+      martes: '',
+      miercoles: '',
+      jueves: '',
+      viernes: '',
+      sabado: ''
+
     };
   }
   componentDidMount() {
@@ -33,159 +39,164 @@ export default class Horario extends Component<Props> {
     var value = await AsyncStorage.getItem('horario');
     if (value !== null) {
       var horario = JSON.parse(value)
-      this.setState({ horario: horario})
-      
+      this.setState({ lunes: horario.Lunes })
+      this.setState({ martes: horario.Martes })
+      this.setState({ miercoles: horario.Miercoles })
+      this.setState({ jueves: horario.Miercoles })
+      this.setState({ viernes: horario.Viernes })
+      this.setState({ sabado: horario.Sabado })
+
     }
   }
-  
+
   render() {
     return (
-      <Carousel style={styles.container}>    
-      <View>
-      <View style={{backgroundColor:'#1E90FF'}}>
-        <Text style={styles.semana}>Lunes</Text>
-      </View>
-      <FlatList
-          data={this.state.data}
-          showsVerticalScrollIndicator={false}
-          renderItem={({ item }) =>
-          <View style={styles.fila}>
-          <View style={styles.materia}>
-            <Text style={styles.headers}>Base de Datos</Text>
-            <Text style={styles.profesor}>Gerardo del Rincon</Text>
+      <Carousel style={styles.container}>
+        <View>
+          <View style={{ backgroundColor: '#1E90FF' }}>
+            <Text style={styles.semana}>Lunes</Text>
           </View>
-          <View style={styles.salon}>
-            <Text style={styles.numero}>7013</Text>
-            <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
-          </View>
+          <FlatList
+            data={this.state.lunes}
+            showsVerticalScrollIndicator={false}
+            renderItem={({ item }) =>
+              <View style={styles.fila}>
+                <View style={styles.materia}>
+                  <Text style={styles.headers}>{item.materia}</Text>
+                  <Text style={styles.profesor}>{item.profesor}</Text>
+                </View>
+                <View style={styles.salon}>
+                  <Text style={styles.numero}>{item.salon}</Text>
+                  <Text style={styles.hora}>{item.horario}</Text>
+                </View>
+              </View>
+            }
+            keyExtractor={item => item.materia}
+            ItemSeparatorComponent={this.ListViewItemSeparator}
+          />
         </View>
-          }
-          keyExtractor={item => item.materia}
-          ItemSeparatorComponent={this.ListViewItemSeparator}
-        />
-      </View>
 
-  <View>
-      <View style={{backgroundColor:'#32CD32'}}>
-        <Text style={styles.semana}>Martes</Text>
-      </View>
-      <FlatList
-          data={this.state.data}
-          showsVerticalScrollIndicator={false}
-          renderItem={({ item }) =>
-          <View style={styles.fila}>
-          <View style={styles.materia}>
-            <Text style={styles.headers}>Base de Datos</Text>
-            <Text style={styles.profesor}>Gerardo del Rincon</Text>
+        <View>
+          <View style={{ backgroundColor: '#32CD32' }}>
+            <Text style={styles.semana}>Martes</Text>
           </View>
-          <View style={styles.salon}>
-            <Text style={styles.numero}>7013</Text>
-            <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
-          </View>
+          <FlatList
+            data={this.state.martes}
+            showsVerticalScrollIndicator={false}
+            renderItem={({ item }) =>
+              <View style={styles.fila}>
+                <View style={styles.materia}>
+                  <Text style={styles.headers}>{item.materia}</Text>
+                  <Text style={styles.profesor}>{item.profesor}</Text>
+                </View>
+                <View style={styles.salon}>
+                  <Text style={styles.numero}>{item.salon}</Text>
+                  <Text style={styles.hora}>{item.horario}</Text>
+                </View>
+              </View>
+            }
+            keyExtractor={item => item.materia}
+            ItemSeparatorComponent={this.ListViewItemSeparator}
+          />
         </View>
-          }
-          keyExtractor={item => item.materia}
-          ItemSeparatorComponent={this.ListViewItemSeparator}
-        />
-      </View>
 
-  <View>
-      <View style={{backgroundColor:'#DAA520'}}>
-        <Text style={styles.semana}>Miercoles</Text>
-      </View>
-      <FlatList
-          data={this.state.data}
-          showsVerticalScrollIndicator={false}
-          renderItem={({ item }) =>
-          <View style={styles.fila}>
-          <View style={styles.materia}>
-            <Text style={styles.headers}>Base de Datos</Text>
-            <Text style={styles.profesor}>Gerardo del Rincon</Text>
+        <View>
+          <View style={{ backgroundColor: '#DAA520' }}>
+            <Text style={styles.semana}>Miercoles</Text>
           </View>
-          <View style={styles.salon}>
-            <Text style={styles.numero}>7013</Text>
-            <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
-          </View>
+          <FlatList
+            data={this.state.miercoles}
+            showsVerticalScrollIndicator={false}
+            renderItem={({ item }) =>
+              <View style={styles.fila}>
+                <View style={styles.materia}>
+                  <Text style={styles.headers}>{item.materia}</Text>
+                  <Text style={styles.profesor}>{item.profesor}</Text>
+                </View>
+                <View style={styles.salon}>
+                  <Text style={styles.numero}>{item.salon}</Text>
+                  <Text style={styles.hora}>{item.horario}</Text>
+                </View>
+              </View>
+            }
+            keyExtractor={item => item.materia}
+            ItemSeparatorComponent={this.ListViewItemSeparator}
+          />
         </View>
-          }
-          keyExtractor={item => item.materia}
-          ItemSeparatorComponent={this.ListViewItemSeparator}
-        />
-      </View>
 
-  <View>
-      <View style={{backgroundColor:'#DB7093'}}>
-        <Text style={styles.semana}>Jueves</Text>
-      </View>
-      <FlatList
-          data={this.state.data}
-          showsVerticalScrollIndicator={false}
-          renderItem={({ item }) =>
-          <View style={styles.fila}>
-          <View style={styles.materia}>
-            <Text style={styles.headers}>Base de Datos</Text>
-            <Text style={styles.profesor}>Gerardo del Rincon</Text>
+        <View>
+          <View style={{ backgroundColor: '#DB7093' }}>
+            <Text style={styles.semana}>Jueves</Text>
           </View>
-          <View style={styles.salon}>
-            <Text style={styles.numero}>7013</Text>
-            <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
-          </View>
+          <FlatList
+            data={this.state.jueves}
+            showsVerticalScrollIndicator={false}
+            renderItem={({ item }) =>
+              <View style={styles.fila}>
+                <View style={styles.materia}>
+                  <Text style={styles.headers}>{item.materia}</Text>
+                  <Text style={styles.profesor}>{item.profesor}</Text>
+                </View>
+                <View style={styles.salon}>
+                  <Text style={styles.numero}>{item.salon}</Text>
+                  <Text style={styles.hora}>{item.horario}</Text>
+                </View>
+              </View>
+            }
+            keyExtractor={item => item.materia}
+            ItemSeparatorComponent={this.ListViewItemSeparator}
+          />
         </View>
-          }
-          keyExtractor={item => item.materia}
-          ItemSeparatorComponent={this.ListViewItemSeparator}
-        />
-      </View>
 
-  <View>
-      <View style={{backgroundColor:'#663399'}}>
-        <Text style={styles.semana}>Viernes</Text>
-      </View>
-      <FlatList
-          data={this.state.data}
-          showsVerticalScrollIndicator={false}
-          renderItem={({ item }) =>
-          <View style={styles.fila}>
-          <View style={styles.materia}>
-            <Text style={styles.headers}>Base de Datos</Text>
-            <Text style={styles.profesor}>Gerardo del Rincon</Text>
+        <View>
+          <View style={{ backgroundColor: '#663399' }}>
+            <Text style={styles.semana}>Viernes</Text>
           </View>
-          <View style={styles.salon}>
-            <Text style={styles.numero}>7013</Text>
-            <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
-          </View>
+          <FlatList
+            data={this.state.viernes}
+            showsVerticalScrollIndicator={false}
+            renderItem={({ item }) =>
+              <View style={styles.fila}>
+                <View style={styles.materia}>
+                  <Text style={styles.headers}>{item.materia}</Text>
+                  <Text style={styles.profesor}>{item.profesor}</Text>
+                </View>
+                <View style={styles.salon}>
+                  <Text style={styles.numero}>{item.salon}</Text>
+                  <Text style={styles.hora}>{item.horario}</Text>
+                </View>
+              </View>
+            }
+            keyExtractor={item => item.materia}
+            ItemSeparatorComponent={this.ListViewItemSeparator}
+          />
         </View>
-          }
-          keyExtractor={item => item.materia}
-          ItemSeparatorComponent={this.ListViewItemSeparator}
-        />
-      </View>
 
-  <View>
-      <View style={{backgroundColor:'#CD5C5C'}}>
-        <Text style={styles.semana}>Sabado</Text>
-      </View>
-      <FlatList
-          data={this.state.data}
-          showsVerticalScrollIndicator={false}
-          renderItem={({ item }) =>
-          <View style={styles.fila}>
-          <View style={styles.materia}>
-            <Text style={styles.headers}>Base de Datos</Text>
-            <Text style={styles.profesor}>Gerardo del Rincon</Text>
+        <View>
+          <View style={{ backgroundColor: '#CD5C5C' }}>
+            <Text style={styles.semana}>Sabado</Text>
           </View>
-          <View style={styles.salon}>
-            <Text style={styles.numero}>7013</Text>
-            <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
-          </View>
+          <FlatList
+            data={this.state.sabado}
+            showsVerticalScrollIndicator={false}
+            renderItem={({ item }) =>
+              <View style={styles.fila}>
+                <View style={styles.materia}>
+                  <Text style={styles.headers}>{item.materia}</Text>
+                  <Text style={styles.profesor}>{item.profesor}</Text>
+                </View>
+                <View style={styles.salon}>
+                  <Text style={styles.numero}>{item.salon}</Text>
+                  <Text style={styles.hora}>{item.horario}</Text>
+                </View>
+              </View>
+            }
+            keyExtractor={item => item.materia}
+            ItemSeparatorComponent={this.ListViewItemSeparator}
+          />
         </View>
-          }
-          keyExtractor={item => item.materia}
-          ItemSeparatorComponent={this.ListViewItemSeparator}
-        />
-      </View>
 
-  </Carousel>
+      </Carousel>
     );
   }
 }
@@ -202,7 +213,7 @@ const styles = StyleSheet.create({
   materia: {
     width: 240,
     height: 100,
-    justifyContent:'center',
+    justifyContent: 'center',
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
     backgroundColor: '#F5F5F5',
@@ -216,7 +227,7 @@ const styles = StyleSheet.create({
   salon: {
     width: 80,
     height: 100,
-    justifyContent:'center',
+    justifyContent: 'center',
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
     backgroundColor: '#ffffff',
@@ -253,4 +264,4 @@ const styles = StyleSheet.create({
     fontSize: 16,
     margin: 10
   }
- });
+});
