@@ -41,9 +41,10 @@ export default class Tutores extends React.Component {
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView style={styles.container}>
         <Text style={styles.titles}>Padre: </Text>
         <Text style={styles.texto}>{this.state.nombre}</Text>
+        <View style={styles.lineStyle} />
         <Text style={styles.texto2}>Telefono: </Text>
         <Text style={styles.texto}>{this.state.telefono}</Text>
         <Text style={styles.texto2}>Trabajo: </Text>
@@ -54,6 +55,7 @@ export default class Tutores extends React.Component {
         <Text style={styles.texto}>{this.state.direccion}</Text>
         <Text style={styles.titles}>Madre: </Text>
         <Text style={styles.texto}>{this.state.nombre2}</Text>
+        <View style={styles.lineStyle} />
         <Text style={styles.texto2}>Telefono: </Text>
         <Text style={styles.texto}>{this.state.telefono2}</Text>
         <Text style={styles.texto2}>Trabajo: </Text>
@@ -68,11 +70,16 @@ export default class Tutores extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    marginBottom: 20
+  },
   titles: {
     justifyContent: 'center',
     marginLeft: 50,
     marginTop: 25,
-    fontSize: 20
+    fontSize: 30
   },
   texto: {
     justifyContent: 'center',
@@ -82,7 +89,14 @@ const styles = StyleSheet.create({
   texto2: {
     justifyContent: 'center',
     marginLeft: 50,
-    marginTop:25,
+    marginTop:20,
     fontSize: 16
-  }
+  },
+  lineStyle: {
+    borderWidth: 1,
+    width: 360,
+    borderColor: '#ffaa00',
+    marginLeft: 20,
+    marginTop: 15
+  },
 });
