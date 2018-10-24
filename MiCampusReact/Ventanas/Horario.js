@@ -1,23 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  Platform,
   StyleSheet,
   Text,
   View,
   AsyncStorage,
   FlatList
 } from 'react-native';
-import Carousel from 'simple-carousel-react-native';
+import Carousel from '../Utils/carrousel';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-type Props = {};
-export default class Horario extends Component<Props> {
+export default class Horario extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -51,7 +42,7 @@ export default class Horario extends Component<Props> {
 
   render() {
     return (
-      <Carousel style={styles.container}>
+      <Carousel >
         <View>
           <View style={{ backgroundColor: '#1E90FF' }}>
             <Text style={styles.semana}>Lunes</Text>
@@ -207,6 +198,7 @@ const styles = StyleSheet.create({
   },
   fila: {
     marginTop: 30,
+    marginBottom: 5,
     marginLeft: 22,
     flexDirection: 'row',
   },
