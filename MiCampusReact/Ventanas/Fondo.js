@@ -1,5 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView,TextInput, View, Image, Header, ImageBackground, screenHeight, screenWidth } from 'react-native';
+import { 
+  StyleSheet,
+  ScrollView, 
+  View, 
+  Image
+ } from 'react-native';
 
 export default class App extends React.Component {
     render() {

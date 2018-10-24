@@ -1,5 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, AsyncStorage, View, Image, Header, ImageBackground, screenHeight, screenWidth, Button } from 'react-native';
+import { 
+  StyleSheet, 
+  Text, 
+  AsyncStorage, 
+  View, 
+  Image,
+  ImageBackground, 
+  screenWidth, 
+  Button 
+} from 'react-native';
 
 export default class Perfil extends React.Component {
   constructor(props) {

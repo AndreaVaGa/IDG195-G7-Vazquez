@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, AsyncStorage} from 'react-native';
+import {
+  Platform, 
+  StyleSheet, 
+  Text, 
+  View, 
+  AsyncStorage,
+  FlatList
+} from 'react-native';
 import Carousel from 'simple-carousel-react-native';
 
 const instructions = Platform.select({
@@ -35,11 +42,14 @@ export default class Horario extends Component<Props> {
     return (
       <Carousel style={styles.container}>    
       <View>
-      <View style={{backgroundColor:'black'}}>
+      <View style={{backgroundColor:'#1E90FF'}}>
         <Text style={styles.semana}>Lunes</Text>
       </View>
-      <View>
-        <View style={styles.fila}>
+      <FlatList
+          data={this.state.data}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) =>
+          <View style={styles.fila}>
           <View style={styles.materia}>
             <Text style={styles.headers}>Base de Datos</Text>
             <Text style={styles.profesor}>Gerardo del Rincon</Text>
@@ -49,15 +59,21 @@ export default class Horario extends Component<Props> {
             <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
           </View>
         </View>
+          }
+          keyExtractor={item => item.materia}
+          ItemSeparatorComponent={this.ListViewItemSeparator}
+        />
       </View>
-  </View>
 
   <View>
-      <View style={{backgroundColor:'black'}}>
+      <View style={{backgroundColor:'#32CD32'}}>
         <Text style={styles.semana}>Martes</Text>
       </View>
-      <View>
-        <View style={styles.fila}>
+      <FlatList
+          data={this.state.data}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) =>
+          <View style={styles.fila}>
           <View style={styles.materia}>
             <Text style={styles.headers}>Base de Datos</Text>
             <Text style={styles.profesor}>Gerardo del Rincon</Text>
@@ -67,15 +83,21 @@ export default class Horario extends Component<Props> {
             <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
           </View>
         </View>
+          }
+          keyExtractor={item => item.materia}
+          ItemSeparatorComponent={this.ListViewItemSeparator}
+        />
       </View>
-  </View>
 
   <View>
-      <View style={{backgroundColor:'black'}}>
+      <View style={{backgroundColor:'#DAA520'}}>
         <Text style={styles.semana}>Miercoles</Text>
       </View>
-      <View>
-        <View style={styles.fila}>
+      <FlatList
+          data={this.state.data}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) =>
+          <View style={styles.fila}>
           <View style={styles.materia}>
             <Text style={styles.headers}>Base de Datos</Text>
             <Text style={styles.profesor}>Gerardo del Rincon</Text>
@@ -85,15 +107,21 @@ export default class Horario extends Component<Props> {
             <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
           </View>
         </View>
+          }
+          keyExtractor={item => item.materia}
+          ItemSeparatorComponent={this.ListViewItemSeparator}
+        />
       </View>
-  </View>
 
   <View>
-      <View style={{backgroundColor:'black'}}>
+      <View style={{backgroundColor:'#DB7093'}}>
         <Text style={styles.semana}>Jueves</Text>
       </View>
-      <View>
-        <View style={styles.fila}>
+      <FlatList
+          data={this.state.data}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) =>
+          <View style={styles.fila}>
           <View style={styles.materia}>
             <Text style={styles.headers}>Base de Datos</Text>
             <Text style={styles.profesor}>Gerardo del Rincon</Text>
@@ -103,15 +131,21 @@ export default class Horario extends Component<Props> {
             <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
           </View>
         </View>
+          }
+          keyExtractor={item => item.materia}
+          ItemSeparatorComponent={this.ListViewItemSeparator}
+        />
       </View>
-  </View>
 
   <View>
-      <View style={{backgroundColor:'black'}}>
+      <View style={{backgroundColor:'#663399'}}>
         <Text style={styles.semana}>Viernes</Text>
       </View>
-      <View>
-        <View style={styles.fila}>
+      <FlatList
+          data={this.state.data}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) =>
+          <View style={styles.fila}>
           <View style={styles.materia}>
             <Text style={styles.headers}>Base de Datos</Text>
             <Text style={styles.profesor}>Gerardo del Rincon</Text>
@@ -121,15 +155,21 @@ export default class Horario extends Component<Props> {
             <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
           </View>
         </View>
+          }
+          keyExtractor={item => item.materia}
+          ItemSeparatorComponent={this.ListViewItemSeparator}
+        />
       </View>
-  </View>
 
   <View>
-      <View style={{backgroundColor:'black'}}>
+      <View style={{backgroundColor:'#CD5C5C'}}>
         <Text style={styles.semana}>Sabado</Text>
       </View>
-      <View>
-        <View style={styles.fila}>
+      <FlatList
+          data={this.state.data}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) =>
+          <View style={styles.fila}>
           <View style={styles.materia}>
             <Text style={styles.headers}>Base de Datos</Text>
             <Text style={styles.profesor}>Gerardo del Rincon</Text>
@@ -139,8 +179,11 @@ export default class Horario extends Component<Props> {
             <Text style={styles.hora}>6:00 - 8:00 p.m.</Text>
           </View>
         </View>
+          }
+          keyExtractor={item => item.materia}
+          ItemSeparatorComponent={this.ListViewItemSeparator}
+        />
       </View>
-  </View>
 
   </Carousel>
     );
