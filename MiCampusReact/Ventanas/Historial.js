@@ -1,5 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity, AsyncStorage, ScrollView, ModalDropdown, TouchableHighlight, rowData} from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity, AsyncStorage, ScrollView, ModalDropdown} from 'react-native';
+import { Constants } from 'expo';
+import * as Animatable from 'react-native-animatable';
+import Collapsible from 'react-native-collapsible';
+import Accordion from 'react-native-collapsible/Accordion';
 
 export default class Historial extends React.Component {
   constructor(props) {
@@ -27,6 +31,9 @@ export default class Historial extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+
+        <TouchableOpacity onPress={this.toggleExpanded}>
+
         <View style={[styles.row, { height: this.state.animation }]}>
           <View style={[styles.colorBox, { backgroundColor: '#4481c2' }]}>
           </View>
@@ -39,6 +46,26 @@ export default class Historial extends React.Component {
             </View>
           </TouchableOpacity>
         </View>
+
+        </TouchableOpacity>  
+
+         <Collapsible collapsed={this.state.collapsed} align="center">
+
+         <View style={[styles.row, { height: this.state.animation }]}>
+          <View style={[styles.colorBox, { backgroundColor: '#4481c2' }]}>
+          </View>
+          <View style={styles.materia}>
+            <Text style={styles.headers} >Cursando</Text>
+          </View>
+          <TouchableOpacity>
+            <View style={styles.rowIcon}>
+              <Image style={{ flex: 1, aspectRatio: .25, resizeMode: 'contain' }} source={require('../src/imgs/dropdown-01.png')}></Image>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+         </Collapsible>
+
 
         <View style={[styles.row, { height: this.state.animation }]}>
           <View style={[styles.colorBox, { backgroundColor: '#87c540' }]}>
