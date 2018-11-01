@@ -5,6 +5,15 @@ import * as Animatable from 'react-native-animatable';
 import Collapsible from 'react-native-collapsible';
 import Accordion from 'react-native-collapsible/Accordion';
 
+export default class App extends Component {
+  state = {
+    collapsed: true,
+  };
+
+  toggleExpanded = () => {
+    this.setState({ collapsed: !this.state.collapsed });
+  };
+
 export default class Historial extends React.Component {
   constructor(props) {
     super(props);
