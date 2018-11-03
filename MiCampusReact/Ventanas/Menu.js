@@ -28,12 +28,12 @@ export default class Menu extends React.Component {
   }
   _getHistorial = () => {
 
-    return fetch('http://138.68.231.116:5000/historialacademico')
+    return fetch('http://138.68.231.116:5000/historial')
 
       .then((response) => response.json())
       .then((responseJson) => {
         var matricula = this.state.matricula;
-        var test = responseJson.find(function (obj) { return obj.Matricula === matricula });
+        var test = responseJson.find(function (obj) { return obj.matricula === matricula });
         return test;
         
       })
