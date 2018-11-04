@@ -9,10 +9,8 @@ import {
   Switch,
   TouchableOpacity
 } from 'react-native';
-import { Constants } from 'expo';
-import * as Animatable from 'react-native-animatable';
-import Collapsible from 'react-native-collapsible';
-import Accordion from 'react-native-collapsible/Accordion';
+
+var collapsed = true;
 
 class ListViewDemo extends React.Component {
 
@@ -37,13 +35,21 @@ class ListViewDemo extends React.Component {
     }
   }
 
-  state = {
-    collapsed: true,
-  };
+  changeHeight = () => {
 
-  toggleExpanded = () => {
-    this.setState({ collapsed: !this.state.collapsed });
-  };
+  if (collapsed) {
+    this._height.setNativeProps({height: 150});
+    this._height2.setNativeProps({height: 150});
+    this._height3.setNativeProps({height: 150});
+  }
+  else {
+    this._height.setNativeProps({height: 100});
+    this._height2.setNativeProps({height: 100});
+    this._height3.setNativeProps({height: 100});
+  }
+
+  collapsed=!collapsed;
+}
 
   render() {
     return (
@@ -55,24 +61,23 @@ class ListViewDemo extends React.Component {
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) =>
 
-          <View>
 
-          <TouchableOpacity onPress={this.toggleExpanded}>
+          <TouchableOpacity onPress={this.changeHeight}>
 
 
             <View style={styles.fila}>
 
-              <View style={styles.materia}>
+              <View style={styles.materia} ref={component => this._height = component}>
                 <Text style={styles.headers}>{item.materia}</Text>
                 <Text style={styles.texto}>{item.profesor}</Text>
               </View>
 
-              <View style={styles.faltas}>
+              <View style={styles.faltas} ref={component => this._height2 = component}>
                 <Text style={styles.headers}>F</Text>
                 <Text style={styles.texto}>{item.faltas}</Text>
               </View>
 
-              <View style={styles.promedio}>
+              <View style={styles.promedio} ref={component => this._height3 = component}>
                 <Text style={styles.headers}>P</Text>
                 <Text style={styles.texto}>{item.calif}</Text>
               </View>
@@ -81,66 +86,6 @@ class ListViewDemo extends React.Component {
 
             </TouchableOpacity>
 
-            <Collapsible collapsed={this.state.collapsed} align="center">
-
-             <View style={styles.fila}>
-
-              <View style={styles.materia}>
-                <Text style={styles.headers}></Text>
-                <Text style={styles.texto}></Text>
-              </View>
-
-              <View style={styles.faltas}>
-                <Text style={styles.headers}>F</Text>
-                <Text style={styles.texto}></Text>
-              </View>
-
-              <View style={styles.promedio}>
-                <Text style={styles.headers}>P</Text>
-                <Text style={styles.texto}></Text>
-              </View>
-            </View>
-
-            <View style={styles.fila}>
-
-              <View style={styles.materia}>
-                <Text style={styles.headers}></Text>
-                <Text style={styles.texto}></Text>
-              </View>
-
-              <View style={styles.faltas}>
-                <Text style={styles.headers}>F</Text>
-                <Text style={styles.texto}></Text>
-              </View>
-
-              <View style={styles.promedio}>
-                <Text style={styles.headers}>P</Text>
-                <Text style={styles.texto}></Text>
-              </View>
-            </View>
-
-            <View style={styles.fila}>
-
-              <View style={styles.materia}>
-                <Text style={styles.headers}></Text>
-                <Text style={styles.texto}></Text>
-              </View>
-
-              <View style={styles.faltas}>
-                <Text style={styles.headers}>F</Text>
-                <Text style={styles.texto}></Text>
-              </View>
-
-              <View style={styles.promedio}>
-                <Text style={styles.headers}>P</Text>
-                <Text style={styles.texto}></Text>
-              </View>
-            </View>
-            
-
-            </Collapsible>
-
-            </View>
 
           }
           keyExtractor={item => item.materia}
