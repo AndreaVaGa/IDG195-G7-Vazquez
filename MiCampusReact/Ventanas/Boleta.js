@@ -4,9 +4,15 @@ import {
   Text,
   View,
   FlatList,
-  AsyncStorage
+  AsyncStorage,
+  ScrollView,
+  Switch,
+  TouchableOpacity
 } from 'react-native';
-
+import { Constants } from 'expo';
+import * as Animatable from 'react-native-animatable';
+import Collapsible from 'react-native-collapsible';
+import Accordion from 'react-native-collapsible/Accordion';
 
 class ListViewDemo extends React.Component {
 
@@ -31,13 +37,29 @@ class ListViewDemo extends React.Component {
     }
   }
 
+  state = {
+    collapsed: true,
+  };
+
+  toggleExpanded = () => {
+    this.setState({ collapsed: !this.state.collapsed });
+  };
+
   render() {
     return (
       <View style={styles.container} >
+            
+        
         <FlatList
           data={this.state.data}
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) =>
+
+          <View>
+
+          <TouchableOpacity onPress={this.toggleExpanded}>
+
+
             <View style={styles.fila}>
 
               <View style={styles.materia}>
@@ -54,12 +76,77 @@ class ListViewDemo extends React.Component {
                 <Text style={styles.headers}>P</Text>
                 <Text style={styles.texto}>{item.calif}</Text>
               </View>
+            </View>
+
+
+            </TouchableOpacity>
+
+            <Collapsible collapsed={this.state.collapsed} align="center">
+
+             <View style={styles.fila}>
+
+              <View style={styles.materia}>
+                <Text style={styles.headers}></Text>
+                <Text style={styles.texto}></Text>
+              </View>
+
+              <View style={styles.faltas}>
+                <Text style={styles.headers}>F</Text>
+                <Text style={styles.texto}></Text>
+              </View>
+
+              <View style={styles.promedio}>
+                <Text style={styles.headers}>P</Text>
+                <Text style={styles.texto}></Text>
+              </View>
+            </View>
+
+            <View style={styles.fila}>
+
+              <View style={styles.materia}>
+                <Text style={styles.headers}></Text>
+                <Text style={styles.texto}></Text>
+              </View>
+
+              <View style={styles.faltas}>
+                <Text style={styles.headers}>F</Text>
+                <Text style={styles.texto}></Text>
+              </View>
+
+              <View style={styles.promedio}>
+                <Text style={styles.headers}>P</Text>
+                <Text style={styles.texto}></Text>
+              </View>
+            </View>
+
+            <View style={styles.fila}>
+
+              <View style={styles.materia}>
+                <Text style={styles.headers}></Text>
+                <Text style={styles.texto}></Text>
+              </View>
+
+              <View style={styles.faltas}>
+                <Text style={styles.headers}>F</Text>
+                <Text style={styles.texto}></Text>
+              </View>
+
+              <View style={styles.promedio}>
+                <Text style={styles.headers}>P</Text>
+                <Text style={styles.texto}></Text>
+              </View>
+            </View>
+            
+
+            </Collapsible>
 
             </View>
+
           }
           keyExtractor={item => item.materia}
           ItemSeparatorComponent={this.ListViewItemSeparator}
         />
+
       </View>
     );
   }
