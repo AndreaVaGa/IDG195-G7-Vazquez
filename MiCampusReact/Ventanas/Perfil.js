@@ -46,9 +46,6 @@ export default class Perfil extends React.Component {
 
   }
 
-
-
-
   render() {
     return (
       <View>
@@ -118,7 +115,5 @@ const style = StyleSheet.create({
     backgroundColor: 'black',
     borderRadius: 10,
     margin: 20
-
-
   }
 });
