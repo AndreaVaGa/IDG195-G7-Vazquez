@@ -1,13 +1,13 @@
 import React from 'react';
-import { 
-  StyleSheet, 
-  Text, 
-  AsyncStorage, 
-  View, 
+import {
+  StyleSheet,
+  Text,
+  AsyncStorage,
+  View,
   Image,
-  ImageBackground, 
-  screenWidth, 
-  Button 
+  ImageBackground,
+  screenWidth,
+  Button
 } from 'react-native';
 
 export default class Perfil extends React.Component {
@@ -15,7 +15,7 @@ export default class Perfil extends React.Component {
     super(props);
     this.state = {
       nombre: '',
-      apellido: '', 
+      apellido: '',
       carrera: '',
       semestre: '',
       aprobadas: '',
@@ -33,11 +33,11 @@ export default class Perfil extends React.Component {
     var value = await AsyncStorage.getItem('usuario');
     if (value !== null) {
       var alumno = JSON.parse(value)
-      this.setState({ nombre: alumno.nombre})
-      this.setState({ apellido: alumno.apellido})
-      this.setState({ carrera: alumno.carrera})
-      this.setState({ semestre: alumno.semestre})
-      this.setState({ aprobadas: alumno.aprobadas})
+      this.setState({ nombre: alumno.nombre })
+      this.setState({ apellido: alumno.apellido })
+      this.setState({ carrera: alumno.carrera })
+      this.setState({ semestre: alumno.semestre })
+      this.setState({ aprobadas: alumno.aprobadas })
     }
   }
   _LogOut = () => {

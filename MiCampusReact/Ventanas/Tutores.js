@@ -27,12 +27,12 @@ export default class Tutores extends React.Component {
     if (value !== null) {
       var alumno = JSON.parse(value)
       this.setState({ nombre: alumno.tutor1.nombre })
-      this.setState({ telefono: alumno.tutor1.telefono })  
+      this.setState({ telefono: alumno.tutor1.telefono })
       this.setState({ trabajo: alumno.tutor1.trabajo })
       this.setState({ correo: alumno.tutor1.correo })
       this.setState({ direccion: alumno.tutor1.direccion })
       this.setState({ nombre2: alumno.tutor2.nombre })
-      this.setState({ telefono2: alumno.tutor2.telefono })  
+      this.setState({ telefono2: alumno.tutor2.telefono })
       this.setState({ trabajo2: alumno.tutor2.trabajo })
       this.setState({ correo2: alumno.tutor2.correo })
       this.setState({ direccion2: alumno.tutor2.direccion })
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   texto2: {
     justifyContent: 'center',
     marginLeft: 50,
-    marginTop:20,
+    marginTop: 20,
     fontSize: 16
   },
   lineStyle: {
