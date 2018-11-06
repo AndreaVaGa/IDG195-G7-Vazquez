@@ -1,6 +1,6 @@
 class Utilities {
-    
-      
+
+
 }
 
 const utilities = new Utilities()

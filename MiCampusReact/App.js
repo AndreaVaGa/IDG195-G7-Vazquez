@@ -1,8 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Image, Button, TextInput, AsyncStorage } from 'react-native';
+import { AsyncStorage } from 'react-native';
 import { createStackNavigator, } from 'react-navigation';
 import Login from './Ventanas/Login';
-import Home from './Ventanas/Home';
 import Boleta from './Ventanas/Boleta';
 import Historial from './Ventanas/Historial';
 import Horario from './Ventanas/Horario';
@@ -14,7 +13,6 @@ import Menu from './Ventanas/Menu';
 
 const MiCampus = createStackNavigator({
   Login: { screen: Login, navigationOptions: { header: null, } },
-  Home: { screen: Home, navigationOptions: { header: null, } },
   Boleta: {
     screen: Boleta, navigationOptions: {
       headerStyle: {
@@ -100,9 +98,6 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-  }
-  _IraBoleta = () => {
-    this.props.navigation.navigate('Boleta');
   }
   _LogOut = () => {
     AsyncStorage.removeItem('usuario')

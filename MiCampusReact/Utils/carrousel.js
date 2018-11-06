@@ -48,9 +48,9 @@ export default class Carousel extends Component {
             alignSelf: 'center',
         }
 
-        for (var i=0; i<children.length; i++) {
-            bubbles.push (
-                <View style={ emptyBubble } key={ width * i }/>
+        for (var i = 0; i < children.length; i++) {
+            bubbles.push(
+                <View style={emptyBubble} key={width * i} />
             )
         }
 
@@ -58,14 +58,14 @@ export default class Carousel extends Component {
             bubbles.map((v) => {
                 v.key == this.state.offset
                     ? bubbles[v.key / width]
-                        = <View style={ filledBubble } key={ v.key }/>
+                    = <View style={filledBubble} key={v.key} />
                     : null;
             })
         }
 
         return (
             <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
-                { bubbles }
+                {bubbles}
             </View>
         )
     }
@@ -82,10 +82,10 @@ export default class Carousel extends Component {
 
         let pages = [];
 
-        for (var i=0; i<children.length; i++) {
-            pages.push (
-                <View style={{ width: width }} key={ i }>
-                { children[i] }
+        for (var i = 0; i < children.length; i++) {
+            pages.push(
+                <View style={{ width: width }} key={i}>
+                    {children[i]}
                 </View>
             )
         }
@@ -93,16 +93,16 @@ export default class Carousel extends Component {
         return (
             <View style={{ width: width, backgroundColor: backgroundColor }}>
                 <ScrollView
-                    horizontal={ true }
-                    pagingEnabled={ true }
-                    showsHorizontalScrollIndicator={ showScroll }
-                    onScroll={ (e)=>{
-                        this.setState({offset: e.nativeEvent.contentOffset.x})
+                    horizontal={true}
+                    pagingEnabled={true}
+                    showsHorizontalScrollIndicator={showScroll}
+                    onScroll={(e) => {
+                        this.setState({ offset: e.nativeEvent.contentOffset.x })
                     }}
                     style={{ width: width, height: height }}>
-                    { pages }
+                    {pages}
                 </ScrollView>
-                { showBubbles ? this.renderBubbles(width) : null }
+                {showBubbles ? this.renderBubbles(width) : null}
             </View>
         )
     }

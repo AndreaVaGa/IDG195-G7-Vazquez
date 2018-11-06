@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground, AsyncStorage, screenWidth, Image, Button, TouchableOpacity, borderBottomColor, borderBottomWidth } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, AsyncStorage, screenWidth, Image, TouchableOpacity } from 'react-native';
 
 export default class Menu extends React.Component {
   constructor(props) {
@@ -28,14 +28,14 @@ export default class Menu extends React.Component {
   }
   _getHistorial = () => {
 
-    return fetch('http://138.68.231.116:5000/historial')
+    return fetch('http://138.68.231.116:5000/historial2')
 
       .then((response) => response.json())
       .then((responseJson) => {
         var matricula = this.state.matricula;
         var test = responseJson.find(function (obj) { return obj.matricula === matricula });
         return test;
-        
+
       })
       .then((object) => {
         if (object !== undefined) {
@@ -84,7 +84,7 @@ export default class Menu extends React.Component {
         if (object !== undefined) {
           AsyncStorage.setItem('horario', JSON.stringify(object))
           this.props.navigation.navigate('Horario');
-          
+
         }
       })
       .catch((error) => {
