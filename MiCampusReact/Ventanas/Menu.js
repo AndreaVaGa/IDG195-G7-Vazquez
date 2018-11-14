@@ -98,7 +98,7 @@ export default class Menu extends React.Component {
       <View style={styles.perfilContainer}>
         <ImageBackground style={styles.backgroundImage} source={require('../src/imgs/background.jpg')}>
           <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-start', paddingRight: 10 }}>
-            <TouchableOpacity style={styles.Boton2} onPress={(this._IraPerfil)} title='Perfil'>
+            <TouchableOpacity style={styles.Boton2} onPress={(this._IraPerfil)}>
               <Image style={{ flex: 1, aspectRatio: .2, resizeMode: 'contain' }} source={require("../src/imgs/perfil.png")}></Image>
             </TouchableOpacity>
           </View>

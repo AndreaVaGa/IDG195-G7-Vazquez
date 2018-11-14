@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Button } from 'react-native';
 
 export default class Configuracion extends React.Component {
 
@@ -8,19 +8,19 @@ export default class Configuracion extends React.Component {
       <View style={styles.container}>
         <Text style={styles.text}>Configuración</Text>
 
-        <View style={style.textBox}>
+        <View style={styles.textBox}>
         <Text style={styles.titles}>Notificaciones</Text>
         </View>
 
-        <View style={style.textBox}>
+        <View style={styles.textBox}>
         <Text style={styles.titles}>Fondo</Text>
         </View>
 
-        <View style={style.textBox}>
+        <View style={styles.textBox}>
         <Text style={styles.titles}>Terminos/Privacidad</Text>
         </View>
 
-        <View style={style.button}>
+        <View style={styles.button}>
           <Button
             title="Log Out"
             color="#FFFFFF"

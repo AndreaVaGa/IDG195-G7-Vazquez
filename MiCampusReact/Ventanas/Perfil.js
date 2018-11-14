@@ -7,7 +7,8 @@ import {
   Image,
   ImageBackground,
   screenWidth,
-  Button
+  Button,
+  TouchableOpacity
 } from 'react-native';
 
 export default class Perfil extends React.Component {
@@ -23,6 +24,10 @@ export default class Perfil extends React.Component {
   }
   _IraTutores = () => {
     this.props.navigation.navigate('Tutores');
+  }
+
+  _IraConfiguracion = () => {
+    this.props.navigation.navigate('Configuracion');
   }
 
   componentDidMount() {
@@ -50,6 +55,9 @@ export default class Perfil extends React.Component {
     return (
       <View>
         <ImageBackground source={{ uri: 'http://imagenpng.com/wp-content/uploads/2017/07/portadas-para-youtube-2560x1440-HD-5.png' }} style={style.portada}>
+        <TouchableOpacity onPress={(this._IraConfiguracion)}>
+          <Image source={require('../src/imgs/configuracion.png')} style={style.confi} onPress={this._IraConfiguracion} />
+          </TouchableOpacity>
           <Image source={require('../src/imgs/estudiante.jpg')} style={style.fpersona} />
         </ImageBackground>
         <Text style={style.title}>{this.state.nombre}</Text>
@@ -115,5 +123,10 @@ const style = StyleSheet.create({
     backgroundColor: 'black',
     borderRadius: 10,
     margin: 20
+  },
+  confi: {
+    marginLeft: 50,
+    width: 30,
+    height: 30,
   }
 });
