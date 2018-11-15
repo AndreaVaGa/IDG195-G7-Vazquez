@@ -4,9 +4,12 @@ import {
   Text,
   View,
   AsyncStorage,
-  FlatList
+  FlatList,
+  TouchableOpacity
 } from 'react-native';
 import Carousel from '../Utils/carrousel';
+import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { StatusColorPicker } from 'react-native-status-color-picker';
 
 export default class Horario extends React.Component {
   constructor(props) {
@@ -18,10 +21,22 @@ export default class Horario extends React.Component {
       miercoles: '',
       jueves: '',
       viernes: '',
-      sabado: ''
-
+      sabado: '',
+      visible: false,
+      colors: ["#F44336", "#E91E63"],
+      selectedColor: '#F44336'
     };
   }
+
+  ok = data => {
+    this.setState({ selectedColor: data.selectedColor, text: data.text });
+    this.close();
+  };
+
+  close = () => {
+    this.setState({ visible: false });
+  };
+
   componentDidMount() {
     this._loadInitionState().done();
   }
@@ -42,11 +57,20 @@ export default class Horario extends React.Component {
 
   render() {
     return (
+
       <Carousel >
         <View>
-          <View style={{ backgroundColor: '#1E90FF' }}>
+          <TouchableOpacity onPress={() => this.setState({ visible: true })}>
+          <View style={{ backgroundColor: this.state.selectedColor }}>
             <Text style={styles.semana}>Lunes</Text>
           </View>
+          </TouchableOpacity>
+          <StatusColorPicker
+          visible={this.state.visible}
+          colors={this.state.colors}
+          selectedColor={this.state.selectedColor}
+          onOk={this.ok}
+          onCancel={this.close}/>
           <FlatList
             data={this.state.lunes}
             showsVerticalScrollIndicator={false}

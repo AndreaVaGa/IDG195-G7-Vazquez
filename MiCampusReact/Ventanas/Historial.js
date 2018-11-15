@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, AsyncStorage, FlatList, ScrollView } from 'react-native';
 import Collapsible from 'react-native-collapsible';
-
+import { StatusColorPicker } from 'react-native-status-color-picker';
 
 export default class Historial extends React.Component {
   state = {
