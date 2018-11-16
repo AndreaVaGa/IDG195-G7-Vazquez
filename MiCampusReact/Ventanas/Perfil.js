@@ -20,6 +20,7 @@ export default class Perfil extends React.Component {
       carrera: '',
       semestre: '',
       aprobadas: '',
+      matricula: ''
     };
   }
   _IraTutores = () => {
@@ -38,11 +39,15 @@ export default class Perfil extends React.Component {
     var value = await AsyncStorage.getItem('usuario');
     if (value !== null) {
       var alumno = JSON.parse(value)
+      var matriculatemp = alumno.matricula
+      var matricula_numerica = matriculatemp.slice(matriculatemp.length * -1 + 1)
       this.setState({ nombre: alumno.nombre })
       this.setState({ apellido: alumno.apellido })
       this.setState({ carrera: alumno.carrera })
       this.setState({ semestre: alumno.semestre })
       this.setState({ aprobadas: alumno.aprobadas })
+      this.setState({ matricula: matricula_numerica })
+
     }
   }
   _LogOut = () => {
@@ -55,10 +60,10 @@ export default class Perfil extends React.Component {
     return (
       <View>
         <ImageBackground source={{ uri: 'http://imagenpng.com/wp-content/uploads/2017/07/portadas-para-youtube-2560x1440-HD-5.png' }} style={style.portada}>
-        <TouchableOpacity onPress={(this._IraConfiguracion)}>
-          <Image source={require('../src/imgs/configuracion.png')} style={style.confi} onPress={this._IraConfiguracion} />
+          <TouchableOpacity onPress={(this._IraConfiguracion)}>
+            <Image source={require('../src/imgs/configuracion.png')} style={style.confi} onPress={this._IraConfiguracion} />
           </TouchableOpacity>
-          <Image source={require('../src/imgs/estudiante.jpg')} style={style.fpersona} />
+          <Image source={{ uri: 'https://micampus.tij.cetys.mx/fotos/' + this.state.matricula + '.jpg' }} style={style.fpersona} />
         </ImageBackground>
         <Text style={style.title}>{this.state.nombre}</Text>
         <Text style={style.title2}>{this.state.apellido}</Text>
