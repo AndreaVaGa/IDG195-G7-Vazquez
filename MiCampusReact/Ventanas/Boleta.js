@@ -7,8 +7,10 @@ import {
   AsyncStorage,
   ScrollView,
   Switch,
-  TouchableOpacity
+  TouchableOpacity,
+  TouchableWithoutFeedback
 } from 'react-native';
+import MyListItem from '../Ventanas/MyListItem'
 
 var collapsed = true;
 
@@ -35,63 +37,30 @@ class ListViewDemo extends React.Component {
     }
   }
 
-  changeHeight = () => {
+  _keyExtractor = (item, index) => item.id
 
-    if (collapsed) {
-      this._height.setNativeProps({ height: 150 });
-      this._height2.setNativeProps({ height: 150 });
-      this._height3.setNativeProps({ height: 150 });
-    }
-    else {
-      this._height.setNativeProps({ height: 100 });
-      this._height2.setNativeProps({ height: 100 });
-      this._height3.setNativeProps({ height: 100 });
-    }
+  _onPressItem = (id) => {
+    alert(id)
+    //changeHeight(id)
+  };
 
-    collapsed = !collapsed;
-  }
+  _renderItem = ({ item }) => (
+    <MyListItem
+      id={item.matricula}
+      onPressItem={this._onPressItem}
+    />
+  );
 
   render() {
     return (
       <View style={styles.container} >
-
-
         <FlatList
           data={this.state.data}
+          extraData={this.state}
+          keyExtractor={this._keyExtractor}
+          renderItem={this._renderItem}
           showsVerticalScrollIndicator={false}
-          renderItem={({ item }) =>
-
-
-            <TouchableOpacity onPress={this.changeHeight}>
-
-
-              <View style={styles.fila}>
-
-                <View style={styles.materia} ref={component => this._height = component}>
-                  <Text style={styles.headers}>{item.materia}</Text>
-                  <Text style={styles.texto}>{item.profesor}</Text>
-                </View>
-
-                <View style={styles.faltas} ref={component => this._height2 = component}>
-                  <Text style={styles.headers}>F</Text>
-                  <Text style={styles.texto}>{item.faltas}</Text>
-                </View>
-
-                <View style={styles.promedio} ref={component => this._height3 = component}>
-                  <Text style={styles.headers}>P</Text>
-                  <Text style={styles.texto}>{item.calif}</Text>
-                </View>
-              </View>
-
-
-            </TouchableOpacity>
-
-
-          }
-          keyExtractor={item => item.materia}
-          ItemSeparatorComponent={this.ListViewItemSeparator}
         />
-
       </View>
     );
   }
