@@ -5,7 +5,7 @@ import {
   FlatList,
   AsyncStorage,
 } from 'react-native';
-import MyListItem from '../Utils/boleta_row'
+import BoletaRow from '../Utils/boleta_row';
 
 class ListViewDemo extends React.Component {
 
@@ -31,15 +31,14 @@ class ListViewDemo extends React.Component {
       this.setState({ data: boleta.boleta })
     }
   }
-
-  _keyExtractor = (item, index) => item.matricula
-
-  _onPressItem = (id) => {
-    alert(id)
+  //funcion que se define como atributo y se puede mandar 
+  //a ejecutar desde el componente
+  _onPressItem = (value) => {
+    alert(value)
   };
 
   _renderItem = ({ item }) => (
-    <MyListItem
+    <BoletaRow
       onPressItem={this._onPressItem}
       matricula={item.matricula}
       materia={item.materia}
@@ -55,7 +54,7 @@ class ListViewDemo extends React.Component {
         <FlatList
           data={this.state.data}
           extraData={this.state}
-          keyExtractor={this._keyExtractor}
+          keyExtractor={(item, index) => item.materia}
           renderItem={this._renderItem}
           showsVerticalScrollIndicator={false}
         />

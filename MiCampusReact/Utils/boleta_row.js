@@ -6,22 +6,27 @@ import {
     StyleSheet,
 } from 'react-native';
 
-var collapsed = true;
-
-class MyListItem extends React.PureComponent {
+class BoletaRow extends React.PureComponent {
+    constructor(props) {
+        super(props)
+        this.state = {
+            collapsed: true
+        };
+    }
     _changeHeight = () => {
-        if (collapsed) {
+        if (this.state.collapsed) {
             this._height.setNativeProps({ height: 150 });
         }
         else {
             this._height.setNativeProps({ height: 100 });
         }
-        collapsed = !collapsed;
+        this.state.collapsed = !this.state.collapsed;
     }
 
+    //se llama la funcion desde el renglon individualmente
     _onPress = () => {
         this._changeHeight()
-        //this.props.onPressItem();
+        //this.props.onPressItem(this.props.materia);
     };
 
     render() {
@@ -46,7 +51,7 @@ class MyListItem extends React.PureComponent {
     }
 }
 
-export default MyListItem;
+export default BoletaRow;
 
 const styles = StyleSheet.create({
     container: {
