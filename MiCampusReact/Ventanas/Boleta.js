@@ -37,17 +37,38 @@ class ListViewDemo extends React.Component {
     }
   }
 
-  _keyExtractor = (item, index) => item.id
+  changeHeight = () => {
+
+    if (collapsed) {
+      this._height.setNativeProps({ height: 150 });
+      this._height2.setNativeProps({ height: 150 });
+      this._height3.setNativeProps({ height: 150 });
+    }
+    else {
+      this._height.setNativeProps({ height: 100 });
+      this._height2.setNativeProps({ height: 100 });
+      this._height3.setNativeProps({ height: 100 });
+    }
+
+    collapsed = !collapsed;
+  }
+
+  _keyExtractor = (item, index) => item.matricula
 
   _onPressItem = (id) => {
     alert(id)
-    //changeHeight(id)
+    //this.changeHeight()
   };
 
   _renderItem = ({ item }) => (
     <MyListItem
-      id={item.matricula}
       onPressItem={this._onPressItem}
+      matricula={item.matricula}
+      materia={item.materia}
+      calif={item.calif}
+      profesor={item.profesor}
+      faltas={item.faltas}
+      height='150'
     />
   );
 

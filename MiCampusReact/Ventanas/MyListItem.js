@@ -6,16 +6,42 @@ import {
     StyleSheet,
 } from 'react-native';
 
+var collapsed = true;
+
 class MyListItem extends React.PureComponent {
+    _changeHeight = () => {
+
+        if (collapsed) {
+            this._height.setNativeProps({ height: 150 });
+        }
+        else {
+            this._height.setNativeProps({ height: 100 });
+        }
+
+        collapsed = !collapsed;
+    }
+
     _onPress = () => {
-        this.props.onPressItem(this.props.id);
+        this._changeHeight()
+        //this.props.onPressItem();
     };
 
     render() {
         return (
             <TouchableOpacity onPress={this._onPress}>
                 <View style={styles.fila}>
-                    <Text>Test</Text>
+                    <View style={styles.materia} ref={component => this._height = component}>
+                        <Text style={styles.headers}>{this.props.materia}</Text>
+                        <Text style={styles.texto}>{this.props.profesor}</Text>
+                    </View>
+                    <View style={styles.faltas} ref={component => this._height = component}>
+                        <Text style={styles.headers}>F</Text>
+                        <Text style={styles.texto}>{this.props.faltas}</Text>
+                    </View>
+                    <View style={styles.promedio} ref={component => this._height = component}>
+                        <Text style={styles.headers}>P</Text>
+                        <Text style={styles.texto}>{this.props.calif}</Text>
+                    </View>
                 </View>
             </TouchableOpacity>
         );
