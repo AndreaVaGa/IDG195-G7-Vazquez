@@ -10,14 +10,12 @@ var collapsed = true;
 
 class MyListItem extends React.PureComponent {
     _changeHeight = () => {
-
         if (collapsed) {
             this._height.setNativeProps({ height: 150 });
         }
         else {
             this._height.setNativeProps({ height: 100 });
         }
-
         collapsed = !collapsed;
     }
 
