@@ -6,24 +6,25 @@ export default class Configuracion extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Configuración</Text>
 
         <View style={styles.textBox}>
-        <Text style={styles.titles}>Notificaciones</Text>
+        <Text style={styles.titles}>NOTIFICACIONES</Text>
+        </View>
+
+    <View style={styles.textBox}>
+        <Text style={styles.titles}>FONDO</Text>
+        <Text style={styles.flecha}>></Text>
         </View>
 
         <View style={styles.textBox}>
-        <Text style={styles.titles}>Fondo</Text>
-        </View>
-
-        <View style={styles.textBox}>
-        <Text style={styles.titles}>Terminos/Privacidad</Text>
-        </View>
+        <Text style={styles.titles}>TERMINOS/PRIVACIDAD</Text>
+        <Text style={styles.flecha}>></Text>
+      </View>
 
         <View style={styles.button}>
           <Button
-            title="Log Out"
-            color="#FFFFFF"
+            title="Cerrar sesión"
+            color= 'black'
             onPress={(this._LogOut)}
             accessibilityLabel="Tap on Me" />
         </View>
@@ -35,31 +36,36 @@ export default class Configuracion extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    fontSize: 20,
-    padding: 10,
-    color: 'black'
+    margin: 20,
   },
 
   textBox:{
-    backgroundColor: '#efefef',
+    backgroundColor: '#F5F5F5',
+    justifyContent: 'center',
     borderRadius: 20,
-    margin: 20
+    marginTop: 20,
+  },
+
+  flecha:{
+    fontSize: 40,
+    textAlign: 'right',
+    marginRight: 20,
+    flexDirection: 'row'
   },
   
   titles:{
-    fontSize: 20,
+    fontSize: 15,
     textAlign: 'left',
-    marginTop: 15,
+    marginLeft: 20,
+    marginBottom: 10,
+    marginTop: 10,
+    flexDirection: 'row'
   },
 
   button: {
     backgroundColor: '#ec1d23',
-    borderRadius: 10,
-    margin: 20
+    borderRadius: 40,
+    marginTop: 100
   }
 
 });
