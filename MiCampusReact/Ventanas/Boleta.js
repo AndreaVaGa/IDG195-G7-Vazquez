@@ -68,7 +68,8 @@ export default ListViewDemo;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: 20
+    marginBottom: 20,
+    alignContent: 'flex-end',
   }
 });
 

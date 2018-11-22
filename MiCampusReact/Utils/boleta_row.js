@@ -15,10 +15,14 @@ class BoletaRow extends React.PureComponent {
     }
     _changeHeight = () => {
         if (this.state.collapsed) {
-            this._height.setNativeProps({ height: 150 });
+            this._height.setNativeProps({ height: 170 });
+            this._height2.setNativeProps({ height: 170 });
+            this._height3.setNativeProps({ height: 170 });
         }
         else {
-            this._height.setNativeProps({ height: 100 });
+            this._height.setNativeProps({ height: 120 });
+            this._height2.setNativeProps({ height: 120 });
+            this._height3.setNativeProps({ height: 120 });
         }
         this.state.collapsed = !this.state.collapsed;
     }
@@ -37,11 +41,11 @@ class BoletaRow extends React.PureComponent {
                         <Text style={styles.headers}>{this.props.materia}</Text>
                         <Text style={styles.texto}>{this.props.profesor}</Text>
                     </View>
-                    <View style={styles.faltas} ref={component => this._height = component}>
+                    <View style={styles.faltas} ref={component => this._height2 = component}>
                         <Text style={styles.headers}>F</Text>
                         <Text style={styles.texto}>{this.props.faltas}</Text>
                     </View>
-                    <View style={styles.promedio} ref={component => this._height = component}>
+                    <View style={styles.promedio} ref={component => this._height3 = component}>
                         <Text style={styles.headers}>P</Text>
                         <Text style={styles.texto}>{this.props.calif}</Text>
                     </View>
@@ -65,6 +69,7 @@ const styles = StyleSheet.create({
     },
     materia: {
         width: 200,
+        height: 120,
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,
         backgroundColor: '#F5F5F5',
@@ -77,6 +82,7 @@ const styles = StyleSheet.create({
     },
     faltas: {
         width: 65,
+        height: 120,
         backgroundColor: '#ffffff',
         flexDirection: 'column',
         shadowColor: '#000',
@@ -87,6 +93,7 @@ const styles = StyleSheet.create({
     },
     promedio: {
         width: 65,
+        height: 120,
         borderTopRightRadius: 10,
         borderBottomRightRadius: 10,
         backgroundColor: '#ffffff',
