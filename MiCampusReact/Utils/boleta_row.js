@@ -15,14 +15,14 @@ class BoletaRow extends React.PureComponent {
     }
     _changeHeight = () => {
         if (this.state.collapsed) {
-            this._height.setNativeProps({ height: 170 });
-            this._height2.setNativeProps({ height: 170 });
-            this._height3.setNativeProps({ height: 170 });
+            this._height.setNativeProps({ height: 150 });
+            this._height2.setNativeProps({ height: 150 });
+            this._height3.setNativeProps({ height: 150 });
         }
         else {
-            this._height.setNativeProps({ height: 120 });
-            this._height2.setNativeProps({ height: 120 });
-            this._height3.setNativeProps({ height: 120 });
+            this._height.setNativeProps({ height: 100 });
+            this._height2.setNativeProps({ height: 100 });
+            this._height3.setNativeProps({ height: 100 });
         }
         this.state.collapsed = !this.state.collapsed;
     }
@@ -38,8 +38,9 @@ class BoletaRow extends React.PureComponent {
             <TouchableOpacity onPress={this._onPress}>
                 <View style={styles.fila}>
                     <View style={styles.materia} ref={component => this._height = component}>
-                        <Text style={styles.headers}>{this.props.materia}</Text>
-                        <Text style={styles.texto}>{this.props.profesor}</Text>
+                        <Text style={[styles.headers, {marginTop: 20, fontSize: 15}]}>{this.props.materia}</Text>
+                        <Text style={[styles.texto, {marginBottom: 35, fontSize: 15}]}>{this.props.profesor}</Text>
+                        <Text style={styles.texto}>Parcial 1</Text>
                     </View>
                     <View style={styles.faltas} ref={component => this._height2 = component}>
                         <Text style={styles.headers}>F</Text>
@@ -68,8 +69,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     materia: {
+        overflow: "hidden",
         width: 200,
-        height: 120,
+        height: 100,
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,
         backgroundColor: '#F5F5F5',
@@ -81,8 +83,9 @@ const styles = StyleSheet.create({
         elevation: 4,
     },
     faltas: {
+        overflow: "hidden",
         width: 65,
-        height: 120,
+        height: 100,
         backgroundColor: '#ffffff',
         flexDirection: 'column',
         shadowColor: '#000',
@@ -92,8 +95,9 @@ const styles = StyleSheet.create({
         elevation: 4,
     },
     promedio: {
+        overflow: "hidden",
         width: 65,
-        height: 120,
+        height: 100,
         borderTopRightRadius: 10,
         borderBottomRightRadius: 10,
         backgroundColor: '#ffffff',
@@ -112,6 +116,7 @@ const styles = StyleSheet.create({
     texto: {
         textAlign: 'center',
         color: '#333333',
-        margin: 5
+        margin: 5,
+        opacity: 1,
     }
 });
