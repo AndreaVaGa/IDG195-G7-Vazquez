@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground, AsyncStorage, screenWidth, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, ScrollView, Text, View, ImageBackground, AsyncStorage, screenWidth, screenHeight, Image, TouchableOpacity } from 'react-native';
 
 export default class Menu extends React.Component {
   constructor(props) {
@@ -95,28 +95,35 @@ export default class Menu extends React.Component {
 
   render() {
     return (
+      <ImageBackground style={styles.backgroundImage} source={require('../src/imgs/background.jpg')}>
+      <ScrollView>
       <View style={styles.perfilContainer}>
-        <ImageBackground style={styles.backgroundImage} source={require('../src/imgs/background.jpg')}>
           <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-start', paddingRight: 10 }}>
             <TouchableOpacity style={styles.Boton2} onPress={(this._IraPerfil)}>
               <Image style={{ flex: 1, aspectRatio: .2, resizeMode: 'contain' }} source={require("../src/imgs/perfil.png")}></Image>
             </TouchableOpacity>
           </View>
           <Text style={styles.title}>Académico</Text>
-          <View style={styles.lineStyle} />
+
           <View style={styles.container}>
             <TouchableOpacity style={styles.Boton} onPress={(this._getBoleta)} title='Boleta'>
               <Image source={require("../src/imgs/boleta.png")}></Image>
+              <Text style={styles.texto}>Boleta</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.Boton} onPress={(this._getHistorial)} title='Historial'>
               <Image source={require("../src/imgs/historial.png")}></Image>
+              <Text style={styles.texto}>Historial</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.Boton} onPress={(this._getHorario)} title='Horario'>
               <Image source={require("../src/imgs/horario.png")}></Image>
+              <Text style={styles.texto}>Horario</Text>
             </TouchableOpacity>
           </View>
-        </ImageBackground>
+          <View style={styles.lineStyle} />
+          <Text style={styles.title}>Evaluaciones ></Text>
       </View>
+      </ScrollView>
+      </ImageBackground>
     );
   }
 }
@@ -129,38 +136,44 @@ const styles = StyleSheet.create({
     flex: 3,
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    padding: 10,
+    margin: 5,
   },
   title: {
     fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'left',
     color: 'white',
-    marginLeft: 20,
+    marginLeft: 15,
+    marginTop:5,
+    marginBottom: 5,
+  },
+  texto: {
+    fontSize: 15,
+    textAlign: 'left',
+    color: 'white',
+    marginLeft: 9,
     marginBottom: 5,
   },
   lineStyle: {
-    borderWidth: 1,
-    width: 335,
-    borderColor: 'white',
-    marginLeft: 20,
+    borderWidth: 0.7,
+    width: screenWidth,
+    borderColor: '#ffd700',
   },
   backgroundImage: {
     width: screenWidth,
-    height: '100%',
+    height: screenHeight,
     justifyContent: 'flex-end',
   },
   Boton: {
     height: 100,
     borderRadius: 20,
     padding: 10,
-    marginBottom: 20,
+    marginBottom: 25,
   },
   Boton2: {
     height: 100,
     borderRadius: 20,
     padding: 10,
-    marginBottom: 20,
     alignContent: 'flex-end',
   },
 });

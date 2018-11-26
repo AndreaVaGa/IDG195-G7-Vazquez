@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, AsyncStorage, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, AsyncStorage, ScrollView, screenWidth } from 'react-native';
 
 export default class Tutores extends React.Component {
   constructor(props) {
@@ -94,9 +94,8 @@ const styles = StyleSheet.create({
   },
   lineStyle: {
     borderWidth: 1,
-    width: 360,
-    borderColor: '#ffaa00',
-    marginLeft: 20,
+    width: screenWidth,
+    borderColor: '#ffd700',
     marginTop: 15
   },
 });
