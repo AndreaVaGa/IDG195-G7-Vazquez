@@ -5,6 +5,7 @@ import {
   View,
   Image
 } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class App extends React.Component {
   render() {
@@ -44,8 +45,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   imagenPortada: {
-    width: 180,
-    height: 180,
+    height: hp('25%'),
+    width: wp('45%'),
     margin: 5,
     borderWidth: 2,
     borderColor: 'black',

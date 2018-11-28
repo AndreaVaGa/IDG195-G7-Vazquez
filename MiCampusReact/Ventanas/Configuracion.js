@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, ScrollView, View, Text, Button, Image, } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Text, Image, } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 export default class Configuracion extends React.Component {
@@ -14,7 +15,6 @@ export default class Configuracion extends React.Component {
 
   render() {
     return (
-      <ScrollView>
       <View style={styles.container}>
 
         <View style={styles.textBox}>
@@ -28,14 +28,14 @@ export default class Configuracion extends React.Component {
         </View>
         <View style={styles.columna2}>
         <TouchableOpacity onPress={(this._IraFondo)}>
-          <Image source={require('../src/imgs/flecha.png')} style={styles.flecha} onPress={this._IraFondo} />
+          <Image source={require('../src/imgs/flecha.png')} style={styles.flechafondo} onPress={this._IraFondo} />
           </TouchableOpacity>
         </View>
 
         </View>
       </View>
 
-        <View style={styles.textBox}>
+      <View style={styles.textBox}>
 
       <View style={styles.fila}>
         <View style={styles.columna}>
@@ -46,20 +46,13 @@ export default class Configuracion extends React.Component {
           <Image source={require('../src/imgs/flecha.png')} style={styles.flecha} onPress={this._IraFondo} />
           </TouchableOpacity>
         </View>
-      
       </View>
 
     </View>
-
-        <View style={styles.button}>
-          <Button
-            title="Cerrar sesión"
-            color= 'white'
-            onPress={(this._LogOut)}
-            accessibilityLabel="Tap on Me" />
-        </View>
+    <TouchableOpacity onPress={(this._LogOut)}>
+        <Image source={require('../src/imgs/cerrar.png')} style={styles.sesion} onPress={(this._LogOut)}/>
+     </TouchableOpacity>
       </View>
-      </ScrollView>
     );
   }
 }
@@ -80,18 +73,26 @@ const styles = StyleSheet.create({
   columna2:{
     justifyContent: 'center',
     flexDirection: 'row',
-    textAlign: 'right',
    },
 
   flecha:{
-    height: 15,
-    width: 10,
-    marginRight: 20,
+    height: hp('3%'),
+    width: wp('2.5%'),
+    marginLeft: 100,
+    marginBottom: 10,
+    marginTop: 10,
+  },
+
+  flechafondo:{
+    height: hp('3%'),
+    width: wp('2.5%'),
+    marginLeft: 215,
+    marginBottom: 10,
+    marginTop: 10,
   },
   
   titles:{
     fontSize: 15,
-    textAlign: 'left',
     marginLeft: 20,
     marginBottom: 10,
     marginTop: 10,
@@ -104,12 +105,11 @@ const styles = StyleSheet.create({
   columna:{
    justifyContent: 'center',
   },
-  
-  button: {
-    backgroundColor: '#ec1d23',
-    borderRadius: 40,
+
+  sesion: {
+    height: hp('10%'),
+    width: wp('90%'),
     marginTop: 100,
-    marginBottom: 50,
   }
 
 });
