@@ -95,7 +95,7 @@ export default class Menu extends React.Component {
 
   render() {
     return (
-      <ImageBackground style={styles.backgroundImage} source={require('../src/imgs/background.jpg')}>
+      <ImageBackground style={styles.perfilContainer} source={require('../src/imgs/background.jpg')}>
       <ScrollView>
       <View style={styles.perfilContainer}>
           <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-start', paddingRight: 10 }}>
@@ -120,8 +120,7 @@ export default class Menu extends React.Component {
             </TouchableOpacity>
           </View>
           <View style={styles.lineStyle} />
-          <Text style={styles.title}>Evaluaciones ></Text>
-      </View>
+          </View>
       </ScrollView>
       </ImageBackground>
     );
@@ -155,8 +154,10 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   lineStyle: {
-    borderWidth: 0.7,
-    width: screenWidth,
+    borderWidth: .9,
+    width: 370,
+    marginLeft: 20,
+    marginRight: 20,
     borderColor: '#ffd700',
   },
   backgroundImage: {
