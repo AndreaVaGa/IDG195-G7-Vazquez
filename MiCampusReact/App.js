@@ -11,6 +11,9 @@ import Fondo from './Ventanas/Fondo';
 import Configuracion from './Ventanas/Configuracion';
 import Menu from './Ventanas/Menu';
 
+
+Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
+
 const MiCampus = createStackNavigator({
   Login: { screen: Login, navigationOptions: { header: null, } },
   Boleta: {
