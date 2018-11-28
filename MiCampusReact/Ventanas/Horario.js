@@ -8,10 +8,9 @@ import {
   TouchableOpacity
 } from 'react-native';
 import Carousel from '../Utils/carrousel';
-import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
-import { StatusColorPicker } from 'react-native-status-color-picker';
+import HorarioRow from '../Utils/horario_row';
 
-export default class Horario extends React.Component {
+class Horario extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,19 +22,13 @@ export default class Horario extends React.Component {
       viernes: '',
       sabado: '',
       visible: false,
-      colors: ["#F44336", "#E91E63"],
-      selectedColor: '#F44336'
+      loading: false,
+      page: 1,
+      seed: 1,
+      error: null,
+      refreshing: false,
     };
   }
-
-  ok = data => {
-    this.setState({ selectedColor: data.selectedColor, text: data.text });
-    this.close();
-  };
-
-  close = () => {
-    this.setState({ visible: false });
-  };
 
   componentDidMount() {
     this._loadInitionState().done();
@@ -55,39 +48,34 @@ export default class Horario extends React.Component {
     }
   }
 
+  _onPressItem = (value) => {
+    alert(value)
+  };
+
+  _renderItem = ({ item }) => (
+    <HorarioRow
+      onPressItem={this._onPressItem}
+      matricula={item.matricula}
+      horario={item.horario}
+      materia={item.materia}
+      salon={item.salon}
+      profesor={item.profesor}
+    />
+  );
+
   render() {
     return (
-
       <Carousel >
         <View>
-          <TouchableOpacity onPress={() => this.setState({ visible: true })}>
-          <View style={{ backgroundColor: this.state.selectedColor }}>
+          <View style={{ backgroundColor: '#32CD32' }}>
             <Text style={styles.semana}>Lunes</Text>
           </View>
-          </TouchableOpacity>
-          <StatusColorPicker
-          visible={this.state.visible}
-          colors={this.state.colors}
-          selectedColor={this.state.selectedColor}
-          onOk={this.ok}
-          onCancel={this.close}/>
           <FlatList
             data={this.state.lunes}
+            extraData={this.state}
+            keyExtractor={(item, index) => item.materia}
+            renderItem={this._renderItem}
             showsVerticalScrollIndicator={false}
-            renderItem={({ item }) =>
-              <View style={styles.fila}>
-                <View style={styles.materia}>
-                  <Text style={styles.headers}>{item.materia}</Text>
-                  <Text style={styles.profesor}>{item.profesor}</Text>
-                </View>
-                <View style={styles.salon}>
-                  <Text style={styles.numero}>{item.salon}</Text>
-                  <Text style={styles.hora}>{item.horario}</Text>
-                </View>
-              </View>
-            }
-            keyExtractor={item => item.materia}
-            ItemSeparatorComponent={this.ListViewItemSeparator}
           />
         </View>
 
@@ -97,21 +85,10 @@ export default class Horario extends React.Component {
           </View>
           <FlatList
             data={this.state.martes}
+            extraData={this.state}
+            keyExtractor={(item, index) => item.materia}
+            renderItem={this._renderItem}
             showsVerticalScrollIndicator={false}
-            renderItem={({ item }) =>
-              <View style={styles.fila}>
-                <View style={styles.materia}>
-                  <Text style={styles.headers}>{item.materia}</Text>
-                  <Text style={styles.profesor}>{item.profesor}</Text>
-                </View>
-                <View style={styles.salon}>
-                  <Text style={styles.numero}>{item.salon}</Text>
-                  <Text style={styles.hora}>{item.horario}</Text>
-                </View>
-              </View>
-            }
-            keyExtractor={item => item.materia}
-            ItemSeparatorComponent={this.ListViewItemSeparator}
           />
         </View>
 
@@ -121,21 +98,10 @@ export default class Horario extends React.Component {
           </View>
           <FlatList
             data={this.state.miercoles}
+            extraData={this.state}
+            keyExtractor={(item, index) => item.materia}
+            renderItem={this._renderItem}
             showsVerticalScrollIndicator={false}
-            renderItem={({ item }) =>
-              <View style={styles.fila}>
-                <View style={styles.materia}>
-                  <Text style={styles.headers}>{item.materia}</Text>
-                  <Text style={styles.profesor}>{item.profesor}</Text>
-                </View>
-                <View style={styles.salon}>
-                  <Text style={styles.numero}>{item.salon}</Text>
-                  <Text style={styles.hora}>{item.horario}</Text>
-                </View>
-              </View>
-            }
-            keyExtractor={item => item.materia}
-            ItemSeparatorComponent={this.ListViewItemSeparator}
           />
         </View>
 
@@ -145,21 +111,10 @@ export default class Horario extends React.Component {
           </View>
           <FlatList
             data={this.state.jueves}
+            extraData={this.state}
+            keyExtractor={(item, index) => item.materia}
+            renderItem={this._renderItem}
             showsVerticalScrollIndicator={false}
-            renderItem={({ item }) =>
-              <View style={styles.fila}>
-                <View style={styles.materia}>
-                  <Text style={styles.headers}>{item.materia}</Text>
-                  <Text style={styles.profesor}>{item.profesor}</Text>
-                </View>
-                <View style={styles.salon}>
-                  <Text style={styles.numero}>{item.salon}</Text>
-                  <Text style={styles.hora}>{item.horario}</Text>
-                </View>
-              </View>
-            }
-            keyExtractor={item => item.materia}
-            ItemSeparatorComponent={this.ListViewItemSeparator}
           />
         </View>
 
@@ -169,21 +124,10 @@ export default class Horario extends React.Component {
           </View>
           <FlatList
             data={this.state.viernes}
+            extraData={this.state}
+            keyExtractor={(item, index) => item.materia}
+            renderItem={this._renderItem}
             showsVerticalScrollIndicator={false}
-            renderItem={({ item }) =>
-              <View style={styles.fila}>
-                <View style={styles.materia}>
-                  <Text style={styles.headers}>{item.materia}</Text>
-                  <Text style={styles.profesor}>{item.profesor}</Text>
-                </View>
-                <View style={styles.salon}>
-                  <Text style={styles.numero}>{item.salon}</Text>
-                  <Text style={styles.hora}>{item.horario}</Text>
-                </View>
-              </View>
-            }
-            keyExtractor={item => item.materia}
-            ItemSeparatorComponent={this.ListViewItemSeparator}
           />
         </View>
 
@@ -193,21 +137,10 @@ export default class Horario extends React.Component {
           </View>
           <FlatList
             data={this.state.sabado}
+            extraData={this.state}
+            keyExtractor={(item, index) => item.materia}
+            renderItem={this._renderItem}
             showsVerticalScrollIndicator={false}
-            renderItem={({ item }) =>
-              <View style={styles.fila}>
-                <View style={styles.materia}>
-                  <Text style={styles.headers}>{item.materia}</Text>
-                  <Text style={styles.profesor}>{item.profesor}</Text>
-                </View>
-                <View style={styles.salon}>
-                  <Text style={styles.numero}>{item.salon}</Text>
-                  <Text style={styles.hora}>{item.horario}</Text>
-                </View>
-              </View>
-            }
-            keyExtractor={item => item.materia}
-            ItemSeparatorComponent={this.ListViewItemSeparator}
           />
         </View>
 
@@ -216,63 +149,11 @@ export default class Horario extends React.Component {
   }
 }
 
+export default Horario;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  fila: {
-    marginTop: 30,
-    marginBottom: 5,
-    marginLeft: 22,
-    flexDirection: 'row',
-  },
-  materia: {
-    width: 240,
-    height: 100,
-    justifyContent: 'center',
-    borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10,
-    backgroundColor: '#F5F5F5',
-    flexDirection: 'column',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 4,
-  },
-  salon: {
-    width: 80,
-    height: 100,
-    justifyContent: 'center',
-    borderTopRightRadius: 10,
-    borderBottomRightRadius: 10,
-    backgroundColor: '#ffffff',
-    flexDirection: 'column',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 4,
-  },
-  headers: {
-    fontSize: 20,
-    textAlign: 'left',
-    marginLeft: 10,
-  },
-  numero: {
-    fontSize: 20,
-    textAlign: 'center',
-  },
-  profesor: {
-    textAlign: 'left',
-    color: '#333333',
-    marginTop: 2,
-    marginLeft: 10,
-  },
-  hora: {
-    textAlign: 'center',
-    color: '#333333',
-    marginTop: 2,
-    fontSize: 10,
   },
   semana: {
     textAlign: 'center',
@@ -280,4 +161,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     margin: 10
   }
+
 });
