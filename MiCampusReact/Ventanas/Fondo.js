@@ -3,6 +3,7 @@ import {
   StyleSheet,
   ScrollView,
   View,
+  TouchableOpacity,
   Image
 } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -10,6 +11,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 export default class App extends React.Component {
   render() {
     return (
+      <View>
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.fila}>
@@ -34,6 +36,12 @@ export default class App extends React.Component {
           </View>
         </View>
       </ScrollView>
+    <View style={styles.cuadro}>
+      <TouchableOpacity>
+      <Image source={require("../src/imgs/fondobtn.png")} style={styles.aceptar}></Image>
+    </TouchableOpacity>
+    </View>
+    </View>
     );
   }
 }
@@ -57,6 +65,18 @@ const styles = StyleSheet.create({
   columna: {
     alignItems: 'center',
   },
+  cuadro: {
+    backgroundColor: '#191919',
+    bottom: 0,
+    position: 'absolute',
+    padding: 7,
+    width: '100%',
+    alignItems: "center",
+  },
+  aceptar: {
+    height: hp('10%'),
+    width: wp('50%'),
+  }
 });
 
 

@@ -273,7 +273,7 @@ export default class Historial extends React.Component {
           </View>
         </ScrollView>
         <View style={styles.promedio}>
-          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 15, textAlign: 'right', marginRight: 5 }}>Promedio general: {this.state.promedio}</Text>
+          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 20, textAlign: 'right', marginRight: 5, marginBottom: 10,}}>Promedio general: {this.state.promedio}</Text>
         </View>
       </View>
 
@@ -352,7 +352,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   promedio: {
-    backgroundColor: 'black',
+    backgroundColor: '#191919',
     bottom: 0,
     position: 'absolute',
     padding: 7,
