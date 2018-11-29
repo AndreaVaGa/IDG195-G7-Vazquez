@@ -7,9 +7,9 @@ import {
   Image,
   ImageBackground,
   screenWidth,
-  Button,
   TouchableOpacity
 } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class Perfil extends React.Component {
   constructor(props) {
@@ -54,18 +54,20 @@ export default class Perfil extends React.Component {
   render() {
     return (
       <View>
-        <ImageBackground source={{ uri: 'http://imagenpng.com/wp-content/uploads/2017/07/portadas-para-youtube-2560x1440-HD-5.png' }} style={style.portada}>
-          <TouchableOpacity onPress={(this._IraConfiguracion)}>
-            <Image source={require('../src/imgs/configuracion.png')} style={style.confi} onPress={this._IraConfiguracion} />
-          </TouchableOpacity>
-          <Image source={{ uri: 'https://micampus.tij.cetys.mx/fotos/' + this.state.matricula + '.jpg' }} style={style.fpersona} />
+      <ImageBackground source={{ uri: 'http://imagenpng.com/wp-content/uploads/2017/07/portadas-para-youtube-2560x1440-HD-5.png' }} style={styles.portada}>
+            <TouchableOpacity  onPress={(this._IraConfiguracion)}>
+              <Image source={require("../src/imgs/configuracion.png")} style={styles.confi} onPress={(this._IraConfiguracion)}></Image>
+            </TouchableOpacity>
+          <Image source={{ uri: 'https://micampus.tij.cetys.mx/fotos/' + this.state.matricula + '.jpg' }} style={styles.fpersona} />
         </ImageBackground>
-        <Text style={style.title}>{this.state.nombre}</Text>
-        <Text style={style.title2}>{this.state.apellido}</Text>
-        <Text style={style.texto}>Carrera: {this.state.carrera} </Text>
-        <Text style={style.texto}>Semestre: {this.state.semestre}</Text>
-        <Text style={style.texto}>Materias aprobadas: {this.state.aprobadas}</Text>
-        <Text style={style.info} onPress={this._IraTutores}>Más información ></Text>
+      <View>
+        <Text style={styles.title}>{this.state.nombre}</Text>
+        <Text style={styles.title2}>{this.state.apellido}</Text>
+        <Text style={styles.texto}>Carrera: {this.state.carrera} </Text>
+        <Text style={styles.texto}>Semestre: {this.state.semestre}</Text>
+        <Text style={styles.texto}>Materias aprobadas: {this.state.aprobadas}</Text>
+        <Text style={styles.info} onPress={this._IraTutores}>Más información ></Text>
+      </View>
       </View>
 
 
@@ -73,7 +75,7 @@ export default class Perfil extends React.Component {
   }
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: 'bold',
@@ -113,8 +115,9 @@ const style = StyleSheet.create({
     fontSize: 12,
   },
   confi: {
-    marginLeft: 50,
-    width: 30,
-    height: 30,
+    height: hp('5%'),
+    width: wp('9%'),
+    marginBottom: 25,
+    marginLeft: 300,
   }
 });
