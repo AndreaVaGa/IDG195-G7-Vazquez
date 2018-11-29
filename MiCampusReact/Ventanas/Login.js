@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Image, Button, TextInput, AsyncStorage, } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, TextInput, AsyncStorage, } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class Login extends React.Component {
 
@@ -57,11 +58,10 @@ export default class Login extends React.Component {
           style={styles.text} onChangeText={(usuario) => this.setState({ usuario })} />
         <TextInput placeholder="Contraseña" secureTextEntry={true}
           style={styles.text} onChangeText={(password) => this.setState({ password })} />
-        <View style={styles.button}>
-          <Button title="Ingresar"
-            buttonStyle={styles.button}
-            color="#FFFFFF"
-            onPress={(this._getAlumno)}></Button>
+        <View>
+        <TouchableOpacity onPress={(this._getAlumno)}>
+          <Image source={require('../src/imgs/ingresar.png')} style={styles.button} onPress={this._getAlumno} />
+        </TouchableOpacity>
         </View>
       </View>
     );
@@ -88,8 +88,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    backgroundColor: 'black',
-    borderRadius: 10,
+    height: hp('10%'),
+    width: wp('50%'),
+    marginTop: 25,
 
   }
 
