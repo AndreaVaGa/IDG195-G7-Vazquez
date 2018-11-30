@@ -13,6 +13,10 @@ export default class Configuracion extends React.Component {
     this.props.navigation.navigate('Fondo');
   }
 
+  _IraTerminos = () => {
+    this.props.navigation.navigate('Terminos');
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -42,8 +46,8 @@ export default class Configuracion extends React.Component {
           <Text style={styles.titles}>TERMINOS/PRIVACIDAD</Text>
         </View>
         <View style={styles.columna2}>
-        <TouchableOpacity onPress={(this._IraFondo)}>
-          <Image source={require('../src/imgs/flecha.png')} style={styles.flecha} onPress={this._IraFondo} />
+        <TouchableOpacity onPress={(this._IraTerminos)}>
+          <Image source={require('../src/imgs/flecha.png')} style={styles.flecha} onPress={this._IraTerminos} />
           </TouchableOpacity>
         </View>
       </View>

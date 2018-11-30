@@ -8,6 +8,7 @@ import Horario from './Ventanas/Horario';
 import Perfil from './Ventanas/Perfil';
 import Tutores from './Ventanas/Tutores';
 import Fondo from './Ventanas/Fondo';
+import Terminos from './Ventanas/Terminos';
 import Configuracion from './Ventanas/Configuracion';
 import Menu from './Ventanas/Menu';
 
@@ -74,6 +75,17 @@ const MiCampus = createStackNavigator({
   Fondo: {
     screen: Fondo, navigationOptions: {
       title: 'Fondo',
+      headerStyle: {
+        backgroundColor: 'black',
+      }, headerTitleStyle: {
+        color: 'white',
+      },
+      headerTintColor: 'white',
+    }
+  },
+  Terminos: {
+    screen: Terminos, navigationOptions: {
+      title: 'Terminos y privacidad',
       headerStyle: {
         backgroundColor: 'black',
       }, headerTitleStyle: {
