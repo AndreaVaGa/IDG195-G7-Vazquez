@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, AsyncStorage, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, AsyncStorage, ScrollView, screenWidth } from 'react-native';
 
 export default class Terminos extends React.Component {
   render() {
@@ -41,27 +41,29 @@ export default class Terminos extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 10,
     backgroundColor: 'white',
-    marginBottom: 20
   },
   titles: {
     justifyContent: 'center',
-    marginLeft: 50,
     marginTop: 25,
+    marginLeft: 30,
+    marginRight: 30,
     fontSize: 30
   },
-
   texto: {
     justifyContent: 'center',
-    marginLeft: 50,
-    marginTop: 20,
-    fontSize: 16
+    fontSize: 14,
+    marginLeft: 30,
+    marginRight: 30,
   },
   lineStyle: {
     borderWidth: 1,
-    width: 360,
-    borderColor: '#ffaa00',
-    marginLeft: 20,
-    marginTop: 15
+    width: screenWidth,
+    borderColor: '#ffd700',
+    marginTop: 15,
+    marginLeft: 30,
+    marginRight: 30,
   },
 });
+
