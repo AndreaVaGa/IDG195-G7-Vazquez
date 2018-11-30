@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     },
     materia: {
         overflow: "hidden",
-        height: hp('15%'),
+        height: 100,
         width: wp('58%'),
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     },
     faltas: {
         overflow: "hidden",
-        height: hp('15%'),
+        height: 100,
         width: wp('15%'),
         backgroundColor: '#ffffff',
         flexDirection: 'column',
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     },
     promedio: {
         overflow: "hidden",
-        height: hp('15%'),
+        height: 100,
         width: wp('15%'),
         borderTopRightRadius: 10,
         borderBottomRightRadius: 10,
