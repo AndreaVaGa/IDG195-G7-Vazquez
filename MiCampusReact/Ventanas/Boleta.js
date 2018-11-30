@@ -49,6 +49,7 @@ class ListViewDemo extends React.Component {
       calif2={item.calif2}
       faltas1={item.faltas1}
       faltas2={item.faltas2}
+      faltas3={item.faltas3}
     />
   );
 
