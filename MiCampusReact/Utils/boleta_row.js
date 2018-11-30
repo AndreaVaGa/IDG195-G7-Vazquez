@@ -4,7 +4,9 @@ import {
     View,
     TouchableOpacity,
     StyleSheet,
+    justifyContent,
 } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 class BoletaRow extends React.PureComponent {
     constructor(props) {
@@ -68,7 +70,7 @@ export default BoletaRow;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginBottom: 20
+        marginBottom: 50,
     },
     fila: {
         marginTop: 30,
@@ -77,8 +79,8 @@ const styles = StyleSheet.create({
     },
     materia: {
         overflow: "hidden",
-        width: 200,
-        height: 100,
+        height: hp('15%'),
+        width: wp('58%'),
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,
         backgroundColor: '#F5F5F5',
@@ -91,8 +93,8 @@ const styles = StyleSheet.create({
     },
     faltas: {
         overflow: "hidden",
-        width: 65,
-        height: 100,
+        height: hp('15%'),
+        width: wp('15%'),
         backgroundColor: '#ffffff',
         flexDirection: 'column',
         shadowColor: '#000',
@@ -103,8 +105,8 @@ const styles = StyleSheet.create({
     },
     promedio: {
         overflow: "hidden",
-        width: 65,
-        height: 100,
+        height: hp('15%'),
+        width: wp('15%'),
         borderTopRightRadius: 10,
         borderBottomRightRadius: 10,
         backgroundColor: '#ffffff',
@@ -121,9 +123,10 @@ const styles = StyleSheet.create({
         marginTop: 15,
     },
     texto: {
+        fontSize: 12,
         textAlign: 'center',
         color: '#333333',
-        margin: 5,
+        margin: 7,
         opacity: 1,
     }
 });
