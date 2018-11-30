@@ -115,8 +115,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   confi: {
-    height: hp('5%'),
-    width: wp('9%'),
+    height: hp('3.5%'),
+    width: wp('6%'),
     marginBottom: 25,
     marginLeft: 300,
   }

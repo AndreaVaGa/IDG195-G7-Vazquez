@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   flechafondo:{
     height: hp('3%'),
     width: wp('2.5%'),
-    marginLeft: 215,
+    marginLeft: 228,
     marginBottom: 10,
     marginTop: 10,
   },

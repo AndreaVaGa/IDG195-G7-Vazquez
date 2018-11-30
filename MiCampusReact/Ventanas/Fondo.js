@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
+
 export default class App extends React.Component {
   render() {
     return (
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
   },
   aceptar: {
     height: hp('10%'),
-    width: wp('50%'),
+    width: wp('60%'),
   }
 });
 
