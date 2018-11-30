@@ -54,7 +54,7 @@ export default class Perfil extends React.Component {
   render() {
     return (
       <View>
-      <ImageBackground source={{ uri: 'http://imagenpng.com/wp-content/uploads/2017/07/portadas-para-youtube-2560x1440-HD-5.png' }} style={styles.portada}>
+      <ImageBackground source={require("../src/imgs/portada/a.jpg")} style={styles.portada}>
             <TouchableOpacity  onPress={(this._IraConfiguracion)}>
               <Image source={require("../src/imgs/configuracion.png")} style={styles.confi} onPress={(this._IraConfiguracion)}></Image>
             </TouchableOpacity>

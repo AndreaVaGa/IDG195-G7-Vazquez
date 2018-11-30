@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    height: hp('10%'),
-    width: wp('50%'),
+    height: hp('9%'),
+    width: wp('60%'),
     marginTop: 25,
 
   }
