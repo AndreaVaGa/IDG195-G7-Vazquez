@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, AsyncStorage, FlatList, ScrollView } from 'react-native';
 import Collapsible from 'react-native-collapsible';
 import { StatusColorPicker } from 'react-native-status-color-picker';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class Historial extends React.Component {
   state = {
@@ -248,17 +249,17 @@ export default class Historial extends React.Component {
                     <View style={styles.fila}>
 
                       <View style={styles.materia}>
-                        <Text style={styles.headers}>{item.Profesor}</Text>
+                        <Text style={styles.headers2}>{item.Profesor}</Text>
                         <Text style={styles.texto}>{item.semestre}</Text>
                       </View>
 
                       <View style={styles.faltas}>
-                        <Text style={styles.headers}>H</Text>
+                        <Text style={styles.headers2}>H</Text>
                         <Text style={styles.texto}>{item.Horas}</Text>
                       </View>
 
                       <View style={styles.promedio2}>
-                        <Text style={styles.headers}>P</Text>
+                        <Text style={styles.headers2}>P</Text>
                         <Text style={styles.texto}>{item.Promedio}</Text>
                       </View>
 
@@ -295,44 +296,45 @@ const styles = StyleSheet.create({
     alignContent: 'center',
   },
   info: {
-    width: 200,
-    height: 100,
+    height: hp('15%'),
+    width: wp('55%'),
     backgroundColor: '#F5F5F5',
     flexDirection: 'column',
     shadowColor: '#000',
     justifyContent: 'center',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
+    shadowOpacity: 0.5,
+    shadowRadius: 1,
   },
   materia: {
-    width: 190,
+    height: hp('15%'),
+    width: wp('55%'),
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
     backgroundColor: '#F5F5F5',
     flexDirection: 'column',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
+    shadowOpacity: 0.5,
+    shadowRadius: 1,
     elevation: 4,
   },
 
   colorBox: {
-    width: 65,
-    height: 100,
+    height: hp('15%'),
+    width: wp('15%'),
     backgroundColor: '#4481c2',
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
+    shadowOpacity: 0.5,
+    shadowRadius: 1,
   },
   rowIcon: {
-    width: 65,
-    height: 100,
+    height: hp('15%'),
+    width: wp('15%'),
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
     borderTopLeftRadius: 0,
@@ -341,13 +343,18 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
+    shadowOpacity: 0.5,
+    shadowRadius: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   headers: {
-    fontSize: 20,
+    fontSize: 18,
+    textAlign: 'center',
+    marginTop: 15,
+  },
+  headers2: {
+    fontSize: 15,
     textAlign: 'center',
     marginTop: 15,
   },
@@ -364,29 +371,31 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
+    shadowOpacity: 0.5,
+    shadowRadius: 1,
     elevation: 4,
   },
   fila: {
-    marginTop: 5,
-    marginLeft: 5,
+    height: hp('15%'),
+    width: wp('15%'),
     marginBottom: 10,
     flexDirection: 'row',
   },
   promedio2: {
-    width: 65,
+    height: hp('15%'),
+    width: wp('15%'),
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
     backgroundColor: '#ffffff',
     flexDirection: 'column',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
+    shadowOpacity: 0.5,
+    shadowRadius: 1,
     elevation: 4,
   },
   texto: {
+    fontSize: 12,
     textAlign: 'center',
     color: '#333333',
     marginTop: 5,

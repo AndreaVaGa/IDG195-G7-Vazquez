@@ -6,6 +6,7 @@ import {
     StyleSheet,
 } from 'react-native';
 import { StatusColorPicker } from 'react-native-status-color-picker';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 class HorarioRow extends React.PureComponent {
     constructor(props) {
@@ -69,8 +70,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   materia: {
-    width: 240,
-    height: 100,
+    height: hp('15%'),
+    width: wp('58%'),
     justifyContent: 'center',
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
@@ -83,8 +84,8 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   salon: {
-    width: 80,
-    height: 100,
+    height: hp('15%'),
+    width: wp('30%'),
     justifyContent: 'center',
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
