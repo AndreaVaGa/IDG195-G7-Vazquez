@@ -63,7 +63,7 @@ export default class Tutores extends React.Component {
         <Text style={styles.texto2}>Correo: </Text>
         <Text style={styles.texto}>{this.state.correo2}</Text>
         <Text style={styles.texto2}>Dirección: </Text>
-        <Text style={{justifyContent: 'center', fontSize: 14, marginRight: 30, marginBottom: 50}}>{this.state.direccion2}</Text>
+        <Text style={{justifyContent: 'center', fontSize: 14, marginRight: 30, marginLeft: 30, marginBottom: 50}}>{this.state.direccion2}</Text>
       </ScrollView>
     );
   }
@@ -72,23 +72,26 @@ export default class Tutores extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginLeft: 30,
     padding: 10,
+    backgroundColor: 'white',
   },
   titles: {
     justifyContent: 'center',
     marginTop: 25,
+    marginLeft: 30,
     marginRight: 30,
     fontSize: 30
   },
   texto: {
     justifyContent: 'center',
     fontSize: 14,
+    marginLeft: 30,
     marginRight: 30,
   },
   texto2: {
     justifyContent: 'center',
     marginTop: 20,
+    marginLeft: 30,
     marginRight: 30,
     fontSize: 16
   },
@@ -97,6 +100,7 @@ const styles = StyleSheet.create({
     width: screenWidth,
     borderColor: '#ffd700',
     marginTop: 15,
+    marginLeft: 30,
     marginRight: 30,
   },
 });

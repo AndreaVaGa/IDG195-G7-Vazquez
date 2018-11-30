@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, ScrollView, Text, View, ImageBackground, AsyncStorage, screenWidth, screenHeight, Image, TouchableOpacity } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class Menu extends React.Component {
   constructor(props) {
@@ -150,12 +151,13 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: 'left',
     color: 'white',
-    marginLeft: 9,
+    marginLeft: 8.5,
+    marginTop: 7,
     marginBottom: 5,
   },
   lineStyle: {
     borderWidth: .9,
-    width: 370,
+    width: screenWidth,
     marginLeft: 20,
     marginRight: 20,
     borderColor: '#ffd700',
@@ -166,7 +168,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   Boton: {
-    height: 100,
+    height: hp('18%'),
     borderRadius: 20,
     padding: 10,
     marginBottom: 25,
