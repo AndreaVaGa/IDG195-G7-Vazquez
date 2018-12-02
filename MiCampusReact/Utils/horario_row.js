@@ -1,25 +1,25 @@
 import React from 'react';
 import {
-    Text,
-    View,
-    TouchableOpacity,
-    StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  StyleSheet,
 } from 'react-native';
 import { StatusColorPicker } from 'react-native-status-color-picker';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 class HorarioRow extends React.PureComponent {
-    constructor(props) {
-        super(props)
-        this.state = {
-            visible: false,
-            colors: ['#ffffff',"#F44336", "#E91E63", "#9C27B0", "#673AB7", "#3F51B5", "#2196F3", "#03A9F4", "#00BCD4", "#009688", "#4CAF50", "#8BC34A", "#CDDC39", "#FFEB3B", "#FFC107", "#FF9800", "#FF5722"],
-            selectedColor: '#ffffff',
-        };
-    }
+  constructor(props) {
+    super(props)
+    this.state = {
+      visible: false,
+      colors: ['#ffffff', "#F44336", "#E91E63", "#9C27B0", "#673AB7", "#3F51B5", "#2196F3", "#03A9F4", "#00BCD4", "#009688", "#4CAF50", "#8BC34A", "#CDDC39", "#FFEB3B", "#FFC107", "#FF9800", "#FF5722"],
+      selectedColor: '#ffffff',
+    };
+  }
 
-    ok = data => {
-    this.setState({ selectedColor: data.selectedColor});
+  ok = data => {
+    this.setState({ selectedColor: data.selectedColor });
     this.close();
   };
 
@@ -29,34 +29,35 @@ class HorarioRow extends React.PureComponent {
 
   _onPress = () => {
     this.setState({ visible: true })
-        
-    };
+
+  };
 
 
-    render() {
-        return (
-            <View>
-            <TouchableOpacity onPress={this._onPress}>
-                <View style={styles.fila}>
-                <View style={styles.materia}>
-                  <Text style={styles.headers}>{this.props.materia}</Text>
-                  <Text style={styles.profesor}>{this.props.profesor}</Text>
-                </View>
-                <View style={[styles.salon, { backgroundColor: this.state.selectedColor }]}>
-                  <Text style={styles.numero}>{this.props.salon}</Text>
-                  <Text style={styles.hora}>{this.props.horario}</Text>
-                </View>
-              </View>
-            </TouchableOpacity>
-            <StatusColorPicker
-            visible={this.state.visible}
-            colors={this.state.colors}
-            selectedColor={this.state.selectedColor}
-            onOk={this.ok}
-            onCancel={this.close}/>
+  render() {
+    return (
+      
+      <View>
+        <TouchableOpacity onPress={this._onPress}>
+          <View style={styles.fila}>
+            <View style={styles.materia}>
+              <Text style={styles.headers}>{this.props.materia}</Text>
+              <Text style={styles.profesor}>{this.props.profesor}</Text>
             </View>
-        );
-    }
+            <View style={[styles.salon, { backgroundColor: this.state.selectedColor }]}>
+              <Text style={styles.numero}>{this.props.salon}</Text>
+              <Text style={styles.hora}>{this.props.horaI}:00- {this.props.horaF}:00</Text>
+            </View>
+          </View>
+        </TouchableOpacity>
+        <StatusColorPicker
+          visible={this.state.visible}
+          colors={this.state.colors}
+          selectedColor={this.state.selectedColor}
+          onOk={this.ok}
+          onCancel={this.close} />
+      </View>
+    );
+  }
 }
 
 export default HorarioRow;

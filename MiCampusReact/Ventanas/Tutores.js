@@ -23,19 +23,19 @@ export default class Tutores extends React.Component {
   }
 
   _loadInitionState = async () => {
-    var value = await AsyncStorage.getItem('usuario');
+    var value = await AsyncStorage.getItem('tutores');
     if (value !== null) {
       var alumno = JSON.parse(value)
-      this.setState({ nombre: alumno.tutor1.nombre })
-      this.setState({ telefono: alumno.tutor1.telefono })
-      this.setState({ trabajo: alumno.tutor1.trabajo })
-      this.setState({ correo: alumno.tutor1.correo })
-      this.setState({ direccion: alumno.tutor1.direccion })
-      this.setState({ nombre2: alumno.tutor2.nombre })
-      this.setState({ telefono2: alumno.tutor2.telefono })
-      this.setState({ trabajo2: alumno.tutor2.trabajo })
-      this.setState({ correo2: alumno.tutor2.correo })
-      this.setState({ direccion2: alumno.tutor2.direccion })
+      this.setState({ nombre: alumno.Nombre_1_Padre + ' ' + alumno.Nombre_2_Padre + ' ' + alumno.Apellido_Paterno_Padre + ' ' + alumno.Apellido_Materno_Padre })
+      this.setState({ telefono: alumno.Telefono_Padre })
+      this.setState({ trabajo: alumno.Empresa_Padre })
+      this.setState({ correo: alumno.Email_Padre })
+      this.setState({ direccion: alumno.Direccion_Padre + ' ' + alumno.Colonia_Padre })
+      this.setState({ nombre2: alumno.Nombre_1_Madre + ' ' + alumno.Nombre_2_Madre + ' ' + alumno.Apellido_Paterno_Madre + ' ' + alumno.Apellido_Materno_Madre })
+      this.setState({ telefono2: alumno.Telefono_Madre })
+      this.setState({ trabajo2: alumno.Empresa_Madre })
+      this.setState({ correo2: alumno.Email_Madre })
+      this.setState({ direccion2: alumno.Direccion_Madre + ' ' + alumno.Colonia_Madre })
     }
   }
 
@@ -63,7 +63,7 @@ export default class Tutores extends React.Component {
         <Text style={styles.texto2}>Correo: </Text>
         <Text style={styles.texto}>{this.state.correo2}</Text>
         <Text style={styles.texto2}>Dirección: </Text>
-        <Text style={{justifyContent: 'center', fontSize: 14, marginRight: 30, marginLeft: 30, marginBottom: 50}}>{this.state.direccion2}</Text>
+        <Text style={{ justifyContent: 'center', fontSize: 14, marginRight: 30, marginLeft: 30, marginBottom: 50 }}>{this.state.direccion2}</Text>
       </ScrollView>
     );
   }

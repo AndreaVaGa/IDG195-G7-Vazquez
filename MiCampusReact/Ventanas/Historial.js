@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, AsyncStorage, FlatList, ScrollView } from 'react-native';
 import Collapsible from 'react-native-collapsible';
 import { StatusColorPicker } from 'react-native-status-color-picker';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 export default class Historial extends React.Component {
   state = {
@@ -51,17 +51,24 @@ export default class Historial extends React.Component {
 
   componentDidMount() {
     this._loadInitionState().done();
+
+
   }
   _loadInitionState = async () => {
-    var value = await AsyncStorage.getItem('historial');
-    if (value !== undefined) {
-      var historial = JSON.parse(value)
-      this.setState({ historial: historial })
-      this.setState({ promedio: historial.PromedioGeneral })
-      this.setState({ cursando: historial.Cursando })
-      this.setState({ aprobadas: historial.Aprobadas })
-      this.setState({ sujetas: historial.Sujeta })
-      this.setState({ puede: historial.Puede })
+    var value = await AsyncStorage.getItem('cursando');
+    if (value !== null) {
+      var cursando = JSON.parse(value)
+      this.setState({ cursando: cursando })
+    }
+    var value = await AsyncStorage.getItem('aprobadas');
+    if (value !== null) {
+      var aprobadas = JSON.parse(value)
+      this.setState({ aprobadas: aprobadas })
+    }
+    var value = await AsyncStorage.getItem('porcursar');
+    if (value !== null) {
+      var aprobadas = JSON.parse(value)
+      this.setState({ puede: aprobadas })
     }
   }
 
@@ -98,18 +105,17 @@ export default class Historial extends React.Component {
                     <View style={styles.fila}>
 
                       <View style={styles.materia}>
-                        <Text style={styles.headers}>{item.materia}</Text>
-                        <Text style={styles.texto}>{item.Profesor}</Text>
+                        <Text style={styles.headers}>{item.Nombre_Materia}</Text>
+                        <Text style={styles.texto}>{item.Nombre_Maestro}</Text>
                       </View>
 
                       <View style={styles.faltas}>
                         <Text style={styles.headers}>H</Text>
-                        <Text style={styles.texto}>{item.Horas}</Text>
+                        <Text style={styles.texto}>{item.Horas_Clase}</Text>
                       </View>
 
                       <View style={styles.promedio2}>
                         <Text style={styles.headers}>P</Text>
-                        <Text style={styles.texto}>{item.Promedio}</Text>
                       </View>
 
                     </View>
@@ -148,19 +154,18 @@ export default class Historial extends React.Component {
                     <View style={styles.fila}>
 
                       <View style={styles.materia}>
-                        <Text style={styles.headers}>{item.materia}</Text>
-                        <Text style={styles.texto}>{item.Profesor}</Text>
-                        <Text style={styles.texto}>Semestre: {item.semestre}</Text>
+                        <Text style={styles.headers}>{item.Nombre_Materia}</Text>
+                        <Text style={styles.texto}>Maestro Indefinido</Text>
                       </View>
 
                       <View style={styles.faltas}>
                         <Text style={styles.headers}>H</Text>
-                        <Text style={styles.texto}>{item.Horas}</Text>
+                        <Text style={styles.texto}>{item.Horas_Clase}</Text>
                       </View>
 
                       <View style={styles.promedio2}>
                         <Text style={styles.headers}>P</Text>
-                        <Text style={styles.texto}>{item.promedio}</Text>
+
                       </View>
 
                     </View>
@@ -198,19 +203,18 @@ export default class Historial extends React.Component {
                     <View style={styles.fila}>
 
                       <View style={styles.materia}>
-                        <Text style={styles.headers}>{item.materia}</Text>
-                        <Text style={styles.texto}>{item.Profesor}</Text>
-                        <Text style={styles.texto}>Semestre: {item.semestre}</Text>
+                        <Text style={styles.headers}>{item.Nombre_Materia}</Text>
+                        <Text style={styles.texto}>{item.Nombre_Maestro}</Text>
                       </View>
 
                       <View style={styles.faltas}>
                         <Text style={styles.headers}>H</Text>
-                        <Text style={styles.texto}>{item.Horas}</Text>
+                        <Text style={styles.texto}>{item.Horas_Clase}</Text>
                       </View>
 
                       <View style={styles.promedio2}>
                         <Text style={styles.headers}>P</Text>
-                        <Text style={styles.texto}>{item.Promedio}</Text>
+                        <Text style={styles.texto}>{item.Calificacion_Final}</Text>
                       </View>
 
                     </View>
@@ -223,64 +227,11 @@ export default class Historial extends React.Component {
             </Collapsible>
           </View>
 
-
-          <View>
-            <TouchableOpacity onPress={this.toggleExpanded4}>
-              <View style={[styles.row, { height: this.state.animation }]}>
-                <View style={[styles.colorBox, { backgroundColor: '#f78d1f' }]}>
-                </View>
-                <View style={styles.info}>
-                  <Text style={styles.headers}>Sujetas a Aprobación</Text>
-                </View>
-
-                <View style={styles.rowIcon}>
-                  <Image style={{ flex: 1, aspectRatio: .25, resizeMode: 'contain' }} source={require('../src/imgs/dropdown-01.png')}></Image>
-                </View>
-              </View>
-
-            </TouchableOpacity>
-
-            <Collapsible collapsed={this.state.collapsed4} align="center">
-              <View style={[styles.row, { height: this.state.animation }]}>
-                <FlatList
-                  data={this.state.sujetas}
-                  showsVerticalScrollIndicator={false}
-                  renderItem={({ item }) =>
-                    <View style={styles.fila}>
-
-                      <View style={styles.materia}>
-                        <Text style={styles.headers2}>{item.Profesor}</Text>
-                        <Text style={styles.texto}>{item.semestre}</Text>
-                      </View>
-
-                      <View style={styles.faltas}>
-                        <Text style={styles.headers2}>H</Text>
-                        <Text style={styles.texto}>{item.Horas}</Text>
-                      </View>
-
-                      <View style={styles.promedio2}>
-                        <Text style={styles.headers2}>P</Text>
-                        <Text style={styles.texto}>{item.Promedio}</Text>
-                      </View>
-
-                    </View>
-                  }
-                  keyExtractor={item => item.materia}
-                  ItemSeparatorComponent={this.ListViewItemSeparator}
-                />
-
-              </View>
-            </Collapsible>
-          </View>
         </ScrollView>
         <View style={styles.promedio}>
-          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 20, textAlign: 'right', marginRight: 5, marginBottom: 10,}}>Promedio general: {this.state.promedio}</Text>
+          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 20, textAlign: 'right', marginRight: 5, marginBottom: 10, }}>Promedio general: {this.state.promedio}</Text>
         </View>
       </View>
-
-
-
-
     );
   }
 }
@@ -296,7 +247,7 @@ const styles = StyleSheet.create({
     alignContent: 'center',
   },
   info: {
-    height: hp('15%'),
+    height: 100,
     width: wp('55%'),
     backgroundColor: '#F5F5F5',
     flexDirection: 'column',
@@ -307,7 +258,7 @@ const styles = StyleSheet.create({
     shadowRadius: 1,
   },
   materia: {
-    height: hp('15%'),
+    height: 100,
     width: wp('55%'),
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
@@ -321,7 +272,7 @@ const styles = StyleSheet.create({
   },
 
   colorBox: {
-    height: hp('15%'),
+    height: 100,
     width: wp('15%'),
     backgroundColor: '#4481c2',
     borderTopLeftRadius: 10,
@@ -333,7 +284,7 @@ const styles = StyleSheet.create({
     shadowRadius: 1,
   },
   rowIcon: {
-    height: hp('15%'),
+    height: 100,
     width: wp('15%'),
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
@@ -376,13 +327,13 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   fila: {
-    height: hp('15%'),
+    height: 100,
     width: wp('15%'),
     marginBottom: 10,
     flexDirection: 'row',
   },
   promedio2: {
-    height: hp('15%'),
+    height: 100,
     width: wp('15%'),
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity, TextInput, AsyncStorage, } from 'react-native';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 export default class Login extends React.Component {
 
@@ -24,28 +24,21 @@ export default class Login extends React.Component {
 
 
   _getAlumno = () => {
+    var matriculatemp = this.state.usuario
+    var matricula_numerica = matriculatemp.slice(matriculatemp.length * -1 + 1)
 
-    return fetch('http://138.68.231.116:5000/alumnos')
+    return fetch('https://api.appery.io/rest/1/apiexpress/api/alumnos/'+matricula_numerica+'/login?apiKey=1cf3dc27-64f0-4551-909d-a0227208414d&password='+this.state.password)
 
-      .then((response) => response.json())
+     .then((response) => response.json())
       .then((responseJson) => {
-        var usuario = this.state.usuario.toLocaleLowerCase()
-        var password = this.state.password
-        var test = responseJson.find(function (obj) { return obj.matricula === usuario && obj.password === password });
-        return test;
-
-      })
-      .then((object) => {
-        if (object === undefined) {
-          alert('Usuario o contraseña incorrecta')
-        } else {
-          AsyncStorage.setItem('usuario', JSON.stringify(object))
+        if (responseJson !== undefined) {
+          AsyncStorage.setItem('usuario', JSON.stringify(responseJson))
           this.props.navigation.navigate('Menu');
-
         }
+        
       })
       .catch((error) => {
-        console.error(error);
+        alert('Usuario o contraseña incorrecta')
       });
   }
 
@@ -59,9 +52,9 @@ export default class Login extends React.Component {
         <TextInput placeholder="Contraseña" secureTextEntry={true}
           style={styles.text} onChangeText={(password) => this.setState({ password })} />
         <View>
-        <TouchableOpacity onPress={(this._getAlumno)}>
-          <Image source={require('../src/imgs/ingresar.png')} style={styles.button} onPress={this._getAlumno} />
-        </TouchableOpacity>
+          <TouchableOpacity onPress={(this._getAlumno)}>
+            <Image source={require('../src/imgs/ingresar.png')} style={styles.button} onPress={this._getAlumno} />
+          </TouchableOpacity>
         </View>
       </View>
     );

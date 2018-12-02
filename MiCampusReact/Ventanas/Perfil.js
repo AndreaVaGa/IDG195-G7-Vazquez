@@ -9,7 +9,7 @@ import {
   screenWidth,
   TouchableOpacity
 } from 'react-native';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 export default class Perfil extends React.Component {
   constructor(props) {
@@ -24,7 +24,17 @@ export default class Perfil extends React.Component {
     };
   }
   _IraTutores = () => {
-    this.props.navigation.navigate('Tutores');
+    return fetch('https://api.appery.io/rest/1/apiexpress/api/alumnos/'+this.state.matricula+'/tutores?apiKey=1cf3dc27-64f0-4551-909d-a0227208414d')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        if (responseJson !== undefined) {
+          AsyncStorage.setItem('tutores', JSON.stringify(responseJson))
+          this.props.navigation.navigate('Tutores');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   _IraConfiguracion = () => {
@@ -36,38 +46,33 @@ export default class Perfil extends React.Component {
   }
 
   _loadInitionState = async () => {
-    var value = await AsyncStorage.getItem('usuario');
+    var value = await AsyncStorage.getItem('perfil');
     if (value !== null) {
       var alumno = JSON.parse(value)
-      var matriculatemp = alumno.matricula
-      var matricula_numerica = matriculatemp.slice(matriculatemp.length * -1 + 1)
-      this.setState({ nombre: alumno.nombre })
-      this.setState({ apellido: alumno.apellido })
-      this.setState({ carrera: alumno.carrera })
-      this.setState({ semestre: alumno.semestre })
-      this.setState({ aprobadas: alumno.aprobadas })
-      this.setState({ matricula: matricula_numerica })
-
+      this.setState({ nombre: alumno.Nombre_1 + alumno.Nombre_2 })
+      this.setState({ matricula: alumno.Matricula })
+      this.setState({ apellido: alumno.Apellido_Paterno + ' ' + alumno.Apellido_Materno })
+      this.setState({ carrera: alumno.Nombre_Programa })
+      this.setState({ aprobadas: alumno.materias_aprobadas })
     }
   }
 
   render() {
     return (
       <View>
-      <ImageBackground source={require("../src/imgs/portada/a.jpg")} style={styles.portada}>
-            <TouchableOpacity  onPress={(this._IraConfiguracion)}>
-              <Image source={require("../src/imgs/configuracion.png")} style={styles.confi} onPress={(this._IraConfiguracion)}></Image>
-            </TouchableOpacity>
+        <ImageBackground source={{ uri: 'http://imagenpng.com/wp-content/uploads/2017/07/portadas-para-youtube-2560x1440-HD-5.png' }} style={styles.portada}>
+          <TouchableOpacity onPress={(this._IraConfiguracion)}>
+            <Image source={require("../src/imgs/configuracion.png")} style={styles.confi} onPress={(this._IraConfiguracion)}></Image>
+          </TouchableOpacity>
           <Image source={{ uri: 'https://micampus.tij.cetys.mx/fotos/' + this.state.matricula + '.jpg' }} style={styles.fpersona} />
         </ImageBackground>
-      <View>
-        <Text style={styles.title}>{this.state.nombre}</Text>
-        <Text style={styles.title2}>{this.state.apellido}</Text>
-        <Text style={styles.texto}>Carrera: {this.state.carrera} </Text>
-        <Text style={styles.texto}>Semestre: {this.state.semestre}</Text>
-        <Text style={styles.texto}>Materias aprobadas: {this.state.aprobadas}</Text>
-        <Text style={styles.info} onPress={this._IraTutores}>Más información ></Text>
-      </View>
+        <View>
+          <Text style={styles.title}>{this.state.nombre}</Text>
+          <Text style={styles.title2}>{this.state.apellido}</Text>
+          <Text style={styles.texto}>Carrera: {this.state.carrera} </Text>
+          <Text style={styles.texto}>Materias aprobadas: {this.state.aprobadas}</Text>
+          <Text style={styles.info} onPress={this._IraTutores}>Más información ></Text>
+        </View>
       </View>
 
 
@@ -115,8 +120,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   confi: {
-    height: hp('3.5%'),
-    width: wp('6%'),
+    height: hp('5%'),
+    width: wp('9%'),
     marginBottom: 25,
     marginLeft: 300,
   }

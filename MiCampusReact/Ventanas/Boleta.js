@@ -28,7 +28,7 @@ class ListViewDemo extends React.Component {
     var value = await AsyncStorage.getItem('boleta');
     if (value !== undefined) {
       var boleta = JSON.parse(value)
-      this.setState({ data: boleta.boleta })
+      this.setState({ data: boleta })
     }
   }
   //funcion que se define como atributo y se puede mandar 
@@ -41,15 +41,16 @@ class ListViewDemo extends React.Component {
     <BoletaRow
       onPressItem={this._onPressItem}
       matricula={item.matricula}
-      materia={item.materia}
-      calif={item.calif}
-      profesor={item.profesor}
-      faltas={item.faltas}
-      calif1={item.calif1}
-      calif2={item.calif2}
-      faltas1={item.faltas1}
-      faltas2={item.faltas2}
-      faltas3={item.faltas3}
+      materia={item.Nombre_Materia}
+      calif={item.Promedio}
+      profesor={item.Nombre_Maestro}
+      faltas={item.FaltasTotales}
+      calif1={item.Calificacion1}
+      calif2={item.Calificacion2}
+      calif3={item.Calificacion3}
+      faltas1={item.Faltas1}
+      faltas2={item.Faltas2}
+      faltas3={item.Faltas3}
     />
   );
 

@@ -15,12 +15,12 @@ class Horario extends React.Component {
     super(props);
     this.state = {
       horario: '',
-      lunes: '',
-      martes: '',
-      miercoles: '',
-      jueves: '',
-      viernes: '',
-      sabado: '',
+      lunes: [],
+      martes: [],
+      miercoles: [],
+      jueves: [],
+      viernes: [],
+      sabado: [],
       visible: false,
       loading: false,
       page: 1,
@@ -38,12 +38,38 @@ class Horario extends React.Component {
     var value = await AsyncStorage.getItem('horario');
     if (value !== null) {
       var horario = JSON.parse(value)
-      this.setState({ lunes: horario.Lunes })
-      this.setState({ martes: horario.Martes })
-      this.setState({ miercoles: horario.Miercoles })
-      this.setState({ jueves: horario.Miercoles })
-      this.setState({ viernes: horario.Viernes })
-      this.setState({ sabado: horario.Sabado })
+      horario.forEach(materia => {
+        if (materia.Dia == 1) {
+
+          this.state.lunes.push(materia)
+        }
+        else if (materia.Dia == 2 ){
+
+          this.state.martes.push(materia)
+        }
+        else if (materia.Dia == 3 ){
+
+          this.state.miercoles.push(materia)
+        }
+        else if (materia.Dia == 4 ){
+
+          this.state.jueves.push(materia)
+        }
+        else if (materia.Dia == 5 ){
+
+          this.state.viernes.push(materia)
+        }
+        else{
+          this.state.sabado.push(materia)
+        }
+
+      });
+      this.setState({lunes:this.state.lunes})
+      this.setState({martes:this.state.martes})
+      this.setState({miercoles:this.state.miercoles})
+      this.setState({jueves:this.state.jueves})
+      this.setState({viernes:this.state.viernes})
+      this.setState({sabado:this.state.sabado})
 
     }
   }
@@ -53,14 +79,18 @@ class Horario extends React.Component {
   };
 
   _renderItem = ({ item }) => (
+    
     <HorarioRow
       onPressItem={this._onPressItem}
       matricula={item.matricula}
-      horario={item.horario}
-      materia={item.materia}
-      salon={item.salon}
-      profesor={item.profesor}
+      horaI={item.Hora_Inicio}
+      horaF={item.Hora_Final}
+      materia={item.Nombre_Materia}
+      salon={item.Lugar}
+      profesor={item.Nombre_Maestro}
+      
     />
+    
   );
 
   render() {
@@ -94,7 +124,7 @@ class Horario extends React.Component {
 
         <View>
           <View style={{ backgroundColor: '#DAA520' }}>
-            <Text style={styles.semana}>Miercoles</Text>
+            <Text style={styles.semana}>Miércoles</Text>
           </View>
           <FlatList
             data={this.state.miercoles}
@@ -133,7 +163,7 @@ class Horario extends React.Component {
 
         <View>
           <View style={{ backgroundColor: '#CD5C5C' }}>
-            <Text style={styles.semana}>Sabado</Text>
+            <Text style={styles.semana}>Sábado</Text>
           </View>
           <FlatList
             data={this.state.sabado}

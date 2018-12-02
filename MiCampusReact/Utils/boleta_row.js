@@ -6,7 +6,7 @@ import {
     StyleSheet,
     justifyContent,
 } from 'react-native';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 class BoletaRow extends React.PureComponent {
     constructor(props) {
@@ -39,24 +39,26 @@ class BoletaRow extends React.PureComponent {
         return (
             <TouchableOpacity onPress={this._onPress}>
                 <View style={styles.fila}>
-                    <View style={[styles.materia, {alignItems: 'center'}]} ref={component => this._height = component}>
+                    <View style={[styles.materia, { alignItems: 'center' }]} ref={component => this._height = component}>
                         <Text style={[styles.headers, { marginTop: 20, fontSize: 15 }]}>{this.props.materia}</Text>
                         <Text style={styles.texto}>{this.props.profesor}</Text>
-                        <Text style={[styles.texto, {position: 'absolute', top: 100}]}>Parcial 1</Text>
-                        <Text style={[styles.texto, {position: 'absolute', top: 130}]}>Parcial 2</Text>
-                        <Text style={[styles.texto, {position: 'absolute', top: 160}]}>Parcial 3</Text>
+                        <Text style={[styles.texto, { position: 'absolute', top: 100 }]}>Parcial 1</Text>
+                        <Text style={[styles.texto, { position: 'absolute', top: 130 }]}>Parcial 2</Text>
+                        <Text style={[styles.texto, { position: 'absolute', top: 160 }]}>Parcial 3</Text>
                     </View>
-                    <View style={[styles.faltas, {alignItems: 'center'}]} ref={component => this._height2 = component}>
+                    <View style={[styles.faltas, { alignItems: 'center' }]} ref={component => this._height2 = component}>
                         <Text style={styles.headers}>F</Text>
                         <Text style={styles.texto}>{this.props.faltas}</Text>
-                        <Text style={[styles.texto, {position: 'absolute', top: 100}]}>{this.props.faltas1}</Text>
-                        <Text style={[styles.texto, {position: 'absolute', top: 130}]}>{this.props.faltas2}</Text>
+                        <Text style={[styles.texto, { position: 'absolute', top: 100 }]}>{this.props.faltas1}</Text>
+                        <Text style={[styles.texto, { position: 'absolute', top: 130 }]}>{this.props.faltas2}</Text>
+                        <Text style={[styles.texto, { position: 'absolute', top: 160 }]}>{this.props.faltas3}</Text>
                     </View>
                     <View style={styles.promedio} ref={component => this._height3 = component}>
                         <Text style={styles.headers}>P</Text>
                         <Text style={styles.texto}>{this.props.calif}</Text>
-                        <Text style={[styles.texto, {position: 'absolute', top: 100}]}>{this.props.calif1}</Text>
-                        <Text style={[styles.texto, {position: 'absolute', top: 100}]}>{this.props.calif2}</Text>
+                        <Text style={[styles.texto, { position: 'absolute', top: 100 }]}>{this.props.calif1}</Text>
+                        <Text style={[styles.texto, { position: 'absolute', top: 130 }]}>{this.props.calif2}</Text>
+                        <Text style={[styles.texto, { position: 'absolute', top: 160 }]}>{this.props.calif3}</Text>
                     </View>
                 </View>
             </TouchableOpacity>

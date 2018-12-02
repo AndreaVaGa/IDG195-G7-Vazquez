@@ -18,79 +18,96 @@ export default class Menu extends React.Component {
     var value = await AsyncStorage.getItem('usuario');
     if (value !== null) {
       var alumno = JSON.parse(value)
-      this.setState({ matricula: alumno.matricula })
+      this.setState({ matricula: alumno.Matricula })
     }
   }
   _IraPerfil = () => {
-    this.props.navigation.navigate('Perfil');
+    
+    return fetch('https://api.appery.io/rest/1/apiexpress/api/alumnos/'+this.state.matricula+'/perfil?apiKey=1cf3dc27-64f0-4551-909d-a0227208414d')
+    .then((response) => response.json())
+      .then((responseJson) => {
+        if (responseJson !== undefined) {
+          AsyncStorage.setItem('perfil', JSON.stringify(responseJson))
+          this.props.navigation.navigate('Perfil');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      }); 
+      
   }
   _IraHorario = () => {
     this.props.navigation.navigate('Horario');
   }
   _getHistorial = () => {
 
-    return fetch('http://138.68.231.116:5000/historial2')
+    fetch('https://api.appery.io/rest/1/apiexpress/api/alumnos/'+this.state.matricula+'/cursando?apiKey=1cf3dc27-64f0-4551-909d-a0227208414d')
 
-      .then((response) => response.json())
-      .then((responseJson) => {
-        var matricula = this.state.matricula;
-        var test = responseJson.find(function (obj) { return obj.matricula === matricula });
-        return test;
+    .then((response) => response.json())
+    .then((responseJson) => {
+      if (responseJson !== undefined) {
+        AsyncStorage.setItem('cursando', JSON.stringify(responseJson))
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    }); 
+    fetch('https://api.appery.io/rest/1/apiexpress/api/alumnos/'+this.state.matricula+'/aprobadas?apiKey=1cf3dc27-64f0-4551-909d-a0227208414d')
 
-      })
-      .then((object) => {
-        if (object !== undefined) {
-          AsyncStorage.setItem('historial', JSON.stringify(object))
-          this.props.navigation.navigate('Historial');
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    .then((response) => response.json())
+    .then((responseJson) => {
+      if (responseJson !== undefined) {
+        AsyncStorage.setItem('aprobadas', JSON.stringify(responseJson))
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    }); 
+    fetch('https://api.appery.io/rest/1/apiexpress/api/alumnos/'+this.state.matricula+'/cursar?apiKey=1cf3dc27-64f0-4551-909d-a0227208414d')
+
+    .then((response) => response.json())
+    .then((responseJson) => {
+      if (responseJson !== undefined) {
+        AsyncStorage.setItem('porcursar', JSON.stringify(responseJson))
+      }
+      this.props.navigation.navigate('Historial');
+    })
+    .catch((error) => {
+      console.error(error);
+    }); 
+    
   }
 
 
   _getBoleta = () => {
 
-    return fetch('http://138.68.231.116:5000/boleta')
-
-      .then((response) => response.json())
+    return fetch('https://api.appery.io/rest/1/apiexpress/api/alumnos/'+this.state.matricula+'/boleta?apiKey=1cf3dc27-64f0-4551-909d-a0227208414d')
+    .then((response) => response.json())
       .then((responseJson) => {
-        var matricula = this.state.matricula;
-        var test = responseJson.find(function (obj) { return obj.matricula === matricula });
-        return test;
-      })
-      .then((object) => {
-        if (object !== undefined) {
-          AsyncStorage.setItem('boleta', JSON.stringify(object))
+        if (responseJson !== undefined) {
+          AsyncStorage.setItem('boleta', JSON.stringify(responseJson))
           this.props.navigation.navigate('Boleta');
         }
       })
       .catch((error) => {
         console.error(error);
-      });
+      }); 
   }
 
   _getHorario = () => {
 
-    return fetch('http://138.68.231.116:5000/horario2')
+    return fetch('https://api.appery.io/rest/1/apiexpress/api/alumnos/'+this.state.matricula+'/horario?apiKey=1cf3dc27-64f0-4551-909d-a0227208414d')
 
-      .then((response) => response.json())
-      .then((responseJson) => {
-        var matricula = this.state.matricula;
-        var test = responseJson.find(function (obj) { return obj.matricula === matricula });
-        return test;
-      })
-      .then((object) => {
-        if (object !== undefined) {
-          AsyncStorage.setItem('horario', JSON.stringify(object))
-          this.props.navigation.navigate('Horario');
-
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    .then((response) => response.json())
+    .then((responseJson) => {
+      if (responseJson !== undefined) {
+        AsyncStorage.setItem('horario', JSON.stringify(responseJson))
+        this.props.navigation.navigate('Horario');
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    }); 
   }
 
 
