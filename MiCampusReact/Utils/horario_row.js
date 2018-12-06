@@ -4,10 +4,9 @@ import {
   View,
   TouchableOpacity,
   StyleSheet,
+  AsyncStorage
 } from 'react-native';
 import { StatusColorPicker } from 'react-native-status-color-picker';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-
 class HorarioRow extends React.PureComponent {
   constructor(props) {
     super(props)
@@ -21,6 +20,7 @@ class HorarioRow extends React.PureComponent {
   ok = data => {
     this.setState({ selectedColor: data.selectedColor });
     this.close();
+    AsyncStorage.setItem(this.props.materia, data.selectedColor);
   };
 
   close = () => {
@@ -32,10 +32,21 @@ class HorarioRow extends React.PureComponent {
 
   };
 
+  componentDidMount() {
+    this._loadInitionState().done();
+  }
+
+  _loadInitionState = async () => {
+    var colores = await AsyncStorage.getItem(this.props.materia);
+    this.setState({ selectedColor: colores });
+    if (colores == null) {
+      this.setState({ selectedColor: '#ffffff' });
+    }
+  };
+
 
   render() {
     return (
-      
       <View>
         <TouchableOpacity onPress={this._onPress}>
           <View style={styles.fila}>
@@ -71,8 +82,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   materia: {
-    height: hp('15%'),
-    width: wp('58%'),
+    width: 240,
+    height: 100,
     justifyContent: 'center',
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
@@ -85,8 +96,8 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   salon: {
-    height: hp('15%'),
-    width: wp('30%'),
+    width: 80,
+    height: 100,
     justifyContent: 'center',
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,

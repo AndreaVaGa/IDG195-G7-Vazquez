@@ -97,7 +97,7 @@ class Horario extends React.Component {
     return (
       <Carousel >
         <View>
-          <View style={{ backgroundColor: '#32CD32' }}>
+          <View style={{ backgroundColor: '#1E90FF' }}>
             <Text style={styles.semana}>Lunes</Text>
           </View>
           <FlatList
