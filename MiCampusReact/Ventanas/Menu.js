@@ -70,6 +70,17 @@ export default class Menu extends React.Component {
       if (responseJson !== undefined) {
         AsyncStorage.setItem('porcursar', JSON.stringify(responseJson))
       }
+    })
+    .catch((error) => {
+      console.error(error);
+    }); 
+    fetch('https://api.appery.io/rest/1/apiexpress/api/alumnos/'+this.state.matricula+'/promedio?apiKey=1cf3dc27-64f0-4551-909d-a0227208414d')
+
+    .then((response) => response.json())
+    .then((responseJson) => {
+      if (responseJson !== undefined) {
+        AsyncStorage.setItem('PromedioGeneral', JSON.stringify(responseJson))
+      }
       this.props.navigation.navigate('Historial');
     })
     .catch((error) => {
