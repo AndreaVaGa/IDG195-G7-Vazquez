@@ -48,7 +48,7 @@ export default class Perfil extends React.Component {
   _loadInitionState = async () => {
     var value = await AsyncStorage.getItem('perfil');
     if (value !== null) {
-      //var alumno = JSON.parse(value)
+      var alumno = JSON.parse(value)
       this.setState({ nombre: alumno.Nombre_1 + alumno.Nombre_2 })
       this.setState({ matricula: alumno.Matricula })
       this.setState({ apellido: alumno.Apellido_Paterno + ' ' + alumno.Apellido_Materno })

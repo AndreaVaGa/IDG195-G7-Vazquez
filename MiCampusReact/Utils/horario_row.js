@@ -12,7 +12,7 @@ class HorarioRow extends React.PureComponent {
     super(props)
     this.state = {
       visible: false,
-      colors: ['#ffffff', "#F44336", "#E91E63", "#9C27B0", "#673AB7", "#3F51B5", "#2196F3", "#03A9F4", "#00BCD4", "#009688", "#4CAF50", "#8BC34A", "#CDDC39", "#FFEB3B", "#FFC107", "#FF9800", "#FF5722"],
+      colors: ['#ffffff', "#BC95DD", "#95D5DD", "#F9BBF4", "#F9F4BB", "#BBD1F9", "#F9D3BB", "#03A9F4", "#00BCD4", "#009688", "#4CAF50", "#8BC34A", "#CDDC39", "#FFEB3B", "#FFC107", "#FF9800"],
       selectedColor: '#ffffff',
     };
   }
