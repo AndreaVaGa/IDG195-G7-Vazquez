@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, AsyncStorage, FlatList, ScrollView } from 'react-native';
 import Collapsible from 'react-native-collapsible';
-import { StatusColorPicker } from 'react-native-status-color-picker';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 export default class Historial extends React.Component {

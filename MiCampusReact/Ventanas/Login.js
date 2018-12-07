@@ -27,15 +27,15 @@ export default class Login extends React.Component {
     var matriculatemp = this.state.usuario
     var matricula_numerica = matriculatemp.slice(matriculatemp.length * -1 + 1)
 
-    return fetch('https://api.appery.io/rest/1/apiexpress/api/alumnos/'+matricula_numerica+'/login?apiKey=1cf3dc27-64f0-4551-909d-a0227208414d&password='+this.state.password)
+    return fetch('https://api.appery.io/rest/1/apiexpress/api/alumnos/' + matricula_numerica + '/login?apiKey=1cf3dc27-64f0-4551-909d-a0227208414d&password=' + this.state.password)
 
-     .then((response) => response.json())
+      .then((response) => response.json())
       .then((responseJson) => {
         if (responseJson !== undefined) {
           AsyncStorage.setItem('usuario', JSON.stringify(responseJson))
           this.props.navigation.navigate('Menu');
         }
-        
+
       })
       .catch((error) => {
         alert('Usuario o contraseña incorrecta')

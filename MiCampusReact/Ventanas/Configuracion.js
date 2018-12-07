@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View, Text, Image, AsyncStorage } from 'react-native';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 
 export default class Configuracion extends React.Component {
@@ -22,40 +22,40 @@ export default class Configuracion extends React.Component {
       <View style={styles.container}>
 
         <View style={styles.textBox}>
-        <Text style={styles.titles}>NOTIFICACIONES</Text>
+          <Text style={styles.titles}>NOTIFICACIONES</Text>
         </View>
 
-    <View style={styles.textBox}>
-      <View style={styles.fila}>
-        <View style={styles.columna}>
-          <Text style={styles.titles}>FONDO</Text>
-        </View>
-        <View style={styles.columna2}>
-        <TouchableOpacity onPress={(this._IraFondo)}>
-          <Image source={require('../src/imgs/flecha.png')} style={styles.flechafondo} onPress={this._IraFondo} />
-          </TouchableOpacity>
+        <View style={styles.textBox}>
+          <View style={styles.fila}>
+            <View style={styles.columna}>
+              <Text style={styles.titles}>FONDO</Text>
+            </View>
+            <View style={styles.columna2}>
+              <TouchableOpacity onPress={(this._IraFondo)}>
+                <Image source={require('../src/imgs/flecha.png')} style={styles.flechafondo} onPress={this._IraFondo} />
+              </TouchableOpacity>
+            </View>
+
+          </View>
         </View>
 
-        </View>
-      </View>
+        <View style={styles.textBox}>
 
-      <View style={styles.textBox}>
+          <View style={styles.fila}>
+            <View style={styles.columna}>
+              <Text style={styles.titles}>TERMINOS/PRIVACIDAD</Text>
+            </View>
+            <View style={styles.columna2}>
+              <TouchableOpacity onPress={(this._IraTerminos)}>
+                <Image source={require('../src/imgs/flecha.png')} style={styles.flecha} onPress={this._IraTerminos} />
+              </TouchableOpacity>
+            </View>
+          </View>
 
-      <View style={styles.fila}>
-        <View style={styles.columna}>
-          <Text style={styles.titles}>TERMINOS/PRIVACIDAD</Text>
         </View>
-        <View style={styles.columna2}>
-        <TouchableOpacity onPress={(this._IraTerminos)}>
-          <Image source={require('../src/imgs/flecha.png')} style={styles.flecha} onPress={this._IraTerminos} />
-          </TouchableOpacity>
-        </View>
-      </View>
-
-    </View>
-    <TouchableOpacity onPress={(this._LogOut)}>
-        <Image source={require('../src/imgs/cerrar.png')} style={styles.sesion} onPress={(this._LogOut)}/>
-     </TouchableOpacity>
+        <TouchableOpacity onPress={(this._LogOut)}>
+          <Image source={require('../src/imgs/cerrar.png')} style={styles.sesion} onPress={(this._LogOut)} />
+        </TouchableOpacity>
       </View>
     );
   }
@@ -67,19 +67,19 @@ const styles = StyleSheet.create({
     margin: 20,
   },
 
-  textBox:{
+  textBox: {
     backgroundColor: '#F5F5F5',
     justifyContent: 'center',
     borderRadius: 20,
     marginTop: 20,
   },
 
-  columna2:{
+  columna2: {
     justifyContent: 'center',
     flexDirection: 'row',
-   },
+  },
 
-  flecha:{
+  flecha: {
     height: hp('3%'),
     width: wp('2.5%'),
     marginLeft: 100,
@@ -87,27 +87,27 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 
-  flechafondo:{
+  flechafondo: {
     height: hp('3%'),
     width: wp('2.5%'),
     marginLeft: 228,
     marginBottom: 10,
     marginTop: 10,
   },
-  
-  titles:{
+
+  titles: {
     fontSize: 15,
     marginLeft: 20,
     marginBottom: 10,
     marginTop: 10,
   },
-  
-  fila:{
+
+  fila: {
     flexDirection: 'row'
   },
 
-  columna:{
-   justifyContent: 'center',
+  columna: {
+    justifyContent: 'center',
   },
 
   sesion: {

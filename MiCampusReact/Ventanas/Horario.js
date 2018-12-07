@@ -43,33 +43,33 @@ class Horario extends React.Component {
 
           this.state.lunes.push(materia)
         }
-        else if (materia.Dia == 2 ){
+        else if (materia.Dia == 2) {
 
           this.state.martes.push(materia)
         }
-        else if (materia.Dia == 3 ){
+        else if (materia.Dia == 3) {
 
           this.state.miercoles.push(materia)
         }
-        else if (materia.Dia == 4 ){
+        else if (materia.Dia == 4) {
 
           this.state.jueves.push(materia)
         }
-        else if (materia.Dia == 5 ){
+        else if (materia.Dia == 5) {
 
           this.state.viernes.push(materia)
         }
-        else{
+        else {
           this.state.sabado.push(materia)
         }
 
       });
-      this.setState({lunes:this.state.lunes})
-      this.setState({martes:this.state.martes})
-      this.setState({miercoles:this.state.miercoles})
-      this.setState({jueves:this.state.jueves})
-      this.setState({viernes:this.state.viernes})
-      this.setState({sabado:this.state.sabado})
+      this.setState({ lunes: this.state.lunes })
+      this.setState({ martes: this.state.martes })
+      this.setState({ miercoles: this.state.miercoles })
+      this.setState({ jueves: this.state.jueves })
+      this.setState({ viernes: this.state.viernes })
+      this.setState({ sabado: this.state.sabado })
 
     }
   }
@@ -79,7 +79,7 @@ class Horario extends React.Component {
   };
 
   _renderItem = ({ item }) => (
-    
+
     <HorarioRow
       onPressItem={this._onPressItem}
       matricula={item.matricula}
@@ -88,9 +88,9 @@ class Horario extends React.Component {
       materia={item.Nombre_Materia}
       salon={item.Lugar}
       profesor={item.Nombre_Maestro}
-      
+
     />
-    
+
   );
 
   render() {

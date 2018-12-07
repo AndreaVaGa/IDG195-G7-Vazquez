@@ -23,8 +23,9 @@ export default class Perfil extends React.Component {
       matricula: ''
     };
   }
+
   _IraTutores = () => {
-    return fetch('https://api.appery.io/rest/1/apiexpress/api/alumnos/'+this.state.matricula+'/tutores?apiKey=1cf3dc27-64f0-4551-909d-a0227208414d')
+    return fetch('https://api.appery.io/rest/1/apiexpress/api/alumnos/' + this.state.matricula + '/tutores?apiKey=1cf3dc27-64f0-4551-909d-a0227208414d')
       .then((response) => response.json())
       .then((responseJson) => {
         if (responseJson !== undefined) {
@@ -60,7 +61,7 @@ export default class Perfil extends React.Component {
   render() {
     return (
       <View>
-        <ImageBackground source={{ uri: 'http://imagenpng.com/wp-content/uploads/2017/07/portadas-para-youtube-2560x1440-HD-5.png' }} style={styles.portada}>
+        <ImageBackground source={global.url} style={styles.portada}>
           <TouchableOpacity onPress={(this._IraConfiguracion)}>
             <Image source={require("../src/imgs/configuracion.png")} style={styles.confi} onPress={(this._IraConfiguracion)}></Image>
           </TouchableOpacity>
